@@ -9,6 +9,13 @@ import java.util.List;
 @Entity
 public class User extends Model {
   
+  @Email
+  @Required
+  public String email;
+  
+  @Required
+  public String password;
+  
   @ManyToMany
   List<User> friends;
   
@@ -20,9 +27,6 @@ public class User extends Model {
   
   @Required
   String lastname;
-  
-  @Email
-  String email;
   
   @OneToMany
   List<UniversityYear> universities;
