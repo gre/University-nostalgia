@@ -12,11 +12,8 @@ public class User extends Model {
   @ManyToMany
   List<User> friends;
   
-  @OneToMany(cascade = CascadeType.ALL, mappedBy = "sender")
-  List<MessageReceived> inbox;
-  
-  @OneToMany(cascade = CascadeType.ALL, mappedBy = "receiver")
-  List<MessageSent> sendbox;
+  @OneToMany
+  List<Message> messages;
   
   @Required
   String firstname;

@@ -1,9 +1,42 @@
 # Routes
-# This file defines all application routes (Higher priority routes first)
-# ~~~~ #
+
+### How to use REST and CRUD : http://en.wikipedia.org/wiki/REST#RESTful_web_services
+# GET    /resources/?                             .list
+# GET    /resources/{id}                          .retrieve
+# POST   /resources                               .create
+# PUT    /resources/{id}                          .update
+# DELETE /resources/{id}                          .delete
 
 # Home page
-GET     /                                       Application.index
+*       /                                        module:secure
+
+GET     /                                        Application.index
+
+GET     /register                                Application.index
+
+GET     /profile                                 Application.index
+POST    /profile                                 Application.index
+
+GET     /messages/{box}/?                        Application.index
+GET     /messages/{box}/{messageId}              Application.index
+POST    /messages/?                              Application.index
+DELETE  /messages/{box}/{messageId}              Application.index
+
+GET     /users/?                                 Application.index
+GET     /users/{userId}                          Application.index
+
+GET     /friends/?                               Application.index
+POST    /friends/{userId}                        Application.index                 # request or confirm a friend
+DELETE  /friends/{userId}                        Application.index
+
+GET     /corporations/?                          Application.index
+GET     /corporations/{corporationId}            Application.index
+POST    /corporations                            Application.index
+DELETE  /corporations/{corporationId}            Application.index     # delete the corporation occurence from user model
+
+GET     /universities/?                          Application.index
+GET     /universities/{universityId}             Application.index
+
 
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public
