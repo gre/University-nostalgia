@@ -6,6 +6,8 @@ import play.data.validation.*;
 
 @Entity
 public class FriendRequest extends Model {
+  @OneToOne
   User caller;
+  @OneToOne
   User concerned;
 }

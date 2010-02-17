@@ -27,13 +27,8 @@ public class User extends Model {
   @Email
   String email;
   
-  @OneToOne
-  Diploma diploma;
-  
-  Long graduationYear;
-  
   @OneToMany
-  List<University> universities;
+  List<UniversityYear> universities;
   
   @OneToMany
   List<Corporation> corporations;
