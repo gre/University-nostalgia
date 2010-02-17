@@ -9,8 +9,8 @@ import java.util.List;
 @Entity
 public class User extends Model {
   
-  @OneToMany
-  List<Friend> friends;
+  @ManyToMany
+  List<User> friends;
   
   @OneToMany(cascade = CascadeType.ALL, mappedBy = "sender")
   List<MessageReceived> inbox;
@@ -26,4 +26,18 @@ public class User extends Model {
   
   @Email
   String email;
+  
+  @OneToOne
+  Diploma diploma;
+  
+  Long graduationYear;
+  
+  @OneToMany
+  List<University> universities;
+  
+  @OneToMany
+  List<Corporation> corporations;
+  
+  String address;
+  String phone;
 }

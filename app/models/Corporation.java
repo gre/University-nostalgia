@@ -4,7 +4,6 @@ import javax.persistence.*;
 import play.db.jpa.*;
 
 @Entity
-public class Student extends Model {
-  String firstname;
-  String lastname;
+public class Corporation extends Model {  
+  String name;
 }
