@@ -9,8 +9,10 @@ public class Bootstraper extends Job {
     
     public void doJob() {
       Fixtures.deleteAll();
+      /*
       Fixtures.load("jobs/bootstraps/diploma.yml");
       Fixtures.load("jobs/bootstraps/user.yml");
+      */
     }
     
 }
