@@ -8,12 +8,12 @@
 # DELETE /resources/{id}                          .delete
 
 # Registration/Authentication
-GET		/signup                                   Application.signup
-POST	/signup                                   Application.register
-GET		/login                                    Application.login
-POST	/login                                    Application.authenticate
-GET		/logout                                   Application.logout
-GET		/signup/{uuid}                            Application.confirmRegistration
+GET    /signup                                   Application.signup
+POST  /signup                                    Application.register
+GET    /login                                    Application.login
+POST  /login                                     Application.authenticate
+GET    /logout                                   Application.logout
+GET    /signup/{uuid}                            Application.confirmRegistration
 
 # Home page
 
@@ -32,14 +32,15 @@ GET     /users/{userId}                          Main.index
 
 GET     /friends/?                               Main.index
 POST    /friends/{userId}                        Main.index
-																								 # request or confirm a friend
+#                                               ^ request or confirm a friend
+                                                 
 DELETE  /friends/{userId}                        Main.index
 
 GET     /corporations/?                          Main.index
 GET     /corporations/{corporationId}            Main.index
 POST    /corporations                            Main.index
 DELETE  /corporations/{corporationId}            Main.index
-																								 # delete the corporation occurence from user model
+#                                               ^ delete the corporation occurence from user model
 
 GET     /universities/?                          Main.index
 GET     /universities/{universityId}             Main.index

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>#{get 'title' /}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    #{stylesheet src='main.sass', media:'screen'/}
+    #{get 'moreStyles' /}
+    <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
+    #{script 'jquery-1.4.2.min.js' /}
+    #{get 'moreScripts' /}
+  </head>
+  <body>
+    <div id="wrapper">
+      #{doLayout /}
+    </div>
+  </body>
+</html>

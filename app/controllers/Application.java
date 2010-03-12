@@ -46,8 +46,7 @@ public class Application extends Controller {
             flash.error("Please correct these errors !");
             signup();
         }
-        User user = new User(email, password, firstname, lastname);
-        flash.error("Oops ... (the email cannot be sent)");
+        new User(email, password, firstname, lastname).save();
         login();
     }
 
@@ -57,7 +56,6 @@ public class Application extends Controller {
 
     public static void authenticate(String email, String password) {
         User user = User.findByEmail(email);
-        Logger.info(user.checkPassword(password) ? "true" : "false");
         if (user == null || !user.checkPassword(password)) {
             flash.error("Bad email or bad password");
             flash.put("email", email);

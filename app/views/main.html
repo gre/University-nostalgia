@@ -1,16 +1,44 @@
-<!DOCTYPE html>
+#{extends 'base.html' /}
 
-<html>
-    <head>
-        <title>#{get 'title' /}</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/main.css'}">
-        #{get 'moreStyles' /}
-        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
-        <script src="@{'/public/javascripts/jquery-1.4.min.js'}" type="text/javascript" charset="utf-8"></script>
-        #{get 'moreScripts' /}
-    </head>
-    <body>
-        #{doLayout /}
-    </body>
-</html>
+%{
+  if(nav=='welcome') nav_welcome='selected';
+  else if(nav=='profil') nav_profil='selected';
+  else if(nav=='friends') nav_friends='selected';
+  else if(nav=='logout') nav_logout='selected';
+}%
+
+<nav>
+  <ul>
+    <li><a class="${nav_welcome}" href="/">Accueil</a></li>
+    <li><a class="${nav_profil}" href="/">Profil</a></li>
+    <li><a class="${nav_friends}" href="/">Trouver des amis</a></li>
+    <li><a class="${nav_logout}" href="/">Déconnexion</a></li>
+  </ul>
+</nav>
+
+<header>
+  <h1>University nostalgia</h1>
+</header>
+
+<div id="main">
+  <aside>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent gravida nisi ac arcu feugiat elementum. Nullam eu ultricies risus.</p>
+    <p>Vivamus tempus sapien vitae felis mattis ut viverra sem ornare. Maecenas libero risus, laoreet vitae interdum vitae, ullamcorper quis velit. </p>
+    <p>Proin et dolor vitae elit pellentesque commodo. Nullam pretium, nulla sit amet faucibus auctor, elit enim aliquam quam, id ullamcorper urna quam et nisl. Mauris varius nunc vel orci pretium et hendrerit sapien mattis. Maecenas eget odio eget ligula tempus fringilla. Morbi aliquam nunc vitae eros ornare pharetra.</p>
+    <p>Vestibulum id dui mi, nec consequat eros. Sed tincidunt orci magna. Vivamus congue libero non mauris hendrerit et interdum leo semper. Etiam posuere, augue semper eleifend sagittis, neque nulla facilisis erat, sed viverra mauris lacus id justo. Nulla eu nibh ac neque dictum congue. Cras eleifend aliquet lacus non mattis. In a orci arcu.</p>
+  </aside>
+
+  <section>
+    #{doLayout /}
+  </section>
+</div>
+
+<footer>
+  <ul>
+    <li>© 2010 Renaudeau and Namolovan</li>
+    <li><a href="/">About</a></li>
+    <li><a href="/">Contact</a></li>
+  </ul>
+</footer>
+
+

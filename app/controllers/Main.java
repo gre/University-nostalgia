@@ -2,7 +2,7 @@ package controllers;
 
 public class Main extends Application {
 	
-	@Secure
+	//@Secure
 	public static void index() {
 		render();
 	}

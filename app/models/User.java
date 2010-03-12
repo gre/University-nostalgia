@@ -54,7 +54,7 @@ public class User extends Model {
 	}
 
   public boolean checkPassword(String pwd) {
-		return (pwd == password);
+		return password.equals(pwd);
   }
   
   public boolean isAdmin() {
