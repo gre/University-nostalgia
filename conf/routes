@@ -7,35 +7,42 @@
 # PUT    /resources/{id}                          .update
 # DELETE /resources/{id}                          .delete
 
+# Registration/Authentication
+GET		/signup                                   Application.signup
+POST	/signup                                   Application.register
+GET		/login                                    Application.login
+POST	/login                                    Application.authenticate
+GET		/logout                                   Application.logout
+GET		/signup/{uuid}                            Application.confirmRegistration
+
 # Home page
-*       /                                        module:secure
 
-GET     /                                        Application.index
+GET     /                                        Main.index
 
-GET     /register                                Application.index
+GET     /profile                                 Main.index
+POST    /profile                                 Main.index
 
-GET     /profile                                 Application.index
-POST    /profile                                 Application.index
+GET     /messages/{box}/?                        Main.index
+GET     /messages/{box}/{messageId}              Main.index
+POST    /messages/?                              Main.index
+DELETE  /messages/{box}/{messageId}              Main.index
 
-GET     /messages/{box}/?                        Application.index
-GET     /messages/{box}/{messageId}              Application.index
-POST    /messages/?                              Application.index
-DELETE  /messages/{box}/{messageId}              Application.index
+GET     /users/?                                 Main.index
+GET     /users/{userId}                          Main.index
 
-GET     /users/?                                 Application.index
-GET     /users/{userId}                          Application.index
+GET     /friends/?                               Main.index
+POST    /friends/{userId}                        Main.index
+																								 # request or confirm a friend
+DELETE  /friends/{userId}                        Main.index
 
-GET     /friends/?                               Application.index
-POST    /friends/{userId}                        Application.index                 # request or confirm a friend
-DELETE  /friends/{userId}                        Application.index
+GET     /corporations/?                          Main.index
+GET     /corporations/{corporationId}            Main.index
+POST    /corporations                            Main.index
+DELETE  /corporations/{corporationId}            Main.index
+																								 # delete the corporation occurence from user model
 
-GET     /corporations/?                          Application.index
-GET     /corporations/{corporationId}            Application.index
-POST    /corporations                            Application.index
-DELETE  /corporations/{corporationId}            Application.index     # delete the corporation occurence from user model
-
-GET     /universities/?                          Application.index
-GET     /universities/{universityId}             Application.index
+GET     /universities/?                          Main.index
+GET     /universities/{universityId}             Main.index
 
 
 # Map static resources from the /app/public folder to the /public path

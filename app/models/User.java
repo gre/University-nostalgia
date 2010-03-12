@@ -16,24 +16,59 @@ public class User extends Model {
   @Required
   public String password;
   
+  public boolean isActivate;
+  public boolean isAdmin;
+  
   @ManyToMany
-  List<User> friends;
+  public List<User> friends;
   
   @OneToMany
-  List<Message> messages;
+  public List<Message> messages;
   
   @Required
-  String firstname;
+  public String firstname;
   
   @Required
-  String lastname;
+  public String lastname;
   
   @OneToMany
-  List<UniversityYear> universities;
+  public List<UniversityYear> universities;
   
   @OneToMany
-  List<Corporation> corporations;
+  public List<Corporation> corporations;
   
-  String address;
-  String phone;
+  public String address;
+  public String phone;
+  
+	public String getAddress(){
+		return address;
+	}
+	
+  public User(String email, String password, String firstname, String lastname) {
+		isActivate = false;
+		isAdmin = false;
+		this.email = email;
+		this.password = password;
+		this.firstname = firstname;
+		this.lastname = lastname;
+	}
+
+  public boolean checkPassword(String pwd) {
+		return (pwd == password);
+  }
+  
+  public boolean isAdmin() {
+	  return isAdmin;
+  }
+  
+  public boolean isActivate() {
+	  return isActivate;
+  }
+  public void activate() {
+	  isActivate = true;
+  }
+  
+  public static User findByEmail(String email) {
+	  return find("email = ?", email).first();
+  }
 }

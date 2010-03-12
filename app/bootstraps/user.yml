@@ -1,0 +1,14 @@
+User(user):
+    email: user@iut-fbleau.fr
+    password: user
+    firstname: USER
+    lastname: user
+    isActivate: true
+  
+User(master):
+    email: master@iut-fbleau.fr
+    password: master
+    firstname: MASTER
+    lastname: master
+    isActivate: true
+    isAdmin: true

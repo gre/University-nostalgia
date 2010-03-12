@@ -1,0 +1,36 @@
+#{extends 'main.html' /}
+
+<h1 id="title">Signup</h1>
+
+<form id="signup" action="@{Application.register}" method="POST" accept-charset="utf-8">
+	<p>
+		<label>Email</label>
+		<input type="text" name="email" value="${flash.email}" id="email" />
+		<span class="error">#{error 'email' /}</span>
+	</p>
+	<p>
+		<label>First name</label>
+		<input type="text" name="firstname" value="${flash.firstname}" />
+		<span class="error">#{error 'firstname' /}
+	</p>
+	<p>
+		<label>Last name</label>
+		<input type="text" name="lastname" value="${flash.lastname}" />
+		<span class="error">#{error 'lastname' /}
+	</p>
+	<p>
+		<label>Password</label>
+		<p class="light">
+			Enter your desired password twice. It must be at least 5 characters.
+		</p>
+		<div>
+			<input type="password" name="password" value="${flash.password}" id="password" /> <span class="error">#{error 'password' /}</span>
+		</div>
+		<div>
+			<input type="password" name="password2" value="${flash.password2}" id="password2" /> <span class="error">#{error 'password2' /}</span>
+		</div>
+	</p>
+	<p class="buttons">
+		<input type="submit" value="Signup" id="signupButton" />
+	</p>	
+</form>

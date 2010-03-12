@@ -1,4 +1,4 @@
-package jobs.bootstraps;
+package bootstraps;
 
 import play.jobs.*;
 import models.*;
@@ -9,10 +9,8 @@ public class Bootstraper extends Job {
     
     public void doJob() {
       Fixtures.deleteAll();
-      /*
-      Fixtures.load("jobs/bootstraps/diploma.yml");
-      Fixtures.load("jobs/bootstraps/user.yml");
-      */
+      /*Fixtures.load("jobs/bootstraps/diploma.yml");*/
+      Fixtures.load("bootstraps/user.yml");
     }
     
 }
