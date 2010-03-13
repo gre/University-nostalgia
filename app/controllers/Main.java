@@ -4,7 +4,7 @@ public class Main extends Application {
 	
 	@Secure
 	public static void index() {
-		render();
+        render();
 	}
 	
 	// TEMP (move to a new a class)

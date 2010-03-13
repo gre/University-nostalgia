@@ -22,7 +22,7 @@
 
 body
   :margin 20px 0
-  
+
 #wrapper
   :margin 0 auto
   :position relative
@@ -49,11 +49,21 @@ body
       :padding 10px 20px
       :font-size 2em
       :font-weight bold
+      :display inline-block
       a
         :color white
         :text-decoration none
         &:hover
           :color white
+    .user
+      :float right
+      :padding 5px 10px
+    .logout
+      :clear both
+      :float right
+      :padding 5px 10px
+        :top 0
+      :text-decoration none
   
   >footer
     :display block
@@ -123,6 +133,11 @@ a
   &:hover
     color = !link_color+#333
 
+strong
+  :font-weight bold
+em
+  :font-style italic
+
 form
   .buttons
     button
@@ -170,6 +185,10 @@ form
   >header
     +vertical-gradient(!back_header_from, !back_header_to, url(/public/image/header.png))
     :color white
+    .logout
+      color = !back_header_to+#444
+      &:hover
+        color = !back_header_to+#777
   >footer
     +vertical-gradient(!back_footer_from, !back_footer_to)
 
@@ -198,7 +217,7 @@ form
     :display inline-block
     li
       :float left
-      :padding 2px
+      :padding 2px 6px
   a
     :text-decoration none
     :padding 2px 6px
@@ -227,7 +246,6 @@ form
   :left 0px
   :bottom auto
   :right auto
-
 
 
 /* footer */

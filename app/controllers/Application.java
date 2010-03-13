@@ -32,10 +32,14 @@ public class Application extends Controller {
     // ~~~~~~~~~~~~ Actions
     
     public static void index() {
+        if(connectedUser() != null)
+            Main.index();
         render();
     }
     
     public static void signup() {
+        if(connectedUser() != null)
+            Main.index();
         render();
     }
 
@@ -55,6 +59,8 @@ public class Application extends Controller {
     }
 
     public static void login() {
+        if(connectedUser() != null)
+            Main.index();
         render();
     }
 

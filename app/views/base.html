@@ -21,7 +21,13 @@
       </nav>
 
       <header>
-        <h1><a href="/">University nostalgia</a></h1>
+        <h1>
+          <a href="/">University nostalgia</a>
+        </h1>
+        #{if connected}
+        <span class="user">${connected.firstname} ${connected.lastname}</span>
+        <a class="logout" href="@{Application.logout}">Déconnexion</a>
+        #{/if}
       </header>
 
       <div id="main">
