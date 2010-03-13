@@ -1,23 +1,29 @@
-#{extends 'base.html' /}
+#{extends 'Application/layout.html' /}
 
-<h1>Login</h1>
+%{
+  currentNav = 'login';
+}%
 
-<form id="login" action="@{Application.authenticate}" method="POST" accept-charset="utf-8">
-	<p>
-		<label>Email</label>
-		<input type="text" name="email" value="${flash.email}" />
-	</p>
-	<p>
-		<label>Password</label>
-		<input type="password" name="password" value="" />
-	</p>
-	<p class="buttons">
-		<button>Login</button>
-	</p>
-</form>
+<div id="login">
+  <h1>Connexion</h1>
 
-#{if flash.error}
-	<p>
-		${flash.error}
-	</p>
-#{/if}
+  <form action="@{Application.authenticate}" method="POST" accept-charset="utf-8">
+    <p>
+      <label for="email">Email</label>
+      <input id="email" type="text" name="email" value="${flash.email}" />
+    </p>
+    <p>
+      <label for="password">Password</label>
+      <input id="password" type="password" name="password" value="" />
+    </p>
+    <p class="buttons">
+      <button>Login</button>
+    </p>
+  #{if flash.error}
+    <p class="errors">
+      ${flash.error}
+    </p>
+  #{/if}
+  </form>
+
+</div>

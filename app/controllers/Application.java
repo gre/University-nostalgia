@@ -1,5 +1,6 @@
 package controllers;
 
+import play.i18n.Messages;
 import play.mvc.*;
 import models.User;
 import play.data.validation.*;
@@ -23,12 +24,16 @@ public class Application extends Controller {
         Secure secure = getActionAnnotation(Secure.class);
         if (secure != null) {
             if (connectedUser() == null)
-            	login();
+                index();
             else if(secure.admin() && !connectedUser().isAdmin())
             	forbidden();
         }
     }
     // ~~~~~~~~~~~~ Actions
+    
+    public static void index() {
+        render();
+    }
     
     public static void signup() {
         render();
@@ -43,7 +48,6 @@ public class Application extends Controller {
         if (validation.hasErrors()) {
             validation.keep();
             params.flash();
-            flash.error("Please correct these errors !");
             signup();
         }
         new User(email, password, firstname, lastname).save();
@@ -57,16 +61,15 @@ public class Application extends Controller {
     public static void authenticate(String email, String password) {
         User user = User.findByEmail(email);
         if (user == null || !user.checkPassword(password)) {
-            flash.error("Bad email or bad password");
+            flash.error(Messages.get("validation.loginfailed", "Bad email or bad password"));
             flash.put("email", email);
             login();
         } else if (!user.isActivate()) {
-            flash.error("This account is not confirmed");
+            flash.error(Messages.get("validation.notconfirmed", "This account is not confirmed"));
             flash.put("email", email);
             login();
         }
         connect(user);
-        flash.success("Welcome back %s !", user.lastname);
         Main.index();
     }
 

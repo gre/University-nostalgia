@@ -1,0 +1,42 @@
+#{extends 'Application/layout.html' /}
+
+
+%{
+  currentNav = 'overview';
+}%
+<div id="overview">
+  <div class="carouselContainer">
+    <div class="carousel">
+      <ul>
+        <li style="float: left;"><img src="/public/images/temp_carousel01.png" /></li>
+        <li style="float: left;"><img src="/public/images/temp_carousel02.png" /></li>
+        <li style="float: left;"><img src="/public/images/temp_carousel03.png" /></li>
+      </ul>
+    </div>
+    <div class="description">
+      <h3>
+        University nostalgia est un réseau social destiné aux 
+        anciens étudiants du département informatique.
+      </h3>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent gravida nisi ac arcu feugiat elementum. Nullam eu ultricies risus. Vivamus tempus sapien vitae felis mattis ut viverra sem ornare. Maecenas libero risus, laoreet vitae interdum vitae, ullamcorper quis velit. Proin et dolor vitae elit pellentesque commodo. Nullam pretium, nulla sit amet faucibus auctor, elit enim aliquam quam, id ullamcorper urna quam et nisl. Mauris varius nunc vel orci pretium et hendrerit sapien mattis. Maecenas eget odio eget ligula tempus fringilla. Morbi aliquam nunc vitae eros ornare pharetra. Vestibulum id dui mi, nec consequat eros. Sed tincidunt orci magna. Vivamus congue libero non mauris hendrerit et interdum leo semper. Etiam posuere, augue semper eleifend sagittis, neque nulla facilisis erat, sed viverra mauris lacus id justo. Nulla eu nibh ac neque dictum congue. Cras eleifend aliquet lacus non mattis. In a orci arcu.
+      </p>
+    </div>
+  </div>
+</div>
+
+<script language="javascript">
+  $(function(){
+    $('#overview .carousel').carousel({
+      direction: 'horizontal',
+      loop: true,
+      dispItems: 1,
+      pagination: false,
+      autoSlide: true,
+      autoSlideInterval: 2000,
+      nextBtn: null,
+      prevBtn: null,
+      effect: 'fade'
+    });
+  });
+</script>

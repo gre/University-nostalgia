@@ -8,10 +8,11 @@
 # DELETE /resources/{id}                          .delete
 
 # Registration/Authentication
+GET    /overview                                 Application.index
 GET    /signup                                   Application.signup
-POST  /signup                                    Application.register
+POST   /signup                                   Application.register
 GET    /login                                    Application.login
-POST  /login                                     Application.authenticate
+POST   /login                                    Application.authenticate
 GET    /logout                                   Application.logout
 GET    /signup/{uuid}                            Application.confirmRegistration
 

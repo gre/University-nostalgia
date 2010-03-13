@@ -8,11 +8,44 @@
     #{get 'moreStyles' /}
     <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
     #{script 'jquery-1.4.2.min.js' /}
+    #{script 'jquery.carousel.min.js' /}
     #{get 'moreScripts' /}
   </head>
   <body>
     <div id="wrapper">
-      #{doLayout /}
+      <nav>
+        <ul>
+          #{get 'nav' /}
+        </ul>
+        <div style="display: none;" id="selection" class="triangle-isosceles top"></div>
+      </nav>
+
+      <header>
+        <h1><a href="/">University nostalgia</a></h1>
+      </header>
+
+      <div id="main">
+        #{doLayout /}
+      </div>
+
+      <footer>
+        <ul>
+          <li>© 2010 Renaudeau and Namolovan</li>
+          <li><a href="/">About</a></li>
+          <li><a href="/">Contact</a></li>
+        </ul>
+      </footer>
     </div>
+    
+    <script language="javascript">
+      $(function(){
+        var selected = $('nav .selected');
+        if(selected[0]) {
+          $('#selection').show();
+          var pos = Math.floor(selected.parent().width()/2 + selected.parent().position().left);
+          $('#selection').css('left', (pos-15)+'px');
+        }
+      })
+    </script>
   </body>
 </html>

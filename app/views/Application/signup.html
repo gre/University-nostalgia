@@ -1,36 +1,40 @@
-#{extends 'base.html' /}
+#{extends 'Application/layout.html' /}
 
-<h1 id="title">Signup</h1>
+%{
+  currentNav = 'signup';
+}%
 
-<form id="signup" action="@{Application.register}" method="POST" accept-charset="utf-8">
-	<p>
-		<label>Email</label>
-		<input type="text" name="email" value="${flash.email}" id="email" />
-		<span class="error">#{error 'email' /}</span>
-	</p>
-	<p>
-		<label>First name</label>
-		<input type="text" name="firstname" value="${flash.firstname}" />
-		<span class="error">#{error 'firstname' /}
-	</p>
-	<p>
-		<label>Last name</label>
-		<input type="text" name="lastname" value="${flash.lastname}" />
-		<span class="error">#{error 'lastname' /}
-	</p>
-	<p>
-		<label>Password</label>
-		<p class="light">
-			Enter your desired password twice. It must be at least 5 characters.
-		</p>
-		<div>
-			<input type="password" name="password" value="${flash.password}" id="password" /> <span class="error">#{error 'password' /}</span>
-		</div>
-		<div>
-			<input type="password" name="password2" value="${flash.password2}" id="password2" /> <span class="error">#{error 'password2' /}</span>
-		</div>
-	</p>
-	<p class="buttons">
-		<input type="submit" value="Signup" id="signupButton" />
-	</p>	
-</form>
+<div id="signup">
+  <h1 id="title">Inscription</h1>
+
+  <form action="@{Application.register}" method="POST" accept-charset="utf-8">
+    <p>
+      <label for="email">Email</label>
+      <input type="text" name="email" value="${flash.email}" id="email" />
+      <span class="error">#{error 'email' /}</span>
+    </p>
+    <p>
+      <label for="firstname">Nom</label>
+      <input type="text" name="firstname" value="${flash.firstname}" id="firstname" />
+      <span class="error">#{error 'firstname' /}</span>
+    </p>
+    <p>
+      <label for="lastname">Prénom</label>
+      <input type="text" name="lastname" value="${flash.lastname}" id="lastname" />
+      <span class="error">#{error 'lastname' /}</span>
+    </p>
+    <p> 
+      <label for="password">Mot de passe</label>
+      <input type="password" name="password" value="${flash.password}" id="password" />
+      <span class="error">#{error 'password' /}</span>
+    </p>
+    <p>
+      <label for="password2">Mot de passe de nouveau</label>
+      <input type="password" name="password2" value="${flash.password2}" id="password2" />
+      <span class="error">#{error 'password2' /}</span>
+    </p>
+    <p class="buttons">
+      <button>S'inscrire</button>
+    </p>	
+  </form>
+</div>

@@ -1,0 +1,17 @@
+#{extends 'base.html' /}
+
+%{
+  if(currentNav=='overview') nav_overview='selected';
+  else if(currentNav=='login') nav_login='selected';
+  else if(currentNav=='signup') nav_signup='selected';
+}%
+
+#{set 'nav'}
+  <li><a class="${nav_overview}" href="@{Application.index}">Accueil</a></li>
+  <li><a class="${nav_login}" href="@{Application.login}">Connexion</a></li>
+  <li><a class="${nav_signup}" href="@{Application.signup}">S'inscrire</a></li>
+#{/set}
+
+<section class="unlogged">
+  #{doLayout /}
+</section>

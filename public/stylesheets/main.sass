@@ -3,15 +3,18 @@
 
 // utils
 
-=vertical-gradient(!from, !to)
-  background = (!from/2 + !to/2)
+=vertical-gradient(!from, !to, !alt=(!from/2 + !to/2))
+  background = !alt
   background = -webkit-gradient(linear, left top, left bottom, from(!from), to(!to))
   background = -moz-linear-gradient(-90deg, !from, !to)
 
 
+
+!font_title = Liberation,Georgia,serif
+
+
 /* general layout */
-  
-  
+
 !main_width = 900px
 !aside_width = 300px
 !section_width = 520px
@@ -19,6 +22,7 @@
 
 body
   :margin 20px 0
+  
 #wrapper
   :margin 0 auto
   :position relative
@@ -29,20 +33,27 @@ body
   >nav
     :display block
     :overflow auto
-    :padding 5px
+    :padding 
+      :top 5px
     +border-top-radius(!global_border_radius)
-    +box-shadow(0px, 1px, 2px, rgba(0,0,0,0.5))
-    :position relative
-    :z-index 2
+    :font-size 1.2em
+    font-family = !font_title
   
   >header
     :clear both
     :display block
     :z-index 1
+    :height 48px
+    font-family = !font_title
     h1
       :padding 10px 20px
       :font-size 2em
-      :font-family Copper-Penny
+      :font-weight bold
+      a
+        :color white
+        :text-decoration none
+        &:hover
+          :color white
   
   >footer
     :display block
@@ -61,7 +72,8 @@ body
   >section
     :overflow auto
     :display block
-    width = !section_width
+    &.logged
+      width = !section_width
     :padding 20px
     
   >aside
@@ -70,74 +82,118 @@ body
     :overflow auto
     width = !aside_width
     :padding 20px
-    
-    
-    
+
+
 /* general style and colors */
 
-@font-face
-  :font-family Copper-Penny
-  :src url(Copper-Penny.ttf)
 
-!text_color = #222
+!text_color = #343
 
 !link_color = #251
-!link_color_negative = #CEB
-!link_back = #140
-!link_back_selected = #483
+!link_nav_hover_back = #617f5a
 
-!back = #EFD
+!back = #e9f3e7
 !back_aside = #F8FAF5
 
 !back_header_from=#719369
 !back_header_to=#587451
 
-!back_footer_from=#719369
-!back_footer_to=#587451
+!back_footer_from=#b4c1b1
+!back_footer_to=#9da89a
+!text_footer=white
+!link_footer=#e3eae1
 
 !back_aside_from=#e3ebd8
 !back_aside_to=#f1f5eb
 !back_aside_text=#664
+
+!border_input=silver
+!back_input_from=#f0f3f0
+!back_input_to=white
+!back_button_from=#eee
+!back_button_to=#dde9dd
 
 body
   :font 12px Arial,Verdana,sans-serif
   color = !text_color
   background = !back
 
+a
+  color = !link_color
+  &:hover
+    color = !link_color+#333
+
+form
+  .buttons
+    button
+      :float right
+  .error
+    :color red
+    :float right
+  
+  .errors
+    :color red
+  
+  p
+    :clear both
+  
+  label
+    :display block
+  
+  input[type=text], input[type=password]
+    :width 99%
+    border = 1px solid !border_input
+    &:focus
+      border = 1px solid !border_input-#222
+    +border-radius(5px)
+    +vertical-gradient(!back_input_from, !back_input_to)
+    &:hover, &:focus
+      +vertical-gradient(!back_input_from+#090909, !back_input_to+#090909)
+
+  button
+    border = 1px solid !border_input
+    &:focus
+      border = 1px solid !border_input-#222
+    +border-radius(5px)
+    :color #283f23
+    :background #e5f0e2  
+    +vertical-gradient(!back_button_from, !back_button_to)
+    &:hover
+      +vertical-gradient(!back_button_from+#111, !back_button_to+#111)
+
+
+/* wrapper */
 #wrapper
   border-color = !back-#111
   >nav
     :background white
   >header
-    +vertical-gradient(!back_header_from, !back_header_to)
+    +vertical-gradient(!back_header_from, !back_header_to, url(/public/image/header.png))
     :color white
   >footer
     +vertical-gradient(!back_footer_from, !back_footer_to)
 
+
+/* main */
 #main
-  :background white
+  background = !back_aside
+  :min-height 200px
   :overflow auto
   >section
     :background white
+    :min-height 250px
   >aside
-    background = !back_aside
     p
       :padding 10px
       :margin-bottom 15px
       +vertical-gradient(!back_aside_from, !back_aside_to)
       +border-radius(8px)
       color = !back_aside_text
-  
-a
-  color = !link_color
-  &:hover
-    color = !link_color+#333
-
-
 
 /* nav */
 #wrapper > nav
   :text-align center
+  :height 40px
   ul
     :display inline-block
     li
@@ -148,31 +204,51 @@ a
     :padding 2px 6px
     +border-radius(8px)
     &:hover
-      background-color = !link_back
+      background-color = !link_nav_hover_back
       :color white
-    &.selected, &.selected:hover
-      color = white
-      background = !link_back_selected
+    &.selected
+      color = !link_color+#333
+      &:hover
+        :color white
+
+
+/* selection */
+#selection
+  border-color = transparent transparent !back_header_from
+  :content "\00a0"
+  :display block
+  :position absolute
+  :z-index 10
+  :width 0
+  :height 0
+  :border-width 15px 15px
+  :border-style solid
+  :top 16px
+  :left 0px
+  :bottom auto
+  :right auto
+
 
 
 /* footer */
 #wrapper > footer
+  color = !text_footer
   ul
     :display inline-block
     li
-      :color white
       :float left
       :padding 0 8px
       a
         :text-decoration none
-        color = !link_color_negative
+        color = !link_footer
         &:hover
-          color = !link_color_negative+#333
+          color = !link_footer+#222
 
 /* section */
 #main section
   h1, h2, h3, h4
     :font-weight bold
+    font-family = !font_title
     :padding 5px
   h1
     :font-size 2em
@@ -184,3 +260,47 @@ a
     :font-size 1.4em
   p
     :padding 4px 0
+
+/* login */
+#login
+  :width 250px
+  :margin 0 auto
+
+/* signup */
+#signup
+  :width 300px
+  :margin 0 auto
+
+/* overview */
+!img_width = 440px
+!img_height = 440px
+!back_carousel = #6e8f66
+
+#overview
+  h3
+    :font-weight normal
+  .carouselContainer
+    :overflow auto
+    :margin-top 20px
+    :padding 10px
+    +border-radius(10px)
+    background = !back_carousel
+    .carousel
+      border = 4px solid !back_carousel-#111
+      background = !back_carousel-#111
+      width  = !img_width
+      height  = !img_height
+      :float left
+      li
+        width  = !img_width
+        height  = !img_height
+        :float left
+        img
+          width = !img_width
+    .description
+      :float left
+      :padding 15px
+      width = !main_width - !img_width - 100
+      h3
+        :font-weight normal
+

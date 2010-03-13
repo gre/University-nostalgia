@@ -1,0 +1,10 @@
+validation.required=Ce champ est requis.
+validation.minSize=Ce champ doit contenir au moins %s caractères.
+validation.maxSize=Ce champ peut contenir au maximum %s caractères.
+validation.email=Ce champ doit être un email.
+validation.wrongPassword=Le mot de passe est incorrect.
+validation.confirmation=La confirmation ne correspond pas.
+validation.alreadyUsed=Cette valeur est déjà utilisée.
+
+validation.notconfirmed=Ce compte n'a pas encore été accepté.
+validation.loginfailed=Email ou mot de passe incorrect.
