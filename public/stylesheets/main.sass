@@ -20,6 +20,9 @@
 !section_width = 520px
 !global_border_radius = 10px
 
+p
+  :padding 4px 0
+
 body
   :margin 20px 0
 
@@ -58,6 +61,7 @@ body
     .user
       :float right
       :padding 5px 10px
+      :font-weight bold
     .logout
       :clear both
       :float right
@@ -92,6 +96,20 @@ body
     :overflow auto
     width = !aside_width
     :padding 20px
+    
+    .box
+      &.userInfo
+        .infos
+          :padding 10px
+          :font-size 1.2em
+          :width 160px
+
+
+/* class css utils */
+.floatright
+  :float right
+.floatleft
+  :float left
 
 
 /* general style and colors */
@@ -108,6 +126,9 @@ body
 !back_header_from=#719369
 !back_header_to=#587451
 
+!back_buttons_from = #F9F9F9
+!back_buttons_to = #EEE
+
 !back_footer_from=#b4c1b1
 !back_footer_to=#9da89a
 !text_footer=white
@@ -121,7 +142,7 @@ body
 !back_input_from=#f0f3f0
 !back_input_to=white
 !back_button_from=#eee
-!back_button_to=#dde9dd
+!back_button_to=#ddd
 
 body
   :font 12px Arial,Verdana,sans-serif
@@ -139,7 +160,13 @@ em
   :font-style italic
 
 form
-  .buttons
+  :margin-bottom 20px
+  p.buttons
+    :overflow auto
+    :margin 5px 0
+    :padding 5px
+    +vertical-gradient(!back_buttons_from, !back_buttons_to)
+    +border-radius(5px)
     button
       :float right
   .error
@@ -151,11 +178,13 @@ form
   
   p
     :clear both
+    &.floatleft, &.floatright
+      :clear none
   
   label
     :display block
   
-  input[type=text], input[type=password]
+  input[type=text], input[type=password], textarea
     :width 99%
     border = 1px solid !border_input
     &:focus
@@ -171,7 +200,6 @@ form
       border = 1px solid !border_input-#222
     +border-radius(5px)
     :color #283f23
-    :background #e5f0e2  
     +vertical-gradient(!back_button_from, !back_button_to)
     &:hover
       +vertical-gradient(!back_button_from+#111, !back_button_to+#111)
@@ -183,7 +211,7 @@ form
   >nav
     :background white
   >header
-    +vertical-gradient(!back_header_from, !back_header_to, url(/public/image/header.png))
+    +vertical-gradient(!back_header_from, !back_header_to, url(/public/images/header.png))
     :color white
     .logout
       color = !back_header_to+#444
@@ -202,7 +230,8 @@ form
     :background white
     :min-height 250px
   >aside
-    p
+    div.box
+      :overflow auto
       :padding 10px
       :margin-bottom 15px
       +vertical-gradient(!back_aside_from, !back_aside_to)
@@ -267,17 +296,19 @@ form
   h1, h2, h3, h4
     :font-weight bold
     font-family = !font_title
-    :padding 5px
+    :padding 0 5px
   h1
     :font-size 2em
+    :line-height 2em
   h2
     :font-size 1.8em
+    :line-height 1.8em
   h3
     :font-size 1.6em
+    :line-height 1.6em
   h4
     :font-size 1.4em
-  p
-    :padding 4px 0
+    :line-height 1.4em
 
 /* login */
 #login
@@ -292,7 +323,7 @@ form
 /* overview */
 !img_width = 440px
 !img_height = 440px
-!back_carousel = #6e8f66
+!back_carousel = #9EBA98
 
 #overview
   h3

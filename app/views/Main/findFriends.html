@@ -1,22 +1,21 @@
 #{extends 'main.html' /}
 
 %{
-  currentNav = 'friends';
+  currentNav = 'find';
 }%
 
-#{set 'aside'}
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent gravida nisi ac arcu feugiat elementum. Nullam eu ultricies risus.</p>
-#{/set}
-
 <div>
-  <h3>Trouver une personne</h3>
   <form>
     <p>
-      <label for="friend">Nom, prénom ou email de la personne</label>
-      <input type="text" id="friend" name="friend" />
+      <select name="type">
+        <option value="person">Trouver une personne</option>
+        <option value="university">Trouver une université</option>
+      </select>
     </p>
-    <p class="buttons">
-      <button>Rechercher</button>
+    <p>
+      <label for="findName">Nom, prénom ou email</label>
+      <input type="text" id="findName" name="name" style="width: 420px;" />
+      <button style="float: right;">Rechercher</button>
     </p>
   </form>
 </div>
