@@ -85,5 +85,16 @@ public class Application extends Controller {
         String userId = session.get("logged");
         return userId == null ? null : (User) User.findById(Long.parseLong(userId));
     }
+    
+    static void informSuccess() {
+        flash("info", Messages.get("info.success"));
+        flash("infotype", "success");
+        flash.keep();
+    }
+    static void informError() {
+        flash("info", Messages.get("info.error"));
+        flash("infotype", "error");
+        flash.keep();
+    }
 
 }

@@ -31,6 +31,7 @@
       </header>
 
       <div id="main">
+        #{if flash.info}<div id="flashInfo"><div class="info ${flash.infotype}">${flash.info}</div></div>#{/if}
         #{doLayout /}
       </div>
 

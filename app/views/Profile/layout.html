@@ -1,0 +1,33 @@
+#{extends 'main.html' /}
+
+%{
+  currentNav = 'profile';
+}%
+
+#{set 'aside'}
+  <div class="box userInfo">
+    <img class="avatar floatleft" src="@{Users.avatar(connected.id)}" />
+    <div class="floatleft infos">
+      <p class="user">${connected.firstname} ${connected.lastname}</p>
+      <p class="email">${connected.email}</p>
+      <p class="address">${connected.address}</p>
+      <p class="phone">${connected.phone}</p>
+      <p class="stats">
+        <span>${!connected.friends?0:connected.friends.size()} ami(s)</span>, 
+        <span>${!connected.universities?0:connected.universities.size()} université(s)</span>, 
+        <span>${!connected.corporations?0:connected.corporations.size()} entreprise(s)</span>
+      </p>
+      #{if connected.isAdmin}<p class="isAdmin">Administrateur</p>#{/if}
+    </div>
+  </div>
+#{/set}
+
+<nav>
+  <ul>
+    <li><a class="${currentProfilNav=='infos'?'selected':''}" href="@{Profile.infos()}">Informations personnelles</a></li>
+    <li><a class="${currentProfilNav=='avatar'?'selected':''}" href="@{Profile.avatar()}">Avatar</a></li>
+    <li><a class="${currentProfilNav=='password'?'selected':''}" href="@{Profile.password()}">Mot de passe</a></li>
+  </ul>
+</nav>
+
+#{doLayout /}

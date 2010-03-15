@@ -8,3 +8,7 @@ validation.alreadyUsed=Cette valeur est déjà utilisée.
 
 validation.notconfirmed=Ce compte n'a pas encore été accepté.
 validation.loginfailed=Email ou mot de passe incorrect.
+validation.badpassword=mot de passe incorrect.
+
+info.error=Une erreur s'est produite.
+info.success=Action effectuée avec succès.

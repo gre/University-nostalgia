@@ -15,7 +15,12 @@ GET     /find                                    Finder.index
 PUT     /find                                    Finder.search
 
 GET     /profile                                 Profile.index
-POST    /profile                                 Profile.edit
+GET     /profile/infos                           Profile.infos
+GET     /profile/avatar                          Profile.avatar
+GET     /profile/password                        Profile.password
+POST    /profile/infos                           Profile.editInfos
+POST    /profile/avatar                          Profile.editAvatar
+POST    /profile/password                        Profile.editPassword
 
 GET     /messages/{box}/?                        Messages.list
 GET     /messages/{id}                           Messages.view
@@ -24,6 +29,7 @@ DELETE  /messages/{id}                           Messages.delete
 
 GET     /users/?                                 Users.list
 GET     /users/{id}                              Users.view
+GET     /users/{id}/avatar                       Users.avatar
 
 GET     /friends/?                               Friends.list
 GET     /friends/{id}                            Friends.view

@@ -221,6 +221,18 @@ form
     +vertical-gradient(!back_footer_from, !back_footer_to)
 
 
+!main_nav_ul_back = #F0F8F0
+!main_nav = !text_color
+!main_nav_back = #E2E8E2
+!main_nav_hover = white
+!main_nav_back_hover = #B9C3B7
+!main_nav_selected = white
+!main_nav_back_selected = #747F72
+!main_nav_selected_hover = white
+!main_nav_back_selected_hover = !main_nav_back_selected-#111
+
+!main_nav_demi_height=12px
+
 /* main */
 #main
   background = !back_aside
@@ -229,6 +241,52 @@ form
   >section
     :background white
     :min-height 250px
+    nav
+      :display block
+      :overflow auto
+      background-color = !main_nav_ul_back
+      :font-size 1em
+      font-family = !font_title
+      :overflow auto
+      ul
+        :display inline-block
+        li
+          :float left
+          a
+            line-height = 2*!main_nav_demi_height
+            :text-decoration none
+            :padding 4px 6px
+              left = !main_nav_demi_height+6px
+            background-color = !main_nav_back
+            color = !main_nav
+            :position relative
+            &:hover
+              background-color = !main_nav_back_hover
+              color = !main_nav_hover
+              &:after
+                border-color = transparent transparent transparent !main_nav_back_hover
+            &.selected
+              color = !main_nav_selected
+              background-color = !main_nav_back_selected
+              &:after
+                border-color = transparent transparent transparent !main_nav_back_selected
+              &:hover
+                color = !main_nav_selected_hover
+                background-color = !main_nav_back_selected_hover
+                &:after
+                  border-color = transparent transparent transparent !main_nav_back_selected_hover
+                
+            &:after
+              :z-index 25
+              :content " "
+              border-width = !main_nav_demi_height
+              :border-style solid
+              :height 0
+              :width 0
+              :position absolute
+              right = -2*!main_nav_demi_height
+              border-color = transparent transparent transparent !main_nav_back
+      
   >aside
     div.box
       :overflow auto
@@ -237,6 +295,22 @@ form
       +vertical-gradient(!back_aside_from, !back_aside_to)
       +border-radius(8px)
       color = !back_aside_text
+
+#flashInfo
+  :position absolute
+  :text-align center
+  width = !main_width
+  .info
+    :padding 2px 5px
+    :display inline-block
+    +border-bottom-radius(10px)
+    +box-shadow(0px, 0px, 2px, black)
+    :color white
+    :font-weight bold
+    &.error
+      :background #c00
+    &.success
+      :background #0c0
 
 /* nav */
 #wrapper > nav

@@ -1,0 +1,39 @@
+#{extends 'Profile/layout.html' /}
+
+%{
+  currentProfilNav = 'infos';
+}%
+
+<div>
+  #{form @Profile.editInfos()}
+    <h3>Changer ses informations personnelles</h3>
+    <p>
+      <label for="firstname">Nom</label>
+      <input type="text" id="firstname" name="firstname" value="${flash.firstname ? flash.firstname : connected.firstname}" />
+      <span class="error">#{error 'firstname' /}</span>
+    </p>
+    <p>
+      <label for="lastname">Prénom</label>
+      <input type="text" id="lastname" name="lastname" value="${flash.lastname ? flash.lastname : connected.lastname}" />
+      <span class="error">#{error 'lastname' /}</span>
+    </p>
+    <p>
+      <label for="email">Email</label>
+      <input type="text" id="email" name="email" value="${flash.email ? flash.email : connected.email}" />
+      <span class="error">#{error 'email' /}</span>
+    </p>
+    <p>
+      <label for="phone">Téléphone</label>
+      <input type="text" id="phone" name="phone" value="${flash.phone ? flash.phone : connected.phone}" />
+      <span class="error">#{error 'phone' /}</span>
+    </p>
+    <p>
+      <label for="address">Adresse</label>
+      <textarea type="text" id="address" name="address" value="${flash.address ? flash.address : connected.address}">${connected.address}</textarea>
+      <span class="error">#{error 'address' /}</span>
+    </p>
+    <p class="buttons">
+      <button>Mettre à jour</button>
+    </p>
+  #{/form}
+</div>
