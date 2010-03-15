@@ -9,10 +9,10 @@
 
 #{set 'nav'}
   <li><a class="${nav_welcome}" href="@{Main.index}">Accueil</a></li>
-  <li><a class="${nav_profil}" href="@{Main.profile}">Profil</a></li>
-  <li><a class="${nav_find}" href="@{Main.findFriends}">Trouver</a></li>
+  <li><a class="${nav_profil}" href="@{Profile.index}">Profil</a></li>
+  <li><a class="${nav_find}" href="@{Finder.index}">Trouver</a></li>
   #{if connected.isAdmin}
-  <li><a class="${nav_admin}" href="/">Administrateur</a></li>
+  <li><a class="${nav_admin}" href="/">Administration</a></li>
   #{/if}
 #{/set}
 

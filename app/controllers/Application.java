@@ -18,17 +18,7 @@ public class Application extends Controller {
     static void globals() {
         renderArgs.put("connected", connectedUser());
     }
-
-    @Before
-    static void checkSecure() {
-        Secure secure = getActionAnnotation(Secure.class);
-        if (secure != null) {
-            if (connectedUser() == null)
-                index();
-            else if(secure.admin() && !connectedUser().isAdmin())
-            	forbidden();
-        }
-    }
+    
     // ~~~~~~~~~~~~ Actions
     
     public static void index() {

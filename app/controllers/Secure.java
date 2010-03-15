@@ -1,14 +1,12 @@
 package controllers;
+import play.mvc.*;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-
-@Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.METHOD)
-public @interface Secure {
+public class Secure extends Application {
     
-    boolean admin() default false;
+    @Before
+    static void checkSecure() {
+        if(connectedUser() == null) 
+            index();
+    }
     
 }

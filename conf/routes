@@ -1,12 +1,5 @@
 # Routes
 
-### How to use REST and CRUD : http://en.wikipedia.org/wiki/REST#RESTful_web_services
-# GET    /resources/?                             .list
-# GET    /resources/{id}                          .retrieve
-# POST   /resources                               .create
-# PUT    /resources/{id}                          .update
-# DELETE /resources/{id}                          .delete
-
 # Registration/Authentication
 GET    /overview                                 Application.index
 GET    /signup                                   Application.signup
@@ -14,37 +7,37 @@ POST   /signup                                   Application.register
 GET    /login                                    Application.login
 POST   /login                                    Application.authenticate
 GET    /logout                                   Application.logout
-GET    /signup/{uuid}                            Application.confirmRegistration
 
 # Home page
-
 GET     /                                        Main.index
 
-GET     /profile                                 Main.index
-POST    /profile                                 Main.index
+GET     /find                                    Finder.index
+PUT     /find                                    Finder.search
 
-GET     /messages/{box}/?                        Main.index
-GET     /messages/{box}/{messageId}              Main.index
-POST    /messages/?                              Main.index
-DELETE  /messages/{box}/{messageId}              Main.index
+GET     /profile                                 Profile.index
+POST    /profile                                 Profile.edit
 
-GET     /users/?                                 Main.index
-GET     /users/{userId}                          Main.index
+GET     /messages/{box}/?                        Messages.list
+GET     /messages/{id}                           Messages.view
+PUT     /messages/?                              Messages.create
+DELETE  /messages/{id}                           Messages.delete
 
-GET     /friends/?                               Main.index
-POST    /friends/{userId}                        Main.index
-#                                               ^ request or confirm a friend
-                                                 
-DELETE  /friends/{userId}                        Main.index
+GET     /users/?                                 Users.list
+GET     /users/{id}                              Users.view
 
-GET     /corporations/?                          Main.index
-GET     /corporations/{corporationId}            Main.index
-POST    /corporations                            Main.index
-DELETE  /corporations/{corporationId}            Main.index
-#                                               ^ delete the corporation occurence from user model
+GET     /friends/?                               Friends.list
+GET     /friends/{id}                            Friends.view
+PUT     /friends/{id}                            Friends.inviteOrAccept
+DELETE  /friends/{id}                            Friends.delete
 
-GET     /universities/?                          Main.index
-GET     /universities/{universityId}             Main.index
+GET     /corporations/?                          Corporations.list
+GET     /corporations/{id}                       Corporations.view
+PUT     /corporations                            Corporations.create
+POST    /corporations/{id}                       Corporations.edit
+DELETE  /corporations/{id}                       Corporations.delete
+
+GET     /universities/?                          Universities.list
+GET     /universities/{id}                       Universities.view
 
 
 # Map static resources from the /app/public folder to the /public path
@@ -52,3 +45,11 @@ GET     /public/                                staticDir:public
 
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}
+
+### memo ###
+### How to use REST : http://en.wikipedia.org/wiki/REST#RESTful_web_services
+# GET    /resources/?                             .list
+# GET    /resources/{id}                          .view
+# PUT    /resources                               .create
+# POST   /resources/{id}                          .edit
+# DELETE /resources/{id}                          .delete
