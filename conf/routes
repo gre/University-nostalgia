@@ -23,8 +23,8 @@ POST    /profile/avatar                          Profile.editAvatar
 POST    /profile/password                        Profile.editPassword
 
 
-GET     /messages/?                              Messages.list
 GET     /messages/{box}/?                        Messages.list
+GET     /messages/?                              Messages.list
 GET     /messages/{id}                           Messages.view
 PUT     /messages/?                              Messages.create
 DELETE  /messages/{id}                           Messages.delete
@@ -50,14 +50,3 @@ GET     /universities/{id}                       Universities.view
 
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public
-
-# Catch all
-*       /{controller}/{action}                  {controller}.{action}
-
-### memo ###
-### How to use REST : http://en.wikipedia.org/wiki/REST#RESTful_web_services
-# GET    /resources/?                             .list
-# GET    /resources/{id}                          .view
-# PUT    /resources                               .create
-# POST   /resources/{id}                          .edit
-# DELETE /resources/{id}                          .delete
