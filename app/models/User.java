@@ -4,6 +4,7 @@ import javax.persistence.*;
 import play.db.jpa.*;
 import play.data.validation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -19,12 +20,9 @@ public class User extends Model {
   public boolean isActivate;
   public boolean isAdmin;
   
-  @ManyToMany
-  public List<User> friends;
-  
   @OneToMany
-  public List<Message> messages;
-  
+  public List<User> friends;
+
   @Required
   public String firstname;
   
@@ -40,9 +38,9 @@ public class User extends Model {
   public String address;
   public String phone;
   
-	public String getAddress(){
-		return address;
-	}
+  public String getAddress(){
+	return address;
+  }
 	
   public User(String email, String password, String firstname, String lastname) {
 		isActivate = false;
@@ -51,6 +49,8 @@ public class User extends Model {
 		this.password = password;
 		this.firstname = firstname;
 		this.lastname = lastname;
+        universities = new ArrayList<UniversityYear>();
+        corporations = new ArrayList<Corporation>();
 	}
 
   public boolean checkPassword(String pwd) {
@@ -71,4 +71,5 @@ public class User extends Model {
   public static User findByEmail(String email) {
 	  return find("email = ?", email).first();
   }
+
 }

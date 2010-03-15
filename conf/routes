@@ -22,6 +22,8 @@ POST    /profile/infos                           Profile.editInfos
 POST    /profile/avatar                          Profile.editAvatar
 POST    /profile/password                        Profile.editPassword
 
+
+GET     /messages/?                              Messages.list
 GET     /messages/{box}/?                        Messages.list
 GET     /messages/{id}                           Messages.view
 PUT     /messages/?                              Messages.create
