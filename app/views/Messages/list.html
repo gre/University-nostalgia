@@ -32,9 +32,10 @@
   #{/form}
 </div>
 
-<ul>
+#{if msges?.size()}
+<ul class="userList">
 #{list items: msges, as:'message'}
-  <li>
+  <li class="user">
     De 
     <span class="sender">
       #{if message.sender.id==connected.id}
@@ -53,9 +54,11 @@
         <a href="@{Users.view(message.receiver.id)}">${message.receiver.firstname} ${message.receiver.lastname}</a>
       #{/else}
     </span> 
+    <span class="date">à ${new java.text.SimpleDateFormat().format(message.date)}</span>
     <div class="message">
       ${message.content}
     </div>
   </li>
 #{/list}
 </ul>
+#{/if}

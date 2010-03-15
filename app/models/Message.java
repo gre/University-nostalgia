@@ -1,5 +1,6 @@
 package models;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.*;
@@ -16,17 +17,14 @@ public class Message extends Model {
     
     @ManyToOne
     public User receiver;
-
+    
+    public Date date;
+    
     public Message(User sender, User receiver, String content) {
         this.sender = sender;
         this.receiver = receiver;
         this.content = content;
-    }
-    
-    public Message(Message m) {
-        content = m.content;
-        sender = m.sender;
-        receiver = m.receiver;
+        this.date = new Date();
     }
     
     public boolean userConcerned(Long userid) {

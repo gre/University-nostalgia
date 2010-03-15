@@ -219,7 +219,7 @@ form
     +vertical-gradient(!back_footer_from, !back_footer_to)
 
 
-!main_nav_ul_back = #F0F8F0
+!main_nav_ul_back = #F9F9F9
 !main_nav = !text_color
 !main_nav_back = #E2E8E2
 !main_nav_hover = white
@@ -241,11 +241,9 @@ form
     :min-height 250px
     nav
       :display block
-      :overflow auto
       background-color = !main_nav_ul_back
       :font-size 1em
       font-family = !font_title
-      :overflow auto
       ul
         :display inline-block
         li
@@ -425,3 +423,29 @@ form
       h3
         :font-weight normal
 
+
+!list_back_from=#F6FAF5
+!list_back_to=#EFF3EE
+
+!list_border_light = #9EAA9B
+!list_border_hard = #E7EBE6
+
+ul.userList
+  border = 1px solid !list_border_hard
+  border-top = 1px solid !list_border_light
+  li
+    border = 1px solid !list_border_light
+      :top none
+    :padding 5px
+    +vertical-gradient(!list_back_from, !list_back_to)
+    .message
+      :background-color rgba(255,255,255,0.5)
+      :margin-top 5px
+      :padding 5px
+    .sender, .receiver
+      :font-weight bold
+      color = !link_color
+    .date
+      :font-style italic
+      :float right
+    
