@@ -1,0 +1,13 @@
+#{extends 'Friends/layout.html' /}
+
+
+#{if friends?.size()}
+<ul class="itemList">
+#{list items: friends, as:'friend'}
+  <li>
+    <span class="user"><a href="@{Users.view(friend.id)}">${friend.firstname} ${friend.lastname}</a></span>
+    <span class="email">${friend.email}</span>
+  </li>
+#{/list}
+</ul>
+#{/if}

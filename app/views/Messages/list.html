@@ -1,6 +1,5 @@
 #{extends 'Messages/layout.html' /}
 
-
 <nav>
   <ul>
     <li><a class="${flash.box=='all'?'selected':''}" href="@{Messages.list('all')}">Tous les messages</a></li>
@@ -8,29 +7,6 @@
     <li><a class="${flash.box=='sendbox'?'selected':''}" href="@{Messages.list('sendbox')}">Boite d'envoi</a></li>
   </ul>
 </nav>
-
-<div>
-  <h3>Envoyer un message</h3>
-  #{form @Messages.create()}
-    <p>
-    <label for="receiver">Envoyer à</label>
-    <select name="receiver" id="receiver">
-      #{list items:connected.friends, as:'friend'}
-        <option value="${friend.id}">${friend.firstname} ${friend.lastname}</option>
-      #{/list}
-    </select>
-    <span class="error">#{error 'receiver' /}</span>
-    </p>
-    <p>
-      <label for="content">Contenu du message</label>
-      <textarea id="content" name="content"></textarea>
-      <span class="error">#{error 'content' /}</span>
-    </p>
-    <p class="buttons">
-      <button>Envoyer</button>
-    </p>
-  #{/form}
-</div>
 
 #{if msges?.size()}
 <ul class="itemList">
@@ -57,7 +33,7 @@
     <span class="date">à ${new java.text.SimpleDateFormat().format(message.date)}</span>
     <a class="floatright clearboth delete" href="@{Messages.delete(message.id)}?x-http-method-override=DELETE">Supprimer</a>
     <div class="message">
-      ${message.content}
+      ${message.content.nl2br()}
     </div>
   </li>
 #{/list}

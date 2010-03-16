@@ -18,6 +18,7 @@
   <ul class="itemList">
   #{list items:results, as:'user'}
     <li>
+      <a href="@{Friends.inviteOrAccept(user.id)}?x-http-method-override=PUT" class="floatright invite">Inviter dans sa liste d'ami</a>
       <span class="user"><a href="@{Users.view(user.id)}">${user.firstname} ${user.lastname}</a></span>
       <span class="email">${user.email}</span>
     </li>

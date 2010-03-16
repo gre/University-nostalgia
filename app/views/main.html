@@ -1,18 +1,18 @@
 #{extends 'base.html' /}
 
 %{
-  if(currentNav=='welcome') nav_welcome='selected';
-  else if(currentNav=='profile') nav_profil='selected';
+  if(currentNav=='profile') nav_profil='selected';
   else if(currentNav=='find') nav_find='selected';
   else if(currentNav=='admin') nav_admin='selected';
   else if(currentNav=='messages') nav_messages='selected';
+  else if(currentNav=='friends') nav_friends='selected';
 }%
 
 #{set 'nav'}
-  <li><a class="${nav_welcome}" href="@{Main.index}">Accueil</a></li>
+  <li><a class="${nav_friends}" href="@{Friends.list()}">Amis</a></li>
   <li><a class="${nav_messages}" href="@{Messages.list()}">Messages</a></li>
-  <li><a class="${nav_profil}" href="@{Profile.index}">Profil</a></li>
   <li><a class="${nav_find}" href="@{Finder.index}">Trouver</a></li>
+  <li><a class="${nav_profil}" href="@{Profile.index}">Profil</a></li>
   #{if connected.isAdmin}
   <li><a class="${nav_admin}" href="/">Administration</a></li>
   #{/if}

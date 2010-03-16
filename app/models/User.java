@@ -41,7 +41,7 @@ public class User extends Model {
   public String address;
   public String phone;
   
-  public String getAddress(){
+  public String getAddress() {
 	return address;
   }
 	

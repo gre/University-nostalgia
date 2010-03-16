@@ -42,9 +42,11 @@ public class Application extends Controller {
         if (validation.hasErrors()) {
             validation.keep();
             params.flash();
+            informError();
             signup();
         }
         new User(email, password, firstname, lastname).save();
+        informSuccess();
         login();
     }
 
@@ -59,10 +61,12 @@ public class Application extends Controller {
         if (user == null || !user.checkPassword(password)) {
             flash.error(Messages.get("validation.loginfailed", "Bad email or bad password"));
             flash.put("email", email);
+            informError();
             login();
         } else if (!user.isActivate()) {
             flash.error(Messages.get("validation.notconfirmed", "This account is not confirmed"));
             flash.put("email", email);
+            informError();
             login();
         }
         connect(user);
@@ -72,6 +76,7 @@ public class Application extends Controller {
     public static void logout() {
         flash.success("You've been logged out");
         session.clear();
+        informSuccess();
         Main.index();
     }
     

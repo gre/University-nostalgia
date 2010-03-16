@@ -58,6 +58,7 @@ body
         :text-decoration none
         &:hover
           :color white
+          +text-shadow(white, 0px, 0px, 1px)
     .user
       :float right
       :padding 5px 10px
@@ -363,7 +364,7 @@ form
           color = !link_footer+#222
 
 /* section */
-#main section
+#main > section
   h1, h2, h3, h4
     :font-weight bold
     font-family = !font_title
@@ -380,6 +381,25 @@ form
   h4
     :font-size 1.4em
     :line-height 1.4em
+
+/* aside */
+#main > aside
+  h1, h2, h3, h4
+    :font-weight bold
+    font-family = !font_title
+    :padding 0 5px
+  h1
+    :font-size 1.5em
+    :line-height 1.5em
+  h2
+    :font-size 1.4em
+    :line-height 1.4em
+  h3
+    :font-size 1.3em
+    :line-height 1.3em
+  h4
+    :font-size 1.2em
+    :line-height 1.2em
 
 /* login */
 #login
