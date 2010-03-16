@@ -12,7 +12,8 @@ GET    /logout                                   Application.logout
 GET     /                                        Main.index
 
 GET     /find                                    Finder.index
-GET     /find/search                             Finder.search
+GET     /find/person                             Finder.searchPerson
+GET     /find/university                         Finder.searchUniversity
 
 GET     /profile                                 Profile.index
 GET     /profile/infos                           Profile.infos

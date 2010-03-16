@@ -1,0 +1,24 @@
+#{extends 'Finder/layout.html' /}
+
+%{
+  searchType = 'university';
+}%
+
+<div>
+  #{form @Finder.searchUniversity()}
+    <p>
+      <label for="findName">Nom</label>
+      <input type="text" id="findName" name="search" style="width: 420px;" value="${search}" />
+      <button style="float: right;">Rechercher</button>
+    </p>
+  #{/form}
+</div>
+
+#{if results}
+  <ul class="itemList">
+  #{list items:results, as:'university'}
+    <li>
+    </li>
+  #{/list}
+  </ul>
+#{/if}

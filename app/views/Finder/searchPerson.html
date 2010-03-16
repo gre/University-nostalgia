@@ -1,0 +1,26 @@
+#{extends 'Finder/layout.html' /}
+
+%{
+  searchType = 'person';
+}%
+
+<div>
+  #{form @Finder.searchPerson()}
+    <p>
+      <label for="findName">Nom, prénom ou email</label>
+      <input type="text" id="findName" name="search" style="width: 420px;" value="${search}" />
+      <button style="float: right;">Rechercher</button>
+    </p>
+  #{/form}
+</div>
+
+#{if results}
+  <ul class="itemList">
+  #{list items:results, as:'user'}
+    <li>
+      <span class="user"><a href="@{Users.view(user.id)}">${user.firstname} ${user.lastname}</a></span>
+      <span class="email">${user.email}</span>
+    </li>
+  #{/list}
+  </ul>
+#{/if}

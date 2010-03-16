@@ -3,24 +3,25 @@ import models.*;
 import java.util.List;
 
 import play.data.validation.Required;
+import play.Logger;
 
 public class Finder extends Secure {
   
-	public static void index() {
-        render();
-	}
-	
-  public static void search(@Required String type, @Required String search) {
-	    if (validation.hasErrors()) {
-	        validation.keep();
-	        params.flash();
-	        index();
-	    }
-		List<User> results = null;
-		if (type.equals("person"))
-			results = User.findBySearch(search);
-		else if (type.equals("university"))
-			results = null;
-		render(search, type, results);
+  public static void index() {
+        searchPerson(null);
+  }
+  
+  public static void searchPerson(@Required String search) {
+      if (validation.hasErrors())
+          render();
+    List<User> results = User.findBySearch(search);
+    render(search, results);
+  }
+  
+  public static void searchUniversity(@Required String search) {
+      if (validation.hasErrors())
+          render();
+    List<University> results = University.findBySearch(search);
+    render(search, results);
   }
 }
