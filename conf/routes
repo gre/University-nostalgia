@@ -12,7 +12,7 @@ GET    /logout                                   Application.logout
 GET     /                                        Main.index
 
 GET     /find                                    Finder.index
-PUT     /find                                    Finder.search
+GET     /find/search                             Finder.search
 
 GET     /profile                                 Profile.index
 GET     /profile/infos                           Profile.infos

@@ -1,6 +1,9 @@
 package models;
 
 import javax.persistence.*; 
+
+import play.db.helper.SqlQuery;
+import play.db.helper.SqlSelect;
 import play.db.jpa.*;
 import play.data.validation.*;
 
@@ -71,5 +74,22 @@ public class User extends Model {
   public static User findByEmail(String email) {
 	  return find("email = ?", email).first();
   }
-
+	
+	public static List<User> findBySearch(String search) {
+		List<User> users = new ArrayList<User>();
+		String[] words = search.split("[ ]+");
+		
+		String query = "";
+		
+		for(String word : words) {
+			if(!query.equals(""))
+				query += " and ";
+			String w = SqlQuery.inlineParam("%"+word+"%");
+			query += "(email like "+w+" or firstname like "+w+" or lastname like "+w+" )";
+		}
+		play.Logger.debug(query);
+		
+		users = find(query).fetch();
+		return users;
+	}
 }

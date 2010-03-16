@@ -1,0 +1,23 @@
+#{extends 'main.html' /}
+
+%{
+  currentNav = 'find';
+}%
+
+<div>
+  #{form @Finder.search()}
+    <p>
+      <select name="type">
+        <option value="person">Trouver une personne</option>
+        <option value="university">Trouver une université</option>
+      </select>
+    </p>
+    <p>
+      <label for="findName">Nom, prénom ou email</label>
+      <input type="text" id="findName" name="search" style="width: 420px;" value="${search}" />
+      <button style="float: right;">Rechercher</button>
+    </p>
+  #{/form}
+</div>
+
+#{doLayout /}

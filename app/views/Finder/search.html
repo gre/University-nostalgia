@@ -1,0 +1,17 @@
+#{extends 'Finder/layout.html' /}
+
+#{if type=='person'}
+*{ une personne }*
+<ul>
+#{list items:results, as:'user'}
+	<li>
+		<span class="user"><a href="@{Users.view(user.id)}">${user.firstname} ${user.lastname}</a></span>
+		<span class="email">${user.email}</span>
+	</li>
+#{/list}
+</ul>
+#{/if}
+#{else}#{if type=='university'}
+*{ une université }*
+
+#{/if}#{/else}
