@@ -55,6 +55,7 @@
       #{/else}
     </span> 
     <span class="date">à ${new java.text.SimpleDateFormat().format(message.date)}</span>
+    <a class="floatright clearboth delete" href="@{Messages.delete(message.id)}?x-http-method-override=DELETE">Supprimer</a>
     <div class="message">
       ${message.content}
     </div>

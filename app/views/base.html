@@ -49,6 +49,11 @@
         var selected = $('#wrapper > nav .selected');
         if(selected[0])
           $('#selection').show().css('left', Math.floor(selected.parent().width()/2 - 15 + selected.parent().position().left)+'px');
+          var speed = 1000;
+          $('#flashInfo').hide().fadeIn(speed);
+          setTimeout(function() {
+            $('#flashInfo').fadeOut(speed);
+          }, 3000);
       })
     </script>
   </body>
