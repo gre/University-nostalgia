@@ -8,6 +8,7 @@ public class UserInfo {
     
     public boolean isActivate;
     public boolean isAdmin;
+    public boolean isFriend;
     
     public String firstname;
     public String lastname;
@@ -23,5 +24,11 @@ public class UserInfo {
         lastname = user.lastname;
         address = user.address;
         phone = user.phone;
+        isFriend = false;
+    }
+    
+    public UserInfo setFriend(boolean isFriend) {
+      this.isFriend = isFriend;
+      return this;
     }
 }

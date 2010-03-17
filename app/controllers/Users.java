@@ -4,10 +4,6 @@ import java.io.File;
 import play.vfs.VirtualFile;
 
 public class Users extends Secure {
-    
-	public static void list() {
-        render();
-	}
   
 	public static void view(Long id) {
         render();

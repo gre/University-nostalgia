@@ -80,14 +80,12 @@ public class User extends Model {
 		String[] words = search.split("[ ]+");
 		
 		String query = "";
-		
 		for(String word : words) {
 			if(!query.equals(""))
 				query += " and ";
 			String w = SqlQuery.inlineParam("%"+word+"%");
 			query += "(email like "+w+" or firstname like "+w+" or lastname like "+w+" )";
 		}
-		play.Logger.debug(query);
 		
 		users = find(query).fetch();
 		return users;

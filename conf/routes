@@ -30,12 +30,10 @@ GET     /messages/{id}                           Messages.view
 PUT     /messages/?                              Messages.create
 DELETE  /messages/{id}                           Messages.delete
 
-GET     /users/?                                 Users.list
 GET     /users/{id}                              Users.view
 GET     /users/{id}/avatar                       Users.avatar
 
 GET     /friends/?                               Friends.list
-GET     /friends/{id}                            Friends.view
 PUT     /friends/{id}                            Friends.inviteOrAccept
 DELETE  /friends/{id}                            Friends.delete
 

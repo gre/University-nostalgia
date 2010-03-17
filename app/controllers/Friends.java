@@ -9,12 +9,8 @@ public class Friends extends Secure {
     User connect = connectedUser();
     List<UserInfo> friends = new ArrayList<UserInfo>();
     for(User friend : connect.friends)
-      friends.add(new UserInfo(friend));
+      friends.add(new UserInfo(friend).setFriend(friend.friends.indexOf(connect)!=-1));
     render(friends);
-	}
-  
-	public static void view(Long id) {
-    render();
 	}
   
 	public static void inviteOrAccept(Long id) {

@@ -14,13 +14,16 @@ public class Bootstraper extends Job {
 			Fixtures.deleteAll();
 			/* Fixtures.load("jobs/bootstraps/diploma.yml"); */
 			Fixtures.load("bootstraps/user.yml");
+			/*
+			// make users all friends
 			List<User> users = User.findAll();
 			for (User u : users)
 				for (User user : users)
 					if (!u.equals(user))
-						user.friends.add(u); // make users all friends
+						user.friends.add(u);
 			for (User u : users)
 				u.save();
+			*/
 		}
 	}
 

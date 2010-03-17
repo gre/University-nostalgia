@@ -1,14 +1,28 @@
 User(user):
-    email: user@iut-fbleau.fr
+    email: user
     password: user
-    firstname: USER
-    lastname: user
+    firstname: DUTRONC
+    lastname: Jacques
     isActivate: true
   
 User(master):
-    email: master@iut-fbleau.fr
+    email: master
     password: master
     firstname: MASTER
-    lastname: master
+    lastname: Jean
     isActivate: true
     isAdmin: true
+
+User(toto):
+    email: toto
+    password: toto
+    firstname: MOUSTO
+    lastname: Georges
+    isActivate: true
+
+User(titi):
+    email: titi
+    password: titi
+    firstname: Konieck
+    lastname: Yann
+    isActivate: true
