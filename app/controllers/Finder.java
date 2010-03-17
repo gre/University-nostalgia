@@ -18,7 +18,8 @@ public class Finder extends Secure {
           render();
     List<UserInfo> results = new ArrayList<UserInfo>();
     for(User u : User.findBySearch(search))
-      results.add(new UserInfo(u).setFriend(u.friends.indexOf(current)!=-1));
+			if(u.id != current.id)
+      	results.add(new UserInfo(u, current));
     render(search, results);
   }
   

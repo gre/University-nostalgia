@@ -1,12 +1,23 @@
 #{extends 'Friends/layout.html' /}
 
 
+#{if requests?.size()}
+<h3>Demandes d'amitié</h3>
+<ul class="itemList">
+#{list items: requests, as:'friend'}
+  <li>
+    #{userInfo user:friend /}
+  </li>
+#{/list}
+</ul>
+#{/if}
+
 #{if friends?.size()}
+<h3>Amis</h3>
 <ul class="itemList">
 #{list items: friends, as:'friend'}
   <li>
-    <span class="user"><a href="@{Users.view(friend.id)}">${friend.firstname} ${friend.lastname}</a></span>
-    <span class="email">${friend.email}</span>
+    #{userInfo user:friend /}
   </li>
 #{/list}
 </ul>

@@ -13,11 +13,11 @@ public class MessageInfo {
     
     public Date date;
     
-    public MessageInfo(Message m) {
+    public MessageInfo(Message m, User me) {
         id = m.id;
         content = m.content;
-        sender = new UserInfo(m.sender);
-        receiver = new UserInfo(m.receiver);
+        sender = new UserInfo(m.sender, me);
+        receiver = new UserInfo(m.receiver, me);
         date = m.date;
     }
 }

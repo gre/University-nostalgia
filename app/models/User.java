@@ -45,15 +45,21 @@ public class User extends Model {
 	return address;
   }
 	
-  public User(String email, String password, String firstname, String lastname) {
+	public User() {
 		isActivate = false;
 		isAdmin = false;
+    universities = new ArrayList<UniversityYear>();
+    corporations = new ArrayList<Corporation>();
+		friends = new ArrayList<User>();
+		
+	}
+	
+  public User(String email, String password, String firstname, String lastname) {
+		super();
 		this.email = email;
 		this.password = password;
 		this.firstname = firstname;
 		this.lastname = lastname;
-        universities = new ArrayList<UniversityYear>();
-        corporations = new ArrayList<Corporation>();
 	}
 
   public boolean checkPassword(String pwd) {
