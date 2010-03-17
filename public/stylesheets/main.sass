@@ -113,6 +113,8 @@ body
   :float left
 .clearboth  
   :clear both
+.center
+  :text-align center
 
 /* general style and colors */
 
@@ -242,6 +244,7 @@ form
     :background white
     :min-height 250px
     nav
+      :margin-bottom 10px
       :display block
       background-color = !main_nav_ul_back
       :font-size 1em
@@ -364,23 +367,31 @@ form
           color = !link_footer+#222
 
 /* section */
+!box_back_from = #F0F0F0
+!box_back_to = #FDFDFD
 #main > section
   h1, h2, h3, h4
     :font-weight bold
     font-family = !font_title
-    :padding 0 5px
+    :padding 5px 10px
   h1
     :font-size 2em
     :line-height 2em
   h2
-    :font-size 1.8em
-    :line-height 1.8em
+    :font-size 1.7em
+    :line-height 1.7em
   h3
-    :font-size 1.6em
-    :line-height 1.6em
+    :font-size 1.3em
+    :line-height 1.3em
   h4
-    :font-size 1.4em
-    :line-height 1.4em
+    :font-size 1.2em
+    :line-height 1.2em
+  .box
+    :padding 5px
+    :margin-bottom 10px
+    +vertical-gradient(!box_back_from, !box_back_to)
+    +border-radius(10px)
+
 
 /* aside */
 #main > aside
@@ -471,6 +482,12 @@ ul.itemList
       :float right
 
 .userInfo
-  .isFriend, .invited
+  .isFriend, .invited, .isMe
     :font-style italic
     :color silver
+  .detail
+    :padding 2px
+    p
+      :margin 2px 0
+      :padding 2px 5px
+      

@@ -6,6 +6,7 @@ public class UserInfo {
     
     public String email;
     
+    public boolean isMe;
     public boolean isActivate;
     public boolean isAdmin;
     public boolean isFriend;
@@ -26,7 +27,7 @@ public class UserInfo {
       lastname = user.lastname;
       address = user.address;
       phone = user.phone;
-      isFriend = false;
+      isMe = (user.id == me.id);
       isFriend = (me.friends.indexOf(user)!=-1);
       FriendRequest fr = FriendRequest.findBy2Users(user, me);
       isInvited = (fr!=null && fr.caller.id==me.id);

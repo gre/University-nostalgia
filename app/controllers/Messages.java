@@ -32,10 +32,9 @@ public class Messages extends Secure {
       else
           notFound();
       
-      
       List<MessageInfo> msges = new ArrayList<MessageInfo>();
       for(Message m : messages)
-          msges.add(new MessageInfo(m));
+          msges.add(new MessageInfo(m, connected));
       render(msges);
   }
   

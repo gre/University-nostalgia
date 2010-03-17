@@ -5,6 +5,7 @@
 }%
 
 #{set 'aside'}
+  #{if connected.friends}
   <div class="box">
     <h3>Envoyer un message</h3>
     #{form @Messages.create()}
@@ -32,6 +33,12 @@
     $('textarea#content').autoResize();
   });
   </script>
+  #{/if}
+  #{else}
+  <div class="box">
+    <a href="@{Finder.index()}">Trouver un ami à ajouter</a>
+  </div>
+  #{/else}
 #{/set}
 
 #{doLayout /}
