@@ -81,10 +81,12 @@ public class User extends Model {
   }
   
   public static void makeFriends(User u1, User u2) {
-    u1.friends.add(u2);
-    u2.friends.add(u1);
-    u1.save();
-    u2.save();
+    if(u1.id != u2.id && u1.friends.indexOf(u2)==-1) {
+      u1.friends.add(u2);
+      u2.friends.add(u1);
+      u1.save();
+      u2.save();
+    }
   }
   
   public static User findByEmail(String email) {
