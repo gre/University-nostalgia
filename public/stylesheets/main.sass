@@ -505,13 +505,20 @@ ul.itemList
       :clear left
       :margin 2px 0
       &:after
-        :content " : "
+        :content ": "
     dd
       :float left
       :margin 2px 0
+      :padding-left 5px
       
   img.avatar
     :vertical-align middle
     :width 32px
     :height 32px
     :margin-right 5px
+
+
+.userView
+  .firstname, .lastname
+    :font-size 1.4em
+    :font-weight bold

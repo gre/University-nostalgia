@@ -2,14 +2,14 @@
 User(user):
     email: user
     password: user
-    firstname: DUTRONC
+    firstname: Dutronc
     lastname: Jacques
     isActivate: true
   
 User(master):
     email: master
     password: master
-    firstname: MASTER
+    firstname: Master
     lastname: Jean
     isActivate: true
     isAdmin: true

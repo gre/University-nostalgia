@@ -5,10 +5,11 @@
 <div class="box center">
   <img class="avatar" src="@{Users.avatar(user.id)}" />
 </div>
+#{sendMessageBox friends: user /}
 #{/if}
 #{/set}
 
-<div class="userInfo box">
+<div class="userView box">
   #{userInfo user:user, withDetail:true /}
 </div>
 
@@ -27,19 +28,4 @@
   </div>
   #{/if}
 
-
 #{/if}
-
-<script language="javascript">
-$(function(){
-  $('.inviteUser').click(function(){
-    $.ajax({
-      url: $(this).attr('href'),
-      success: function(){ 
-        window.location = window.location;
-      }
-    });
-    return false;
-  });
-});
-</script>

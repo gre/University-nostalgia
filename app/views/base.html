@@ -55,6 +55,25 @@
           setTimeout(function() {
             $('#flashInfo').fadeOut(speed);
           }, 3000);
+        
+        var touchLinkAndRefresh = function(node){
+          $.ajax({
+            url: $(node).attr('href'),
+            success: function(){ 
+              window.location = window.location;
+            }
+          });
+        };
+        
+        $('.actions a').click(function(){
+          if($(this).hasClass('delete')) {
+            if(confirm("Êtes vous sûr de vouloir supprimer ?"))
+              touchLinkAndRefresh(this);
+          }
+          else
+            touchLinkAndRefresh(this);
+          return false;
+        });
       })
     </script>
   </body>
