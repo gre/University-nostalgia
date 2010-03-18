@@ -1,11 +1,18 @@
 #{extends 'main.html' /}
 
 #{set 'aside'}
+#{if user.isFriend||user.isMe}
+  <div class="box center">
+    <img class="avatar" src="@{Users.avatar(user.id)}" />
+  </div>
+#{/if}
 #{if user.isFriend}
-<div class="box center">
-  <img class="avatar" src="@{Users.avatar(user.id)}" />
-</div>
-#{sendMessageBox friends: user /}
+  #{sendMessageBox friends: user /}
+#{/if}
+#{if user.isMe}
+  <div class="box">
+    <a href="@{Profile.index()}" >Editer mon profil</a>
+  </div>
 #{/if}
 #{/set}
 
@@ -13,11 +20,11 @@
   #{userInfo user:user, withDetail:true /}
 </div>
 
-#{if user.isFriend}
+#{if user.isFriend||user.isMe}
 
   #{if friends}
   <div>
-    <h4>Amis (${friends.size()})</h4>
+    <h4>Amis de ${user.firstname} ${user.lastname} (${friends.size()})</h4>
     <ul class="itemList">
     #{list items:friends, as:'friend'}
       <li>

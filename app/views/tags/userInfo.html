@@ -6,10 +6,10 @@
 <div class="userInfo">
   <div class="actions">
   #{if user.isMe}
-    <span class="isMe">C'est vous !</span>
+    <span class="isMe">C'est moi !</span>
   #{/if}
   #{if user.isFriend}
-    <a href="@{Friends.delete(user.id)}?x-http-method-override=DELETE" class="delete deleteUser">Retirer de sa liste d'amis</a>
+    <a href="@{Friends.delete(user.id)}?x-http-method-override=DELETE" class="delete deleteUser">Retirer de ma liste d'amis</a>
   #{/if}
   #{if user.isInvited}
     <span class="invited">invitation en attente</span>
@@ -17,7 +17,7 @@
   #{if !user.isFriend && !user.isInvited && !user.isMe}
     <a href="@{Friends.inviteOrAccept(user.id)}?x-http-method-override=PUT" class="floatright invite inviteUser">
       #{if user.hasRequested}Accepter l'invitation#{/if}
-      #{else}Inviter dans sa liste d'ami#{/else}
+      #{else}Inviter dans ma liste d'amis#{/else}
     </a>
   #{/if}
   </div>
@@ -27,7 +27,7 @@
     <span class="firstname">${user.firstname}</span>&nbsp;<span class="lastname">${user.lastname}</span>
   </a>
   
-  #{if withDetail && user.isFriend}
+  #{if withDetail && (user.isFriend || user.isMe)}
   <dl class="detail">
     #{if user.email}<dt>Email</dt><dd class="email">${user.email}</dd>#{/if}
     #{if user.phone}<dt>Téléphone</dt><dd class="phone">${user.phone}</dd>#{/if}

@@ -1,23 +1,21 @@
-#{extends 'Friends/layout.html' /}
+#{extends 'base.xml' /}
 
 #{if requests?.size()}
-<h3>Demandes d'amitié</h3>
-<ul class="itemList">
+<requests>
 #{list items: requests, as:'friend'}
-  <li>
+  <request id="${friend.id}">
     #{userInfo user:friend /}
-  </li>
+  </request>
 #{/list}
-</ul>
+</requests>
 #{/if}
 
 #{if friends?.size()}
-<h3>Amis</h3>
-<ul class="itemList">
+<friends>
 #{list items: friends, as:'friend'}
-  <li>
+  <friend>
     #{userInfo user:friend /}
-  </li>
+  </friend>
 #{/list}
-</ul>
+</friends>
 #{/if}

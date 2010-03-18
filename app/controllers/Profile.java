@@ -1,4 +1,5 @@
 package controllers;
+import play.mvc.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -6,7 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.channels.FileChannel;
 
-import models.User;
+import models.*;
 
 import play.data.validation.*;
 import play.i18n.Messages;
@@ -15,6 +16,13 @@ import play.vfs.VirtualFile;
 
 public class Profile extends Secure {
 	
+    @Before
+    static void profileGlobals() {
+      User me = connectedUser();
+      if(me!=null)
+        renderArgs.put("connectedUserInfo", new UserInfo(me, me));
+    }
+  
     public static void index() {
         infos();
     }
