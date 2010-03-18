@@ -40,7 +40,14 @@ public class Friends extends Secure {
 		list();
 	}
   
-	public static void delete(Long id) {
-    render();
+	public static void delete(@Required Long id) {
+		if(Validation.hasErrors())
+			forbidden();
+    User connect = connectedUser();
+		User user = User.findById(id);
+		notFoundIfNull(user);
+		if(connect.friends.remove(user))
+			connect.save();
+    list();
 	}
 }

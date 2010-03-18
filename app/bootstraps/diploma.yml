@@ -1,5 +1,13 @@
-Diploma(DUT)
-  name: DUT
 
-Diploma(Licence)
-  name: Licence
+  
+Diploma(DUT):
+    name: DUT
+
+Diploma(Licence):
+    name: Licence
+
+Diploma(Master):
+    name: Master
+
+Diploma(Bac):
+    name: Baccalauréat

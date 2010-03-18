@@ -5,5 +5,10 @@ import play.db.jpa.*;
 
 @Entity
 public class Diploma extends Model {  
-  String name;
+
+  public String name;
+  
+  public Diploma(String name) {
+    this.name = name;
+  }
 }

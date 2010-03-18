@@ -15,7 +15,7 @@
     #{/if}
     #{else}
       #{if user.isFriend}
-        <span class="isFriend floatright">déjà dans votre liste d'amis</span>
+        <a href="@{Friends.delete(user.id)}?x-http-method-override=DELETE" class="delete deleteUser floatright">Retirer de sa liste d'amis</a>
       #{/if}
       #{if user.isInvited}
         <span class="invited floatright">invitation en attente</span>

@@ -69,7 +69,6 @@ public class User extends Model {
   public boolean isAdmin() {
 	  return isAdmin;
   }
-  
   public boolean isActivate() {
 	  return isActivate;
   }
@@ -90,7 +89,7 @@ public class User extends Model {
 			if(!query.equals(""))
 				query += " and ";
 			String w = SqlQuery.inlineParam("%"+word+"%");
-			query += "(email like "+w+" or firstname like "+w+" or lastname like "+w+" )";
+			query += "(email like "+w+" or lower(firstname) like lower("+w+") or lower(lastname) like lower("+w+") )";
 		}
 		
 		users = find(query).fetch();

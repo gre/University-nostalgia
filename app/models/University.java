@@ -7,7 +7,11 @@ import java.util.*;
 
 @Entity
 public class University extends Model {  
-    String name;
+    public String name;
+    
+    public University(String name) {
+      this.name = name;
+    }
     
     public static List<University> findBySearch(String name) {
         return find("name like ?1", "%"+name+"%").fetch();
