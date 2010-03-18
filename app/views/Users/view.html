@@ -1,45 +1,33 @@
 #{extends 'main.html' /}
 
 #{set 'aside'}
+#{if user.isFriend}
 <div class="box center">
   <img class="avatar" src="@{Users.avatar(user.id)}" />
 </div>
+#{/if}
 #{/set}
 
 <div class="userInfo box">
-	#{if !user.isFriend && !user.isInvited}
-	<a href="@{Friends.inviteOrAccept(user.id)}?x-http-method-override=PUT" class="floatright invite inviteUser">
-	#{if user.hasRequested}Accepter l'invitation#{/if}
-	#{else}Inviter dans sa liste d'ami#{/else}
-	</a>
-	#{/if}
-	#{else}
-	#{if user.isFriend}
-	<span class="isFriend floatright">déjà dans votre liste d'amis</span>
-	#{/if}
-	#{if user.isInvited}
-	<span class="invited floatright">invitation en attente</span>
-	#{/if}
-	#{/else}
-	<h3>${user.firstname} ${user.lastname}</h3>
-  <div class="detail">
-    <p class="email">${user.email}</p>
-    <p class="phone">${user.phone}</p>
-    <p class="address">${user.address}</p>
-  </div>
+  #{userInfo user:user, withDetail:true /}
 </div>
 
-#{if friends}
-<div>
-  <h4>Amis (${friends.size()})</h4>
-  <ul class="itemList">
-  #{list items:friends, as:'user'}
-    <li>
-      #{userInfo user:user /}
-    </li>
-  #{/list}
-  </ul>
-</div>
+#{if user.isFriend}
+
+  #{if friends}
+  <div>
+    <h4>Amis (${friends.size()})</h4>
+    <ul class="itemList">
+    #{list items:friends, as:'friend'}
+      <li>
+        #{userInfo user:friend /}
+      </li>
+    #{/list}
+    </ul>
+  </div>
+  #{/if}
+
+
 #{/if}
 
 <script language="javascript">

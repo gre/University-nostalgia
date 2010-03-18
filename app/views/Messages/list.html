@@ -30,12 +30,19 @@
         <a href="@{Users.view(message.receiver.id)}">${message.receiver.firstname} ${message.receiver.lastname}</a>
       #{/else}
     </span> 
-    <span class="date">à ${new java.text.SimpleDateFormat().format(message.date)}</span>
-    <a class="floatright clearboth delete" href="@{Messages.delete(message.id)}?x-http-method-override=DELETE">Supprimer</a>
+    <span class="date">${new java.text.SimpleDateFormat().format(message.date)}</span>
     <div class="message">
       ${message.content.nl2br()}
+    </div>
+    <div class="actions floatright clearboth">
+      <a class="delete" href="@{Messages.delete(message.id)}?x-http-method-override=DELETE">Supprimer</a>
     </div>
   </li>
 #{/list}
 </ul>
 #{/if}
+#{else}
+<div class="box">
+  <p>Pas de messages.</p>
+</div>
+#{/else}

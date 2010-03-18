@@ -23,8 +23,12 @@ public class User extends Model {
   public boolean isActivate;
   public boolean isAdmin;
   
-  @OneToMany
-  public List<User> friends;
+  @ManyToMany
+  @JoinTable(name="USER_FRIEND")
+  public List<User> friends = new ArrayList<User>();
+
+  @ManyToMany(mappedBy = "friends")
+  List<User> friendsOf = new ArrayList<User>();
 
   @Required
   public String firstname;
@@ -74,6 +78,13 @@ public class User extends Model {
   }
   public void activate() {
 	  isActivate = true;
+  }
+  
+  public static void makeFriends(User u1, User u2) {
+    u1.friends.add(u2);
+    u2.friends.add(u1);
+    u1.save();
+    u2.save();
   }
   
   public static User findByEmail(String email) {

@@ -1,20 +1,20 @@
-Speciality():
+Speciality(info):
   name: Informatique
-Speciality():
+Speciality(mp):
   name: Mesures Physiques
-Speciality():
+Speciality(gim):
   name: Génie Industriel et Maintenance
-Speciality():
+Speciality(src):
   name: Services et réseaux de communication
-Speciality():
+Speciality(geii):
   name: Génie Electrique et Informatique Industrielle
-Speciality():
+Speciality(ch):
   name: Chimie
-Speciality():
+Speciality(gb):
   name: Génie Biologique
-Speciality():
+Speciality(gc):
   name: Génie Civil
-Speciality():
+Speciality(gmp):
   name: Génie Mécanique et Productique
-Speciality():
+Speciality(gtr):
   name: Génie des Télécommunications et Réseaux

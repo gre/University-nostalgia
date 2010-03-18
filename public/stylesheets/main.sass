@@ -466,6 +466,7 @@ ul.itemList
   border = 1px solid !list_border_hard
   border-top = 1px solid !list_border_light
   li
+    :overflow auto
     border = 1px solid !list_border_light
       :top none
     :padding 5px
@@ -480,14 +481,37 @@ ul.itemList
     .date
       :font-style italic
       :float right
+    .actions
+      a
+        :text-decoration none
 
 .userInfo
-  .isFriend, .invited, .isMe
+  :overflow auto
+  :clear both
+  a
+    :text-decoration none
+  .user
+    :font-size 1.2em
+  .actions
     :font-style italic
     :color silver
+    :float right
   .detail
-    :padding 2px
-    p
+    :padding 4px
+      :left 40px
+    dt
+      :font-weight bold
+      :float left
+      :clear left
       :margin 2px 0
-      :padding 2px 5px
+      &:after
+        :content " : "
+    dd
+      :float left
+      :margin 2px 0
       
+  img.avatar
+    :vertical-align middle
+    :width 32px
+    :height 32px
+    :margin-right 5px

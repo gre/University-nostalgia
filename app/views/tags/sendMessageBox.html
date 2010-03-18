@@ -1,0 +1,38 @@
+%{
+  friends = _friends;
+}%
+
+#{if friends}
+  <div class="box">
+    <h3>Envoyer un message</h3>
+    #{form @Messages.create()}
+      <p>
+      <label for="receiver">Envoyer à</label>
+      <select name="receiver" id="receiver">
+        #{list items:friends, as:'friend'}
+          <option value="${friend.id}">${friend.firstname} ${friend.lastname}</option>
+        #{/list}
+      </select>
+      <span class="error">#{error 'receiver' /}</span>
+      </p>
+      <p>
+        <label for="content">Contenu du message</label>
+        <textarea id="content" name="content"></textarea>
+        <span class="error">#{error 'content' /}</span>
+      </p>
+      <p class="buttons">
+        <button>Envoyer</button>
+      </p>
+    #{/form}
+  </div>
+  <script language="javascript">
+  $(function(){
+    $('textarea#content').autoResize();
+  });
+  </script>
+  #{/if}
+  #{else}
+  <div class="box">
+    <a href="@{Finder.index()}">Trouver un ami à ajouter</a>
+  </div>
+  #{/else}

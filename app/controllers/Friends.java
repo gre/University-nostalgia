@@ -30,10 +30,7 @@ public class Friends extends Secure {
 			fr = new FriendRequest(connect, user).save();
 		if(fr.concerned.id==connect.id) {
 			fr.delete();
-			user.friends.add(connect);
-			user.save();
-			connect.friends.add(user);
-			connect.save();
+      User.makeFriends(connect, user);
 		}
 		if(request.format.contains("json"))
 			renderJSON("{}");
@@ -46,8 +43,11 @@ public class Friends extends Secure {
     User connect = connectedUser();
 		User user = User.findById(id);
 		notFoundIfNull(user);
-		if(connect.friends.remove(user))
+		if(connect.friends.remove(user)) {
 			connect.save();
+      user.friends.remove(connect);
+      user.save();
+    }
     list();
 	}
 }

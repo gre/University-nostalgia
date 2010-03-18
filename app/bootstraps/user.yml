@@ -1,3 +1,4 @@
+#just for developping...
 User(user):
     email: user
     password: user
@@ -13,16 +14,43 @@ User(master):
     isActivate: true
     isAdmin: true
 
-User(toto):
-    email: toto
-    password: toto
-    firstname: MOUSTO
-    lastname: Georges
+#real user for project
+User(gaetan):
+    email: gaetan@iut-fbleau.fr
+    password: gaetan
+    firstname: Renaudeau
+    lastname: Gaetan
+    address: 01 rue de quelque part, 77321 Ailleurs
+    telephone: 01 01 01 01 01
     isActivate: true
 
-User(titi):
-    email: titi
-    password: titi
-    firstname: Konieck
-    lastname: Yann
+User(nicolae):
+    email: nicolae@iut-fbleau.fr
+    password: nicolae
+    firstname: Namolovan
+    lastname: Nicolae
+    address: 01 rue de quelque part, 77321 Ailleurs
+    telephone: 01 01 01 01 01
+    isActivate: true
+
+User(jean):
+    email: jean@iut-fbleau.fr
+    password: jean
+    firstname: Mauret
+    lastname: Jean
+    address: 01 rue de quelque part, 77000 Melun
+    isActivate: true
+
+User(alfred):
+    email: alfred@iut-fbleau.fr
+    password: alfred
+    firstname: Robert
+    lastname: Alfred
+    isActivate: true
+
+User(benny):
+    email: benny@iut-fbleau.fr
+    password: benny
+    firstname: Americanos
+    lastname: Benny
     isActivate: true

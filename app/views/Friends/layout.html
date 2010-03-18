@@ -5,9 +5,7 @@
 }%
 
 #{set 'aside'}
-  <div class="box">
-    <a href="@{Finder.index()}">Trouver un ami à ajouter</a>
-  </div>
+  #{sendMessageBox friends:connected.friends /}
 #{/set}
 
 #{doLayout /}

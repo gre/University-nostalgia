@@ -1,30 +1,40 @@
 %{
   user = _user;
+  withDetail = _withDetail;
 }%
 
 <div class="userInfo">
+
+  
+  <div class="actions">
+  #{if user.isMe}
+    <span class="isMe">C'est vous !</span>
+  #{/if}
+  #{if user.isFriend}
+    <a href="@{Friends.delete(user.id)}?x-http-method-override=DELETE" class="delete deleteUser">Retirer de sa liste d'amis</a>
+  #{/if}
+  #{if user.isInvited}
+    <span class="invited">invitation en attente</span>
+  #{/if}
   #{if !user.isFriend && !user.isInvited && !user.isMe}
     <a href="@{Friends.inviteOrAccept(user.id)}?x-http-method-override=PUT" class="floatright invite inviteUser">
       #{if user.hasRequested}Accepter l'invitation#{/if}
       #{else}Inviter dans sa liste d'ami#{/else}
     </a>
   #{/if}
-  #{else}
-    #{if user.isMe}
-      <span class="isMe floatright">C'est vous !</span>
-    #{/if}
-    #{else}
-      #{if user.isFriend}
-        <a href="@{Friends.delete(user.id)}?x-http-method-override=DELETE" class="delete deleteUser floatright">Retirer de sa liste d'amis</a>
-      #{/if}
-      #{if user.isInvited}
-        <span class="invited floatright">invitation en attente</span>
-      #{/if}
-    #{/else}
-  #{/else}
-  <span class="user">
-    #{if !user.isMe}<a href="@{Users.view(user.id)}">#{/if}
-      ${user.firstname} ${user.lastname}
-    #{if !user.isMe}</a>#{/if}
-  </span>
+  </div>
+  
+  <a class="user" href="@{Users.view(user.id)}">
+    <img class="avatar" src="@{Users.avatar(user.id)}" width="50" height="50" />
+    <span class="firstname">${user.firstname}</span>&nbsp;<span class="lastname">${user.lastname}</span>
+  </a>
+  
+  #{if withDetail && user.isFriend}
+  <dl class="detail">
+    <dt>Email</dt><dd class="email">${user.email}</dd>
+    <dt>Téléphone</dt><dd class="phone">${user.phone}</dd>
+    <dt>Adresse</dt><dd class="address">${user.address}</dd>
+  </dl>
+  #{/if}
+  
 </div>
