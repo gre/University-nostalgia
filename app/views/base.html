@@ -4,7 +4,12 @@
   <head>
     <title>#{get 'title' /}</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    #{stylesheet src='main.sass', media:'screen'/}
+    #{if isMobile}
+      #{stylesheet src='mobile.sass', media:'screen'/}
+    #{/if}
+    #{else}
+      #{stylesheet src='main.sass', media:'screen'/}
+    #{/else}
     #{get 'moreStyles' /}
     <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
     #{script 'jquery-1.4.2.min.js' /}
@@ -39,8 +44,12 @@
       <footer>
         <ul>
           <li>© 2010 Renaudeau and Namolovan</li>
-          <li><a href="/">About</a></li>
-          <li><a href="/">Contact</a></li>
+          #{if isMobile}
+          <li><a href="@{Application.setMobile(false)}">Désactiver le mode mobile</a></li>
+          #{/if}
+          #{else}
+          <li><a href="@{Application.setMobile(true)}">Activer le mode mobile</a></li>
+          #{/else}
         </ul>
       </footer>
     </div>

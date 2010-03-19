@@ -11,6 +11,8 @@ GET    /logout                                   Application.logout
 # Home page
 GET     /                                        Main.index
 
+GET     /mobile/{active}                         Application.setMobile
+
 GET     /find                                    Finder.index
 GET     /find/person                             Finder.searchPerson
 GET     /find/university                         Finder.searchUniversity

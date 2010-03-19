@@ -2,7 +2,8 @@ package controllers;
 
 import play.i18n.Messages;
 import play.mvc.*;
-import models.User;
+import play.mvc.Http.Header;
+import models.*;
 import play.data.validation.*;
 import play.Logger;
 
@@ -17,9 +18,21 @@ public class Application extends Controller {
     @Before
     static void globals() {
         renderArgs.put("connected", connectedUser());
+        Header header = request.headers.get("user-agent");
+        boolean mobileEnabled = false;
+        mobileEnabled = (header != null && header.value().contains("Smartphone"));
+        String style = session.get("style");
+        if(style!=null && style.equals("mobile"))
+          mobileEnabled = true;
+        renderArgs.put("isMobile", mobileEnabled);
     }
     
     // ~~~~~~~~~~~~ Actions
+    
+    public static void setMobile(boolean active) {
+      session.put("style", active?"mobile":"default");
+      redirect("/");
+    }
     
     public static void index() {
         if(connectedUser() != null)
