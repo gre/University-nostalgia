@@ -46,6 +46,9 @@ DELETE  /corporations/{id}                       Corporations.delete
 GET     /universities/?                          Universities.list
 GET     /universities/{id}                       Universities.view
 
+GET     /backoffice/?                            Backoffice.index
+GET     /backoffice/user/activate/{id}          Backoffice.activateUser
+
 
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public

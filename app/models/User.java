@@ -108,4 +108,7 @@ public class User extends Model {
 		users = find(query).fetch();
 		return users;
 	}
+    public static List<User> getInactiveUsers() {
+        return User.find("isActivate = false").fetch();
+    }
 }
