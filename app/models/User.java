@@ -45,17 +45,19 @@ public class User extends Model {
   public String address;
   public String phone;
   
+  public Long avatarRevision;
+  
   public String getAddress() {
 	return address;
   }
 	
 	public User() {
-		isActivate = false;
-		isAdmin = false;
+    isActivate = false;
+    isAdmin = false;
     universities = new ArrayList<UniversityYear>();
     corporations = new ArrayList<Corporation>();
-		friends = new ArrayList<User>();
-		
+    friends = new ArrayList<User>();
+    avatarRevision = 0L;
 	}
 	
   public User(String email, String password, String firstname, String lastname) {

@@ -21,3 +21,14 @@
 #{/list}
 </ul>
 #{/if}
+
+#{if myRequests?.size()}
+<h3>Mes demandes</h3>
+<ul class="itemList">
+#{list items: myRequests, as:'friend'}
+  <li>
+    #{userInfo user:friend /}
+  </li>
+#{/list}
+</ul>
+#{/if}

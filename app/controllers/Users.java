@@ -20,8 +20,12 @@ public class Users extends Secure {
       render(user, friends);
 	}
 	
-	public static void avatar(Long id) {
+	public static void avatar(Long id, Long avatarRevision) {
+      if(avatarRevision==null)
+        avatarRevision = connectedUser().avatarRevision;
+      if(avatarRevision==null)
+        avatarRevision = 0L;
 	    VirtualFile avatar = VirtualFile.fromRelativePath("/data/users/"+id+"/avatar");
-	    renderBinary(avatar.exists() ? avatar.getRealFile() : VirtualFile.fromRelativePath("/public/images/avatar.png").getRealFile(), "avatar");
+	    renderBinary(avatar.exists() ? avatar.getRealFile() : VirtualFile.fromRelativePath("/public/images/avatar.png").getRealFile(), "avatar_"+avatarRevision);
 	}
 }

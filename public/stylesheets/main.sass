@@ -491,6 +491,8 @@ ul.itemList
    
 
 !action_color_delete = #A52A2A
+!action_color_refuse = #A52A2A
+!action_color_accept = #2A8CA5
 !action_color_invite = #2A8CA5
 !color_isme = #CCC183
 
@@ -499,11 +501,20 @@ ul.itemList
   :clear both
   a
     :text-decoration none
-    &.delete, &.refuse
+    :font-style normal
+    &.refuse
+      color = !action_color_refuse
+      &:hover
+        color = !action_color_refuse+#333
+    &.delete
       color = !action_color_delete
       &:hover
         color = !action_color_delete+#333
-    &.invite, &.accept
+    &.accept
+      color = !action_color_accept
+      &:hover
+        color = !action_color_accept+#333
+    &.invite
       color = !action_color_invite
       &:hover
         color = !action_color_invite+#333
@@ -513,12 +524,10 @@ ul.itemList
     :font-style italic
     :color silver
     :float right
+    :text-align right
     :font-size 0.9em
-    a
+    a, span
       :display block
-  .isMe
-    color = !color_isme
-    :font-weight bold
   .detail
     :padding 4px
       :left 40px

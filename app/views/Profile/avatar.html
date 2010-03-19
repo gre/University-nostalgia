@@ -6,9 +6,12 @@
 
 <div>
   <h3>Changer son avatar</h3>
+  <p>
+    <img class="avatar" src="@{Users.avatar(connected.id, connected.avatarRevision)}" />
+  </p>
   #{form @Profile.editAvatar(), enctype:'multipart/form-data' }
     <p>
-      <label for="avatar">Nom</label>
+      <label for="avatar">Fichier image</label>
       <input type="file" id="avatar" name="avatar" />
       <span class="error">#{error 'avatar' /}</span>
     </p>

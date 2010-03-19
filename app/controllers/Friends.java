@@ -13,7 +13,10 @@ public class Friends extends Secure {
     List<UserInfo> requests = new ArrayList<UserInfo>();
     for(FriendRequest request : FriendRequest.findRequestFor(connect))
       requests.add(new UserInfo(request.caller, connect));
-    render(friends, requests);
+    List<UserInfo> myRequests = new ArrayList<UserInfo>();
+    for(FriendRequest request : FriendRequest.findRequestBy(connect))
+      myRequests.add(new UserInfo(request.concerned, connect));
+    render(friends, requests, myRequests);
   }
   
   public static void inviteOrAccept(@Required Long id) {

@@ -25,4 +25,7 @@ public class FriendRequest extends Model {
   public static List<FriendRequest> findRequestFor(User user) {
     return find("concerned.id=?1", user.id).fetch();
   }
+  public static List<FriendRequest> findRequestBy(User user) {
+    return find("caller.id=?1", user.id).fetch();
+  }
 }

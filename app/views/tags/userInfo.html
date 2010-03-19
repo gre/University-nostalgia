@@ -33,7 +33,7 @@
   </div>
   
   <a class="user" href="@{Users.view(user.id)}">
-    <img class="avatar" src="@{Users.avatar(user.id)}" width="50" height="50" />
+    <img class="avatar" src="@{Users.avatar(user.id, user.avatarRevision)}" width="50" height="50" />
     <span class="firstname">${user.firstname}</span>&nbsp;<span class="lastname">${user.lastname}</span>
   </a>
   

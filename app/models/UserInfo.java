@@ -18,6 +18,8 @@ public class UserInfo {
     public String address;
     public String phone;
     
+    public Long avatarRevision;
+    
     public UserInfo(User user, User me) {
       id = user.id;
       email = user.email;
@@ -32,5 +34,6 @@ public class UserInfo {
       FriendRequest fr = FriendRequest.findBy2Users(user, me);
       isInvited = (fr!=null && fr.caller.id==me.id);
       hasRequested = (fr!=null && fr.concerned.id==me.id);
+      avatarRevision = user.avatarRevision;
     }
 }

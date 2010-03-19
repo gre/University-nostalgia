@@ -71,10 +71,13 @@ public class Profile extends Secure {
         }
         else {
             try {
-                File userDir = VirtualFile.fromRelativePath("/data/users/"+connectedUser().id+"/").getRealFile();
+                User connected = connectedUser();
+                File userDir = VirtualFile.fromRelativePath("/data/users/"+connected.id+"/").getRealFile();
                 if(!userDir.exists())
                     userDir.mkdirs();
                 Images.resize(avatar, new File(userDir, "avatar"), 96, 96);
+                connected.avatarRevision = connected.avatarRevision==null ? 0L : connected.avatarRevision+1;
+                connected.save();
             }
             catch(Exception e) {
                 informError();

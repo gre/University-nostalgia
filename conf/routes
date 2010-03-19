@@ -31,7 +31,7 @@ PUT     /messages/?                              Messages.create
 DELETE  /messages/{id}                           Messages.delete
 
 GET     /users/{id}                              Users.view
-GET     /users/{id}/avatar                       Users.avatar
+GET     /users/{id}/avatar/{avatarRevision}      Users.avatar
 
 GET     /friends/?                               Friends.list
 PUT     /friends/{id}                            Friends.inviteOrAccept
