@@ -4,18 +4,14 @@ import play.data.validation.*;
 import java.util.*;
 import play.mvc.*;
 
-public class Backoffice extends Secure {
+public class Backoffice extends SecureAdmin {
     
-    @Before
-    static void checkSecureAdmin() {
-        if (connectedUser() == null || connectedUser().isAdmin() == false)
-            redirect("/");
-    }
     public static void index() {
         List inactive = User.getInactiveUsers();
         System.out.println(inactive.size());
         render(inactive);
     }
+    
     public static void activateUser(Long id) {
         User user = User.findById(id);
         notFoundIfNull(user);

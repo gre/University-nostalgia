@@ -1,0 +1,17 @@
+#{extends 'main.html' /}
+
+%{
+  currentNav = 'backoffice';
+}%
+
+
+<nav>
+  <ul>
+    <li><a href="@{Backoffice.index}" class="">Inscriptions</a></li>
+    <li><a href="@{AdminUniversities.index}" class="">Universités</a></li>
+    <li><a href="@{AdminSpecialities.index}" class="">Spécialités</a></li>
+    <li><a href="@{AdminDiplomas.index}" class="">Diplômes</a></li>
+  </ul>
+</nav>
+
+#{doLayout /}

@@ -1,10 +1,10 @@
-#{extends 'Messages/layout.html' /}
+#{extends 'MessagesController/layout.html' /}
 
 <nav>
   <ul>
-    <li><a class="${flash.box=='all'?'selected':''}" href="@{Messages.list('all')}">Tous les messages</a></li>
-    <li><a class="${flash.box=='inbox'?'selected':''}" href="@{Messages.list('inbox')}">Boite de réception</a></li>
-    <li><a class="${flash.box=='sendbox'?'selected':''}" href="@{Messages.list('sendbox')}">Boite d'envoi</a></li>
+    <li><a class="${flash.box=='all'?'selected':''}" href="@{MessagesController.list('all')}">Tous les messages</a></li>
+    <li><a class="${flash.box=='inbox'?'selected':''}" href="@{MessagesController.list('inbox')}">Boite de réception</a></li>
+    <li><a class="${flash.box=='sendbox'?'selected':''}" href="@{MessagesController.list('sendbox')}">Boite d'envoi</a></li>
   </ul>
 </nav>
 
@@ -34,8 +34,8 @@
     <div class="message">
       ${message.content.nl2br()}
     </div>
-    <div class="actions floatright clearboth">
-      <a class="delete" href="@{Messages.delete(message.id)}?x-http-method-override=DELETE">Supprimer</a>
+    <div class="actions">
+      <a class="delete" href="@{MessagesController.delete(message.id)}?x-http-method-override=DELETE">Supprimer</a>
     </div>
   </li>
 #{/list}

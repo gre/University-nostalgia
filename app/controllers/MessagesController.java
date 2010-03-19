@@ -11,7 +11,7 @@ import models.Message;
 import models.MessageInfo;
 import models.User;
 
-public class Messages extends Secure {
+public class MessagesController extends Secure {
     
   public static void list(String box) {
       List<Message> messages = null;

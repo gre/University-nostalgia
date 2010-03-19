@@ -1,8 +1,5 @@
-#{extends 'main.html' /}
+#{extends 'Backoffice/layout.html' /}
 
-%{
-  currentNav = 'backoffice';
-}%
 
 #{if inactive?.size()}
 <h3>Inactive users</h3>
@@ -18,7 +15,6 @@
       </div>
       
       <a class="user" href="@{Users.view(user.id)}">
-        <img class="avatar" src="@{Users.avatar(user.id)}" width="50" height="50" />
         <span class="firstname">${user.firstname}</span>&nbsp;<span class="lastname">${user.lastname}</span>
       </a>
       

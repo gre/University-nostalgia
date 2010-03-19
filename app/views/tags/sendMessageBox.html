@@ -6,7 +6,7 @@
 #{if friends}
   <div class="box">
     <h3>Envoyer un message</h3>
-    #{form @Messages.create()}
+    #{form @MessagesController.create()}
       <p>
       #{if isList}
       <label for="receiver">Envoyer à</label>

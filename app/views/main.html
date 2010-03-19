@@ -11,7 +11,7 @@
 
 #{set 'nav'}
   <li><a class="${nav_friends}" href="@{Friends.list()}">Amis</a></li>
-  <li><a class="${nav_messages}" href="@{Messages.list()}">Messages</a></li>
+  <li><a class="${nav_messages}" href="@{MessagesController.list()}">Messages</a></li>
   <li><a class="${nav_find}" href="@{Finder.index}">Trouver</a></li>
   <li><a class="${nav_profil}" href="@{Profile.index}">Profil</a></li>
   #{if connected.isAdmin}

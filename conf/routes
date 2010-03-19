@@ -29,11 +29,11 @@ POST    /profile/password                        Profile.editPassword
 POST     /profile/formation                      Profile.editFormation
 
 
-GET     /messages/{box}/?                        Messages.list
-GET     /messages/?                              Messages.list
-GET     /messages/{id}                           Messages.view
-PUT     /messages/?                              Messages.create
-DELETE  /messages/{id}                           Messages.delete
+GET     /messages/{box}/?                        MessagesController.list
+GET     /messages/?                              MessagesController.list
+GET     /messages/{id}                           MessagesController.view
+PUT     /messages/?                              MessagesController.create
+DELETE  /messages/{id}                           MessagesController.delete
 
 GET     /users/{id}                              Users.view
 GET     /users/{id}/avatar/{avatarRevision}      Users.avatar
@@ -51,9 +51,13 @@ DELETE  /corporations/{id}                       Corporations.delete
 GET     /universities/?                          Universities.list
 GET     /universities/{id}                       Universities.view
 
-GET     /backoffice/?                            Backoffice.index
-GET     /backoffice/user/activate/{id}           Backoffice.activateUser
-GET     /backoffice/user/delete/{id}             Backoffice.deleteUser
+GET     /admin/?                                 Backoffice.index
+GET     /admin/user/activate/{id}                Backoffice.activateUser
+GET     /admin/user/delete/{id}                  Backoffice.deleteUser
+
+GET     /admin/diplomas/?                        AdminDiplomas.index
+GET     /admin/specialities/?                    AdminSpecialities.index
+GET     /admin/universities/?                    AdminUniversities.index
 
 
 # Map static resources from the /app/public folder to the /public path
