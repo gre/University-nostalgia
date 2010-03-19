@@ -64,9 +64,8 @@
             }
           });
         };
-        
         $('.actions a').click(function(){
-          if($(this).hasClass('delete')) {
+          if($(this).hasClass('delete') || $(this).hasClass('refuse')) {
             if(confirm("Êtes vous sûr de vouloir supprimer ?"))
               touchLinkAndRefresh(this);
           }
