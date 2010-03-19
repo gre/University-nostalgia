@@ -499,11 +499,11 @@ ul.itemList
   :clear both
   a
     :text-decoration none
-    &.delete
+    &.delete, &.refuse
       color = !action_color_delete
       &:hover
         color = !action_color_delete+#333
-    &.invite
+    &.invite, &.accept
       color = !action_color_invite
       &:hover
         color = !action_color_invite+#333
@@ -514,6 +514,8 @@ ul.itemList
     :color silver
     :float right
     :font-size 0.9em
+    a
+      :display block
   .isMe
     color = !color_isme
     :font-weight bold

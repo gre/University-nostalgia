@@ -14,11 +14,18 @@
   #{/form}
 </div>
 
-#{if results}
-  <ul class="itemList">
-  #{list items:results, as:'university'}
-    <li>
-    </li>
-  #{/list}
-  </ul>
+#{if search}
+  #{if results}
+    <ul class="itemList">
+    #{list items:results, as:'university'}
+      <li>
+      </li>
+    #{/list}
+    </ul>
+  #{/if}
+  #{else}
+    <div class="box center">
+      Aucune université trouvée.
+    </div>
+  #{/else}
 #{/if}

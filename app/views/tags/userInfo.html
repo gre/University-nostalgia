@@ -9,16 +9,26 @@
     <span class="isMe">C'est moi !</span>
   #{/if}
   #{if user.isFriend}
-    <a href="@{Friends.delete(user.id)}?x-http-method-override=DELETE" class="delete deleteUser">Retirer de ma liste d'amis</a>
+    <a href="@{Friends.delete(user.id)}?x-http-method-override=DELETE" class="delete">Retirer de ma liste d'amis</a>
   #{/if}
   #{if user.isInvited}
     <span class="invited">invitation en attente</span>
+    <a href="@{Friends.delete(user.id)}?x-http-method-override=DELETE" class="delete">Annuler ma demande</a>
   #{/if}
   #{if !user.isFriend && !user.isInvited && !user.isMe}
-    <a href="@{Friends.inviteOrAccept(user.id)}?x-http-method-override=PUT" class="floatright invite inviteUser">
-      #{if user.hasRequested}Accepter l'invitation#{/if}
-      #{else}Inviter dans ma liste d'amis#{/else}
-    </a>
+    #{if user.hasRequested}
+      <a href="@{Friends.inviteOrAccept(user.id)}?x-http-method-override=PUT" class="accept">
+        Accepter l'invitation
+      </a>
+      <a href="@{Friends.delete(user.id)}?x-http-method-override=DELETE" class="refuse">
+        Refuser l'invitation
+      </a>
+    #{/if}
+    #{else}
+      <a href="@{Friends.inviteOrAccept(user.id)}?x-http-method-override=PUT" class="invite">
+        Inviter dans ma liste d'amis
+      </a>
+    #{/else}
   #{/if}
   </div>
   

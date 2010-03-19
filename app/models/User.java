@@ -101,8 +101,9 @@ public class User extends Model {
 		for(String word : words) {
 			if(!query.equals(""))
 				query += " and ";
-			String w = SqlQuery.inlineParam("%"+word+"%");
-			query += "(email like "+w+" or lower(firstname) like lower("+w+") or lower(lastname) like lower("+w+") )";
+      String wLike = SqlQuery.inlineParam("%"+word+"%");
+      String wExact = SqlQuery.inlineParam(word);
+			query += "(email ="+wExact+" or lower(firstname) like lower("+wLike+") or lower(lastname) like lower("+wLike+") )";
 		}
 		
 		users = find(query).fetch();

@@ -14,12 +14,19 @@
   #{/form}
 </div>
 
-#{if results}
-  <ul class="itemList">
-  #{list items:results, as:'user'}
-    <li>
-      #{userInfo user:user /}
-    </li>
-  #{/list}
-  </ul>
+#{if search}
+  #{if results}
+    <ul class="itemList">
+    #{list items:results, as:'user'}
+      <li>
+        #{userInfo user:user /}
+      </li>
+    #{/list}
+    </ul>
+  #{/if}
+  #{else}
+    <div class="box center">
+      Aucune personne trouvée.
+    </div>
+  #{/else}
 #{/if}
