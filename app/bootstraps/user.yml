@@ -53,4 +53,4 @@ User(benny):
     password: benny
     firstname: Americanos
     lastname: Benny
-    isActivate: true
+    isActivate: false

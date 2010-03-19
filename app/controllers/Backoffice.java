@@ -23,4 +23,11 @@ public class Backoffice extends Secure {
         user.save();
         index();
     }
+    
+    public static void deleteUser(Long id) {
+        User user = User.findById(id);
+        notFoundIfNull(user);
+        user.delete();
+        index();
+    }
 }

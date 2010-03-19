@@ -47,7 +47,8 @@ GET     /universities/?                          Universities.list
 GET     /universities/{id}                       Universities.view
 
 GET     /backoffice/?                            Backoffice.index
-GET     /backoffice/user/activate/{id}          Backoffice.activateUser
+GET     /backoffice/user/activate/{id}           Backoffice.activateUser
+GET     /backoffice/user/delete/{id}             Backoffice.deleteUser
 
 
 # Map static resources from the /app/public folder to the /public path
