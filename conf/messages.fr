@@ -1,6 +1,6 @@
 validation.required=Ce champ est requis.
-validation.minSize=Ce champ doit contenir au moins %s caractères.
-validation.maxSize=Ce champ peut contenir au maximum %s caractères.
+validation.minSize=Ce champ doit contenir au moins %2$s caractères.
+validation.maxSize=Ce champ peut contenir au maximum %2$s caractères.
 validation.email=Ce champ doit être un email.
 validation.wrongPassword=Le mot de passe est incorrect.
 validation.confirmation=La confirmation ne correspond pas.
