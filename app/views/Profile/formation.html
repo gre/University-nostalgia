@@ -1,0 +1,29 @@
+#{extends 'Profile/layout.html' /}
+
+%{
+  currentProfilNav = 'formation';
+}%
+
+<div>
+  <h3>Changer son mot de passe</h3>
+  #{form @Profile.editFormation() }
+    <p>
+      <label for="currentPwd">Mot de passe actuel</label>
+      <input type="password" id="currentPwd" name="currentPwd" />
+      <span class="error">#{error 'currentPwd' /}</span>
+    </p>
+    <p>
+      <label for="password">Nouveau mot de passe</label>
+      <input type="password" id="password" name="password" />
+      <span class="error">#{error 'password' /}</span>
+    </p>
+    <p>
+      <label for="password2">Re-tapez le nouveau mot de passe</label>
+      <input type="password" id="password2" name="password2" />
+      <span class="error">#{error 'password2' /}</span>
+    </p>
+    <p class="buttons">
+      <button>Changer mon mot de passe</button>
+    </p>
+  #{/form}
+</div>

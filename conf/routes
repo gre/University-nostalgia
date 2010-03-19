@@ -19,9 +19,12 @@ GET     /profile                                 Profile.index
 GET     /profile/infos                           Profile.infos
 GET     /profile/avatar                          Profile.avatar
 GET     /profile/password                        Profile.password
+GET     /profile/formation                       Profile.formation
+
 POST    /profile/infos                           Profile.editInfos
 POST    /profile/avatar                          Profile.editAvatar
 POST    /profile/password                        Profile.editPassword
+POST     /profile/formation                      Profile.editFormation
 
 
 GET     /messages/{box}/?                        Messages.list
