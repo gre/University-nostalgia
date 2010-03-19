@@ -1,0 +1,35 @@
+#{extends 'main.html' /}
+
+%{
+  currentNav = 'backoffice';
+}%
+
+#{if inactive?.size()}
+<h3>Inactive users</h3>
+<ul class="itemList">
+#{list items: inactive, as:'user'}
+  <li>
+
+    <div class="userInfo">
+
+      <div class="actions">
+        <a href="@{Backoffice.activateUser(user.id)}" class="floatright invite inviteUser">Accepter</a>
+      </div>
+      
+      <a class="user" href="@{Users.view(user.id)}">
+        <img class="avatar" src="@{Users.avatar(user.id)}" width="50" height="50" />
+        <span class="firstname">${user.firstname}</span>&nbsp;<span class="lastname">${user.lastname}</span>
+      </a>
+      
+      <dl class="detail">
+        <dt>Email</dt><dd class="email">${user.email}</dd>
+        <dt>Téléphone</dt><dd class="phone">${user.phone}</dd>
+        <dt>Adresse</dt><dd class="address">${user.address}</dd>
+      </dl>
+      
+    </div>
+
+  </li>
+#{/list}
+</ul>
+#{/if}
