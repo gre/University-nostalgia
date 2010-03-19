@@ -38,6 +38,10 @@ public class Profile extends Secure {
     public static void password() {
         render();
     }
+    
+    public static void formation() {
+        render();
+    }
   
     public static void editInfos(
             @Required String firstname, 
@@ -108,4 +112,8 @@ public class Profile extends Secure {
         }
         password();
     }
+    public static void editFormation() {
+        
+    }
+
 }
