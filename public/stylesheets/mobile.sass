@@ -1,1 +1,408 @@
 @import compass.sass
+@import compass/reset.sass
+@import theme.sass
+
+// utils
+
+=vertical-gradient(!from, !to, !alt=(!from/2 + !to/2))
+  background = !alt
+  background = -webkit-gradient(linear, left top, left bottom, from(!from), to(!to))
+  background = -moz-linear-gradient(-90deg, !from, !to)
+
+
+!font_title = Liberation,Georgia,serif
+
+/* general layout */
+
+!global_border_radius = 10px
+
+
+#wrapper
+  >nav
+    :display block
+    :overflow auto
+    :padding 
+      :top 5px
+    :font-size 1.1em
+    font-family = !font_title
+  
+  >header
+    :position relative
+    :clear both
+    :display block
+    :z-index 1
+    :overflow auto
+    font-family = !font_title
+    h1
+      +nowrap
+      :padding 10px
+      :font-size 1.4em
+      :font-weight bold
+      :display inline-block
+      a
+        :color white
+        :text-decoration none
+        &:hover
+          :color white
+          +text-shadow(white, 0px, 0px, 1px)
+    .user
+      :position absolute
+      :right 5px
+      :float right
+      :padding 4px 0
+      :font-weight bold
+    .logout
+      :position absolute
+      :right 5px
+      :top 15px
+      :clear both
+      :float right
+      :padding 4px 0
+      :text-decoration none
+  
+  >footer
+    :display block
+    :overflow auto
+    :padding 5px
+    :text-align center
+    :clear both
+    li
+      :float left
+    
+#main
+  :position relative
+  :z-index 2
+  :clear both
+  >section
+    :overflow auto
+    :display block
+
+
+/* class css utils */
+.floatright
+  :float right
+.floatleft
+  :float left
+.clearboth  
+  :clear both
+.center
+  :text-align center
+
+/* general style and colors */
+
+body
+  :font 10px Arial,Verdana,sans-serif
+  color = !text_color
+  background = !back
+  :min-width 350px
+
+a
+  color = !link_color
+  &:hover
+    color = !link_color+#333
+
+p
+  :padding 3px 0
+  
+strong
+  :font-weight bold
+em
+  :font-style italic
+
+form
+  p.buttons
+    :overflow auto
+    :margin 5px 0
+    :padding 5px
+    button
+      :float right
+  .error
+    :color red
+    :float right
+  
+  .errors
+    :color red
+  
+  p
+    :clear both
+    &.floatleft, &.floatright
+      :clear none
+  
+  label
+    :display block
+  
+  input[type=text], input[type=password], textarea
+    :width 99%
+    border = 1px solid !border_input
+    &:focus
+      border = 1px solid !border_input-#222
+    +border-radius(5px)
+    +vertical-gradient(!back_input_from, !back_input_to)
+    &:hover, &:focus
+      +vertical-gradient(!back_input_from+#090909, !back_input_to+#090909)
+
+  button
+    border = 1px solid !border_input
+    &:focus
+      border = 1px solid !border_input-#222
+    +border-radius(5px)
+    :color #283f23
+    +vertical-gradient(!back_button_from, !back_button_to)
+    &:hover
+      +vertical-gradient(!back_button_from+#111, !back_button_to+#111)
+
+
+/* wrapper */
+#wrapper
+  border-color = !back-#111
+  >nav
+    :background white
+  >header
+    +vertical-gradient(!back_header_from, !back_header_to, url(/public/images/header.png))
+    :color white
+    .logout
+      color = !back_header_to+#444
+      &:hover
+        color = !back_header_to+#777
+  >footer
+    +vertical-gradient(!back_footer_from, !back_footer_to)
+
+
+
+/* main */
+#main
+  background = !back_aside
+  :overflow auto
+  >section
+    :padding 10px
+    :background white
+    :min-height 200px
+    nav
+      :display block
+      background-color = !main_nav_ul_back
+      :font-size 1em
+      font-family = !font_title
+      ul
+        :display inline-block
+        li
+          :float left
+          a
+            :text-decoration none
+            :padding 4px 6px
+            background-color = !main_nav_back
+            color = !main_nav
+            :position relative
+            &:hover
+              background-color = !main_nav_back_hover
+              color = !main_nav_hover
+            &.selected
+              color = !main_nav_selected
+              background-color = !main_nav_back_selected
+              &:hover
+                color = !main_nav_selected_hover
+                background-color = !main_nav_back_selected_hover
+      
+  >aside
+    div.box
+      :overflow auto
+      :padding 10px
+      +vertical-gradient(!back_aside_from, !back_aside_to)
+      +border-radius(8px)
+      color = !back_aside_text
+
+#flashInfo
+  :position absolute
+  :text-align center
+  :width 100%
+  .info
+    :padding 2px 5px
+    :display inline-block
+    +border-bottom-radius(10px)
+    +box-shadow(0px, 0px, 2px, black)
+    :color white
+    :font-weight bold
+    &.error
+      :background #AF5948
+    &.success
+      :background #6C9262
+
+/* nav */
+#wrapper > nav
+  :text-align center
+  :margin 0px auto
+  ul
+    li
+      :display inline
+      :padding 2px
+        :bottom 0
+  a
+    :text-decoration none
+    :padding 2px 5px
+      :bottom 0
+    &.selected, &.selected:hover
+      +border-top-radius(8px)
+      background-color = !back_header_from
+      :color white
+    &:hover
+      +border-top-radius(8px)
+      background-color = !back_header_from/2 + white/2
+      :color white
+
+
+/* selection */
+#selection
+  :display none
+
+
+/* footer */
+#wrapper > footer
+  color = !text_footer
+  ul
+    :display inline-block
+    li
+      :float left
+      :padding 0 8px
+      a
+        :text-decoration none
+        color = !link_footer
+        &:hover
+          color = !link_footer+#222
+
+/* section */
+#main > section
+  h1, h2, h3, h4
+    :font-weight bold
+    font-family = !font_title
+    :padding 5px 10px
+  h1
+    :font-size 2em
+    :line-height 2em
+  h2
+    :font-size 1.7em
+    :line-height 1.7em
+  h3
+    :font-size 1.3em
+    :line-height 1.3em
+  h4
+    :font-size 1.2em
+    :line-height 1.2em
+  .box
+    :padding 5px
+    +vertical-gradient(!box_back_from, !box_back_to)
+    +border-radius(10px)
+
+
+/* aside */
+#main > aside
+  h1, h2, h3, h4
+    :font-weight bold
+    font-family = !font_title
+    :padding 0 5px
+  h1
+    :font-size 1.5em
+    :line-height 1.5em
+  h2
+    :font-size 1.4em
+    :line-height 1.4em
+  h3
+    :font-size 1.3em
+    :line-height 1.3em
+  h4
+    :font-size 1.2em
+    :line-height 1.2em
+
+/* login */
+#login
+  :margin 0 auto
+
+/* signup */
+#signup
+  :margin 0 auto
+
+
+!list_radius = 5px
+
+ul.itemList
+  border = 1px solid !list_border_hard
+  +border-radius(!list_radius)
+  li:first-child
+    +border-top-radius(!list_radius)
+  li:last-child
+    +border-bottom-radius(!list_radius)
+  li
+    :overflow auto
+    border = 1px solid !list_border_light
+      :top none
+    :padding 5px
+    +vertical-gradient(!list_back_from, !list_back_to)
+    &:hover
+      +vertical-gradient(!list_back_from+#090909, !list_back_to+#090909)
+    .message
+      :background-color rgba(255,255,255,0.5)
+      :padding 5px
+    .sender, .receiver
+      :font-weight bold
+      color = !link_color
+    .date
+      :font-style italic
+      :float right
+
+
+.userInfo
+  :overflow auto
+  :clear both
+  a
+    :text-decoration none
+    :font-style normal
+    &.refuse
+      color = !action_color_refuse
+      &:hover
+        color = !action_color_refuse+#333
+    &.delete
+      color = !action_color_delete
+      &:hover
+        color = !action_color_delete+#333
+    &.accept
+      color = !action_color_accept
+      &:hover
+        color = !action_color_accept+#333
+    &.invite
+      color = !action_color_invite
+      &:hover
+        color = !action_color_invite+#333
+  .user
+    :font-size 1.2em
+  .actions
+    :font-style italic
+    :color silver
+    :float right
+    :text-align right
+    :font-size 0.9em
+    a, span
+      :display block
+  .detail
+    :padding 4px
+      :left 40px
+    dt
+      :font-weight bold
+      :float left
+      :clear left
+      :margin 2px 0
+      &:after
+        :content ": "
+    dd
+      :float left
+      :margin 2px 0
+      :padding-left 5px
+      
+  img.avatar
+    :vertical-align middle
+    :width 32px
+    :height 32px
+    :margin-right 5px
+
+
+.userView
+  .firstname, .lastname
+    :font-size 1.4em
+    :font-weight bold

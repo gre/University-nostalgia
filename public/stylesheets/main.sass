@@ -1,5 +1,6 @@
 @import compass.sass
 @import compass/reset.sass
+@import theme.sass
 
 // utils
 
@@ -119,35 +120,6 @@ body
 /* general style and colors */
 
 
-!text_color = #343
-
-!link_color = #251
-!link_nav_hover_back = #617f5a
-
-!back = #e9f3e7
-!back_aside = #F8FAF5
-
-!back_header_from=#719369
-!back_header_to=#587451
-
-!back_buttons_from = #F9F9F9
-!back_buttons_to = #EEE
-
-!back_footer_from=#b4c1b1
-!back_footer_to=#9da89a
-!text_footer=white
-!link_footer=#e3eae1
-
-!back_aside_from=#e3ebd8
-!back_aside_to=#f1f5eb
-!back_aside_text=#664
-
-!border_input=silver
-!back_input_from=#f0f3f0
-!back_input_to=white
-!back_button_from=#eee
-!back_button_to=#ddd
-
 body
   :font 12px Arial,Verdana,sans-serif
   color = !text_color
@@ -222,16 +194,6 @@ form
   >footer
     +vertical-gradient(!back_footer_from, !back_footer_to)
 
-
-!main_nav_ul_back = #F9F9F9
-!main_nav = !text_color
-!main_nav_back = #E2E8E2
-!main_nav_hover = white
-!main_nav_back_hover = #B9C3B7
-!main_nav_selected = white
-!main_nav_back_selected = #747F72
-!main_nav_selected_hover = white
-!main_nav_back_selected_hover = !main_nav_back_selected-#111
 
 !main_nav_demi_height=12px
 
@@ -367,8 +329,7 @@ form
           color = !link_footer+#222
 
 /* section */
-!box_back_from = #F0F0F0
-!box_back_to = #FDFDFD
+
 #main > section
   h1, h2, h3, h4
     :font-weight bold
@@ -455,12 +416,6 @@ form
       h3
         :font-weight normal
 
-
-!list_back_from=#F4F8F3
-!list_back_to=#ECF0EB
-
-!list_border_light = #D2D9D0
-!list_border_hard = #AFBCAC
 !list_radius = 5px
 
 ul.itemList
@@ -488,13 +443,7 @@ ul.itemList
     .date
       :font-style italic
       :float right
-   
 
-!action_color_delete = #A52A2A
-!action_color_refuse = #A52A2A
-!action_color_accept = #2A8CA5
-!action_color_invite = #2A8CA5
-!color_isme = #CCC183
 
 .userInfo
   :overflow auto
