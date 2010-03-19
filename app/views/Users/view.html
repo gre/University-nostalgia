@@ -3,7 +3,7 @@
 #{set 'aside'}
 #{if user.isFriend||user.isMe}
   <div class="box center">
-    <img class="avatar" src="@{Users.avatar(user.id)}" />
+    <img class="avatar" src="@{Users.avatar(user.id, user.avatarRevision)}" />
   </div>
 #{/if}
 #{if user.isFriend}
