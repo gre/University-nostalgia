@@ -1,5 +1,6 @@
 %{
   friends = _friends;
+  isList = (friends instanceof Collection);
 }%
 
 #{if friends}
@@ -7,12 +8,17 @@
     <h3>Envoyer un message</h3>
     #{form @Messages.create()}
       <p>
+      #{if isList}
       <label for="receiver">Envoyer à</label>
       <select name="receiver" id="receiver">
         #{list items:friends, as:'friend'}
           <option value="${friend.id}">${friend.firstname} ${friend.lastname}</option>
         #{/list}
       </select>
+      #{/if}
+      #{else}
+      <input type="hidden" name="receiver" value="${friends?.id}" />
+      #{/else}
       <span class="error">#{error 'receiver' /}</span>
       </p>
       <p>

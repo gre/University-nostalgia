@@ -37,9 +37,9 @@ public class Message extends Model {
     }
     
     public static List<Message> userSendbox(Long userid) {
-        return find("sender.id = ?1 and deleteBySender = FALSE", userid).fetch();
+        return find("sender.id = ?1 and deleteBySender = FALSE order by date desc", userid).fetch();
     }
     public static List<Message> userInbox(Long userid) {
-        return find("receiver.id = ?1 and deleteByReceiver = FALSE", userid).fetch();
+        return find("receiver.id = ?1 and deleteByReceiver = FALSE order by date desc", userid).fetch();
     }
 }

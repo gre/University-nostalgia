@@ -456,21 +456,28 @@ form
         :font-weight normal
 
 
-!list_back_from=#F6FAF5
-!list_back_to=#EFF3EE
+!list_back_from=#F4F8F3
+!list_back_to=#ECF0EB
 
-!list_border_light = #9EAA9B
-!list_border_hard = #E7EBE6
+!list_border_light = #D2D9D0
+!list_border_hard = #AFBCAC
+!list_radius = 5px
 
 ul.itemList
   border = 1px solid !list_border_hard
-  border-top = 1px solid !list_border_light
+  +border-radius(!list_radius)
+  li:first-child
+    +border-top-radius(!list_radius)
+  li:last-child
+    +border-bottom-radius(!list_radius)
   li
     :overflow auto
     border = 1px solid !list_border_light
       :top none
     :padding 5px
     +vertical-gradient(!list_back_from, !list_back_to)
+    &:hover
+      +vertical-gradient(!list_back_from+#090909, !list_back_to+#090909)
     .message
       :background-color rgba(255,255,255,0.5)
       :margin-top 5px
@@ -481,21 +488,35 @@ ul.itemList
     .date
       :font-style italic
       :float right
-    .actions
-      a
-        :text-decoration none
+   
+
+!action_color_delete = #A52A2A
+!action_color_invite = #2A8CA5
+!color_isme = #CCC183
 
 .userInfo
   :overflow auto
   :clear both
   a
     :text-decoration none
+    &.delete
+      color = !action_color_delete
+      &:hover
+        color = !action_color_delete+#333
+    &.invite
+      color = !action_color_invite
+      &:hover
+        color = !action_color_invite+#333
   .user
     :font-size 1.2em
   .actions
     :font-style italic
     :color silver
     :float right
+    :font-size 0.9em
+  .isMe
+    color = !color_isme
+    :font-weight bold
   .detail
     :padding 4px
       :left 40px
@@ -505,13 +526,20 @@ ul.itemList
       :clear left
       :margin 2px 0
       &:after
-        :content " : "
+        :content ": "
     dd
       :float left
       :margin 2px 0
+      :padding-left 5px
       
   img.avatar
     :vertical-align middle
     :width 32px
     :height 32px
     :margin-right 5px
+
+
+.userView
+  .firstname, .lastname
+    :font-size 1.4em
+    :font-weight bold

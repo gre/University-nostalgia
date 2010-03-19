@@ -11,8 +11,8 @@ public class Users extends Secure {
       User userDb = User.findById(id);
       notFoundIfNull(userDb);
       User current = connectedUser();
-      if(current.id == id)
-        Profile.index();
+      //if(current.id == id)
+      //  Profile.index();
       UserInfo user = new UserInfo(userDb, current);
       List<UserInfo> friends = new ArrayList<UserInfo>();
       for(User u : userDb.friends)
