@@ -23,12 +23,38 @@
 #{if user.isFriend||user.isMe}
 
   #{if friends}
-  <div>
-    <h4>Amis de ${user.firstname} ${user.lastname} (${friends.size()})</h4>
+  <div class="box">
+    <h4>Amis de ${user.lastname} ${user.firstname} (${friends.size()})</h4>
     <ul class="itemList">
     #{list items:friends, as:'friend'}
       <li>
         #{userInfo user:friend /}
+      </li>
+    #{/list}
+    </ul>
+  </div>
+  #{/if}
+
+  #{if universities}
+  <div class="box">
+    <h4>Universités de ${user.lastname} ${user.firstname} (${universities.size()})</h4>
+    <ul class="itemList">
+    #{list items:universities, as:'item'}
+      <li>
+        #{universityYearInfo university:item, isMine:(user.id==connected.id) /}
+      </li>
+    #{/list}
+    </ul>
+  </div>
+  #{/if}
+
+  #{if corporations}
+  <div class="box">
+    <h4>Entreprises de ${user.lastname} ${user.firstname} (${corporations.size()})</h4>
+    <ul class="itemList">
+    #{list items:corporations, as:'item'}
+      <li>
+        #{corporation corporation:item, isMine:(user.id==connected.id) /}
       </li>
     #{/list}
     </ul>

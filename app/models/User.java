@@ -36,12 +36,6 @@ public class User extends Model {
   @Required
   public String lastname;
   
-  @OneToMany
-  public List<UniversityYear> universities;
-  
-  @OneToMany
-  public List<Corporation> corporations;
-  
   public String address;
   public String phone;
   
@@ -54,8 +48,6 @@ public class User extends Model {
 	public User() {
     isActivate = false;
     isAdmin = false;
-    universities = new ArrayList<UniversityYear>();
-    corporations = new ArrayList<Corporation>();
     friends = new ArrayList<User>();
     avatarRevision = 0L;
 	}

@@ -17,7 +17,11 @@ public class Users extends Secure {
       List<UserInfo> friends = new ArrayList<UserInfo>();
       for(User u : userDb.friends)
         friends.add(new UserInfo(u, current));
-      render(user, friends);
+      List<UniversityYearInfo> universities = new ArrayList<UniversityYearInfo>();
+      for(UniversityYear uy : UniversityYear.findForUser(userDb))
+        universities.add(new UniversityYearInfo(uy, current));
+      List<Corporation> corporations = Corporation.findForUser(userDb);
+      render(user, friends, universities, corporations);
 	}
 	
 	public static void avatar(Long id, Long avatarRevision) {

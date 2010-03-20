@@ -8,18 +8,18 @@ import play.db.jpa.*;
 @Entity
 public class UniversityYear extends Model {  
   @OneToOne
-  University university;
+  public University university;
   
-  Long year;
-  
-  @OneToOne
-  Speciality speciality;
+  public Long year;
   
   @OneToOne
-  Diploma diploma; // Null if no diploma this year, else we have a promotion this year
+  public Speciality speciality;
+  
+  @OneToOne
+  public Diploma diploma; // Null if no diploma this year, else we have a promotion this year
   
   @ManyToOne
-  User user;
+  public User user;
   
   public static List<UniversityYear> find
   (University university, Long year, Speciality speciality) {
@@ -28,5 +28,10 @@ public class UniversityYear extends Model {
 			  (year==null? "true" : "year="+year)+" and "+
 			  (speciality==null? "true" : "speciality.id="+speciality.id)
 			 ).fetch();
+  }
+  
+  
+  public static List<UniversityYear> findForUser(User user) {
+    return find("user = ?1 order by year desc", user).fetch();
   }
 }

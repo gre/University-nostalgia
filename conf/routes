@@ -43,10 +43,7 @@ GET     /friends/?                               Friends.list
 PUT     /friends/{id}                            Friends.inviteOrAccept
 DELETE  /friends/{id}                            Friends.delete
 
-GET     /corporations/?                          Corporations.list
-GET     /corporations/{id}                       Corporations.view
 PUT     /corporations                            Corporations.create
-POST    /corporations/{id}                       Corporations.edit
 DELETE  /corporations/{id}                       Corporations.delete
 
 GET     /universities/?                          Universities.list

@@ -1,0 +1,14 @@
+%{
+  corporation = _corporation;
+  isMine = _isMine;
+}%
+
+<div class="corporation">
+  #{if isMine}
+  <div class="actions">
+    <a href="@{Corporations.delete(corporation.id)}" class="delete">Supprimer</a>
+  </div>
+  #{/if}
+  
+  ${corporation.name} - <span class="year">${corporation.year}</span>
+</div>

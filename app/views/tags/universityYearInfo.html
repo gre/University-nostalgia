@@ -1,0 +1,22 @@
+%{
+  university = _university.university;
+  speciality = _university.speciality;
+  diploma = _university.diploma;
+  year = _university.year;
+  isMine = _isMine;
+}%
+
+<div class="universityYearInfo">
+  #{if isMine}
+  <div class="actions">
+    <a href="#todo" class="delete">Supprimer</a>
+  </div>
+  #{/if}
+  
+  <a class="name" href="@{Universities.view(university.id)}">${university.name}</a>
+   - <span class="year">${year}</span>
+   - <span class="speciality">${speciality.name}</span>
+   #{if diploma}
+   - <span class="diploma">${diploma.name}</span>
+   #{/if}
+</div>

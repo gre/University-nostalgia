@@ -31,7 +31,7 @@
           <a href="/">University nostalgia</a>
         </h1>
         #{if connected}
-        <span class="user">${connected.firstname} ${connected.lastname}</span>
+        <a href="@{Users.view(connected.id)}" class="user">${connected.firstname} ${connected.lastname}</a>
         <a class="logout" href="@{Application.logout}">Déconnexion</a>
         #{/if}
       </header>

@@ -1,0 +1,250 @@
+
+
+#diplomas
+
+Diploma(diplom_DUT):
+    name: DUT
+Diploma(diplom_Licence):
+    name: Licence
+Diploma(diplom_Master):
+    name: Master
+Diploma(diplom_Bac):
+    name: Baccalauréat
+
+
+#specialities
+
+Speciality(spec_info):
+  name: Informatique
+Speciality(spec_mp):
+  name: Mesures Physiques
+Speciality(spec_gim):
+  name: Génie Industriel et Maintenance
+Speciality(spec_src):
+  name: Services et réseaux de communication
+Speciality(spec_geii):
+  name: Génie Electrique et Informatique Industrielle
+Speciality(spec_ch):
+  name: Chimie
+Speciality(spec_gb):
+  name: Génie Biologique
+Speciality(spec_gc):
+  name: Génie Civil
+Speciality(spec_gmp):
+  name: Génie Mécanique et Productique
+Speciality(spec_gtr):
+  name: Génie des Télécommunications et Réseaux
+
+
+#universities
+
+University(univ_fb):
+    name: IUT Sénart-Fontainebleau
+University(univ_ca):
+    name: IUT Cachan
+University(univ_ce):
+    name: IUT Cergy
+University(univ_cr):
+    name: IUT Créteil
+University(univ_ev):
+    name: IUT Evry
+University(univ_mv):
+    name: IUT Marne-la-Vallée
+University(univ_or):
+    name: IUT Orsay
+University(univ_p5):
+    name: IUT Paris 5
+University(univ_ju):
+    name: IUT Jussieu
+University(univ_ve):
+    name: IUT Vélizy
+University(univ_vi):
+    name: IUT Villetaneuse
+
+
+# users
+
+User(master):
+    email: master
+    password: master
+    firstname: Master
+    lastname: Jean
+    address: Route Hurtault, Fontainebleau
+    telephone: 01 60 74 68 00
+    isActivate: true
+    isAdmin: true
+UniversityYear(master_u1):
+    university: univ_fb
+    year: 2005
+    speciality: spec_info
+    user: master
+UniversityYear(master_u2):
+    university: univ_fb
+    year: 2006
+    speciality: spec_info
+    diploma: diplom_DUT
+    user: master
+UniversityYear(master_u3): 
+    university: univ_fb
+    year: 2007
+    speciality: spec_info
+    diploma: diplom_Licence
+    user: master
+Corporation(master_c1):
+    name: Darty
+    year: 2006
+    user: master
+Corporation(master_c2):
+    name: Darty
+    year: 2007
+    user: master
+Corporation(master_c3):
+    name: Mandriva
+    year: 2008
+    user: master
+Corporation(master_c4):
+    name: Mandriva
+    year: 2009
+    user: master
+
+
+User(user):
+    email: user
+    password: user
+    firstname: Dutronc
+    lastname: Jacques
+    address: 01 rue de quelque part, 77321 Ailleurs
+    telephone: 01 01 01 01 01
+    isActivate: true
+    
+UniversityYear(user_u1):
+  university: univ_fb
+  year: 2005
+  speciality: spec_info
+  user: user
+UniversityYear(user_u2):
+  university: univ_fb
+  year: 2006
+  speciality: spec_info
+  diploma: diplom_DUT
+  user: user
+UniversityYear(user_u3):
+  university: univ_ju
+  year: 2007
+  speciality: spec_info
+  user: user
+UniversityYear(user_u4):
+  university: univ_ju
+  year: 2008
+  speciality: spec_info
+  user: user
+UniversityYear(user_u5):
+  university: univ_ju
+  year: 2009
+  speciality: spec_info
+  diploma: diplom_Master
+  user: user
+
+Corporation(user_c1):
+  name: Info Corp
+  year: 2006
+  user: user
+Corporation(user_c2):
+  name: eCorp
+  year: 2007
+  user: user
+Corporation(user_c3):
+  name: eCorp
+  year: 2008
+  user: user
+Corporation(user_c4):
+  name: eCorp
+  year: 2009
+  user: user
+  
+
+User(gaetan):
+    email: gaetan@iut-fbleau.fr
+    password: gaetan
+    firstname: Renaudeau
+    lastname: Gaetan
+    address: 01 rue de quelque part, 77321 Ailleurs
+    telephone: 01 01 01 01 01
+    isActivate: true
+
+User(nicolae):
+    email: nicolae@iut-fbleau.fr
+    password: nicolae
+    firstname: Namolovan
+    lastname: Nicolae
+    address: 01 rue de quelque part, 77321 Ailleurs
+    telephone: 01 01 01 01 01
+    isActivate: true
+
+User(jean):
+    email: jean@iut-fbleau.fr
+    password: jean
+    firstname: Mauret
+    lastname: Jean
+    address: 01 rue de quelque part, 77000 Melun
+    isActivate: true
+
+User(alfred):
+    email: alfred@iut-fbleau.fr
+    password: alfred
+    firstname: Robert
+    lastname: Alfred
+    isActivate: true
+
+User(benny):
+    email: benny@iut-fbleau.fr
+    password: benny
+    firstname: Americanos
+    lastname: Benny
+    isActivate: false
+
+
+#messages
+
+Message(m1):
+    date: 2010-03-01 14:12
+    sender: user
+    receiver: master
+    content: 
+      Salut Jean.
+      
+      Comment ça va ?
+
+Message(m2):
+    date: 2010-03-02 12:02
+    sender: master
+    receiver: user
+    content: 
+      Salut Jacques.
+      
+      Très bien et toi.
+      
+      Comment se passe les études.
+
+Message(m3):
+    date: 2010-03-03 18:54
+    sender: user
+    receiver: master
+    content: 
+      Ca se passe plutôt très bien.
+      Et toi le travail ?
+      
+      Tu fais toujours des applications web avec Play! framework ?
+      
+      A bientôt.
+
+Message(m4):
+    date: 2010-03-04 08:54
+    sender: master
+    receiver: user
+    content: 
+      Oui, j'utilise Play et le jeu en vaut la chandelle.
+      Tu devrais essayer.
+      
+      Jean.
+
