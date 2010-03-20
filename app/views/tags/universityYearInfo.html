@@ -13,8 +13,8 @@
   </div>
   #{/if}
   
-  <a class="name" href="@{Universities.view(university.id)}">${university.name}</a>
-   - <span class="year">${year}</span>
+  <span class="year">${year}</span>
+   - <a class="name" href="@{Universities.view(university.id)}">${university.name}</a>
    - <span class="speciality">${speciality.name}</span>
    #{if diploma}
    - <span class="diploma">${diploma.name}</span>
