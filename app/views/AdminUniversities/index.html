@@ -1,0 +1,30 @@
+#{extends 'Backoffice/layout.html' /}
+
+%{
+  currentAdminNav = 'universities';
+}%
+
+<h3>Ajouter une université</h3>
+#{form @AdminUniversities.create()}
+  <p>
+    <label for="name">Nom</label>
+    <input type="text" name="name" id="name" />
+  </p>
+  <p>
+    <button>Ajouter</button>
+  </p>
+#{/form}
+
+#{if universities?.size()}
+<h3>Universités</h3>
+<ul class="itemList">
+#{list items: universities, as:'item'}
+  <li>
+    <div class="actions">
+      <a href="@{AdminUniversities.delete(item.id)}?x-http-method-override=DELETE" class="delete">Supprimer</a>
+    </div>
+    <span>${item.name}</span>
+  </li>
+#{/list}
+</ul>
+#{/if}

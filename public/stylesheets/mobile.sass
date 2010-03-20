@@ -131,7 +131,9 @@ form
   label
     :display block
   
-  input[type=text], input[type=password], textarea, select
+  select
+    :width 99%
+  input[type=text], input[type=password], textarea
     :width 99%
     border = 1px solid !border_input
     &:focus
@@ -173,10 +175,11 @@ form
 #main
   background = !back_aside
   :overflow auto
+  :min-height 0px
   >section
     :padding 10px
     :background white
-    :min-height 200px
+    :min-height 0px
     nav
       :display block
       background-color = !main_nav_ul_back

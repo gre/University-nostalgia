@@ -13,6 +13,7 @@ public class Backoffice extends SecureAdmin {
     }
     
     public static void activateUser(Long id) {
+        notFoundIfNull(id);
         User user = User.findById(id);
         notFoundIfNull(user);
         user.activate();
@@ -21,6 +22,7 @@ public class Backoffice extends SecureAdmin {
     }
     
     public static void deleteUser(Long id) {
+        notFoundIfNull(id);
         User user = User.findById(id);
         notFoundIfNull(user);
         user.delete();

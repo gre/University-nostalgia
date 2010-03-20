@@ -11,6 +11,7 @@ GET    /logout                                   Application.logout
 # Home page
 GET     /                                        Main.index
 
+GET     /emulator                                Emulator.index
 GET     /mobile/{active}                         Application.setMobile
 
 GET     /find                                    Finder.index
@@ -51,13 +52,22 @@ DELETE  /corporations/{id}                       Corporations.delete
 GET     /universities/?                          Universities.list
 GET     /universities/{id}                       Universities.view
 
-GET     /admin/?                                 Backoffice.index
-GET     /admin/user/activate/{id}                Backoffice.activateUser
-GET     /admin/user/delete/{id}                  Backoffice.deleteUser
+GET     /admin/users/?                           Backoffice.index
+PUT     /admin/users/{id}                        Backoffice.activateUser
+DELETE  /admin/users/{id}                        Backoffice.deleteUser
 
 GET     /admin/diplomas/?                        AdminDiplomas.index
+PUT     /admin/diplomas/?                        AdminDiplomas.create
+DELETE  /admin/diplomas/{id}                     AdminDiplomas.delete
+
 GET     /admin/specialities/?                    AdminSpecialities.index
+PUT     /admin/specialities/?                    AdminSpecialities.create
+DELETE  /admin/specialities/{id}                 AdminSpecialities.delete
+
 GET     /admin/universities/?                    AdminUniversities.index
+PUT     /admin/universities/?                    AdminUniversities.create
+DELETE  /admin/universities/{id}                 AdminUniversities.delete
+
 
 
 # Map static resources from the /app/public folder to the /public path

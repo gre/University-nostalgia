@@ -7,10 +7,10 @@
 
 <nav>
   <ul>
-    <li><a href="@{Backoffice.index}" class="">Inscriptions</a></li>
-    <li><a href="@{AdminUniversities.index}" class="">Universités</a></li>
-    <li><a href="@{AdminSpecialities.index}" class="">Spécialités</a></li>
-    <li><a href="@{AdminDiplomas.index}" class="">Diplômes</a></li>
+    <li><a href="@{Backoffice.index}" class="${currentAdminNav=='inscription'?'selected':''}">Inscriptions</a></li>
+    <li><a href="@{AdminUniversities.index}" class="${currentAdminNav=='universities'?'selected':''}">Universités</a></li>
+    <li><a href="@{AdminSpecialities.index}" class="${currentAdminNav=='specialities'?'selected':''}">Spécialités</a></li>
+    <li><a href="@{AdminDiplomas.index}" class="${currentAdminNav=='diplomas'?'selected':''}">Diplômes</a></li>
   </ul>
 </nav>
 

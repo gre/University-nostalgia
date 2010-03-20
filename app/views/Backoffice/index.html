@@ -1,8 +1,11 @@
 #{extends 'Backoffice/layout.html' /}
 
+%{
+  currentAdminNav = 'inscription';
+}%
 
 #{if inactive?.size()}
-<h3>Inactive users</h3>
+<h3>Nouvelles inscriptions</h3>
 <ul class="itemList">
 #{list items: inactive, as:'user'}
   <li>
@@ -10,8 +13,8 @@
     <div class="userInfo">
 
       <div class="actions">
-        <a href="@{Backoffice.activateUser(user.id)}" class="accept">Accepter</a>
-        <a href="@{Backoffice.deleteUser(user.id)}" class="refuse">Refuser</a>
+        <a href="@{Backoffice.activateUser(user.id)}?x-http-method-override=PUT" class="accept">Accepter</a>
+        <a href="@{Backoffice.deleteUser(user.id)}?x-http-method-override=DELETE" class="refuse">Refuser</a>
       </div>
       
       <a class="user" href="@{Users.view(user.id)}">

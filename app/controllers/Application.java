@@ -58,6 +58,12 @@ public class Application extends Controller {
             informError();
             signup();
         }
+        if(User.findByEmail(email)!=null) {
+            validation.keep();
+            params.flash();
+            informError();
+            signup();
+        }
         new User(email, password, firstname, lastname).save();
         informSuccess();
         login();
@@ -88,7 +94,9 @@ public class Application extends Controller {
 
     public static void logout() {
         flash.success("You've been logged out");
+        String style = session.get("style");
         session.clear();
+        session.put("style", style);
         informSuccess();
         Main.index();
     }

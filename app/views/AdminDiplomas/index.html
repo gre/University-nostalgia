@@ -1,0 +1,31 @@
+#{extends 'Backoffice/layout.html' /}
+
+%{
+  currentAdminNav = 'diplomas';
+}%
+
+
+<h3>Ajouter un diplôme</h3>
+#{form @AdminDiplomas.create()}
+  <p>
+    <label for="name">Nom</label>
+    <input type="text" name="name" id="name" />
+  </p>
+  <p>
+    <button>Ajouter</button>
+  </p>
+#{/form}
+
+#{if diplomas?.size()}
+<h3>Diplômes</h3>
+<ul class="itemList">
+#{list items: diplomas, as:'item'}
+  <li>
+    <div class="actions">
+      <a href="@{AdminDiplomas.delete(item.id)}?x-http-method-override=DELETE" class="delete">Supprimer</a>
+    </div>
+    <span>${item.name}</span>
+  </li>
+#{/list}
+</ul>
+#{/if}
