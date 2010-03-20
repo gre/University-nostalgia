@@ -1,21 +1,26 @@
 #{extends 'base.xml' /}
 
-#{if requests?.size()}
-<requests>
-#{list items: requests, as:'friend'}
-  <request id="${friend.id}">
-    #{userInfo user:friend /}
-  </request>
-#{/list}
-</requests>
-#{/if}
 
 #{if friends?.size()}
 <friends>
-#{list items: friends, as:'friend'}
-  <friend>
+
+#{list items: requests, as:'friend'}
+  <friend id="${friend.id}">
     #{userInfo user:friend /}
   </friend>
 #{/list}
+
+#{list items: friends, as:'friend'}
+  <friend id="${friend.id}">
+    #{userInfo user:friend /}
+  </friend>
+#{/list}
+#{list items: myRequests, as:'friend'}
+  <friend id="${friend.id}">
+    #{userInfo user:friend /}
+  </friend>
+#{/list}
+
 </friends>
 #{/if}
+

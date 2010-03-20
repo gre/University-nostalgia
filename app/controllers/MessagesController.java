@@ -17,8 +17,7 @@ public class MessagesController extends Secure {
       List<Message> messages = null;
       User connected = connectedUser();
       if(box==null || box.equals("all")) {
-          messages = Message.userInbox(connected.id);
-          messages.addAll(Message.userSendbox(connected.id));
+          messages = Message.findByUser(connected.id);
           flash.put("box", "all");
       }
       else if(box.equals("inbox")) {

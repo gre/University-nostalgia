@@ -1,24 +1,23 @@
 %{
   user = _user;
-  withDetail = _withDetail;
 }%
 
 <userinfo>
   #{if user.isMe}
-    <state name="isMe">c'est moi !</state>
+    <state id="isMe">c'est moi !</state>
   #{/if}
   #{if user.isFriend}
-    <state name="isFriend">dans ma liste d'amis</state>
+    <state id="isFriend">dans ma liste d'amis</state>
   #{/if}
   #{if user.isInvited}
-    <state name="isInvited">invitation en attente</state>
+    <state id="isInvited">invitation en attente</state>
   #{/if}
   #{if user.hasRequested}
-    <state name="hasRequest">m'a invité</state>
+    <state id="hasRequest">m'a invité</state>
   #{/if}
   <firstname>${user.firstname}</firstname>
   <lastname>${user.lastname}</lastname>
-  #{if withDetail && (user.isFriend || user.isMe)}
+  #{if (user.isFriend || user.isMe)}
     <email>${user.email}</email>
     <phone>${user.phone}</phone>
     <address>${user.address}</address>

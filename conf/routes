@@ -66,6 +66,7 @@ PUT     /admin/universities/?                    AdminUniversities.create
 DELETE  /admin/universities/{id}                 AdminUniversities.delete
 
 
+GET     /friends.xml                             Friends.list(format:'xml')
 
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public

@@ -162,7 +162,6 @@ Corporation(user_c4):
   year: 2009
   user: user
   
-
 User(gaetan):
     email: gaetan@iut-fbleau.fr
     password: gaetan
@@ -207,7 +206,7 @@ User(benny):
 #messages
 
 Message(m1):
-    date: 2010-03-01 14:12
+    date: 2010-03-01
     sender: user
     receiver: master
     content: 
@@ -216,7 +215,7 @@ Message(m1):
       Comment ça va ?
 
 Message(m2):
-    date: 2010-03-02 12:02
+    date: 2010-03-02
     sender: master
     receiver: user
     content: 
@@ -227,7 +226,7 @@ Message(m2):
       Comment se passe les études.
 
 Message(m3):
-    date: 2010-03-03 18:54
+    date: 2010-03-03
     sender: user
     receiver: master
     content: 
@@ -239,7 +238,7 @@ Message(m3):
       A bientôt.
 
 Message(m4):
-    date: 2010-03-04 08:54
+    date: 2010-03-04
     sender: master
     receiver: user
     content: 
