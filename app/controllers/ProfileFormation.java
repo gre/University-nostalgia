@@ -35,6 +35,7 @@ public class ProfileFormation extends Secure {
   public static void delete(@Required Long id) {
     UniversityYear item = UniversityYear.findById(id);
     notFoundIfNull(item);
+    noRightsIfNotMe(item.user);
     item.delete();
     informSuccess();
     index();

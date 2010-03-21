@@ -13,3 +13,4 @@ validation.equals=Ce champ doit valoir le champ %2$s.
 
 info.error=Une erreur s'est produite.
 info.success=Action effectuée avec succès.
+info.noRights=Vous n'avez pas les droits d'execute cette action.

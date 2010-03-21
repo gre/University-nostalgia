@@ -124,7 +124,7 @@ public class Application extends Controller {
         flash("infotype", "error");
         flash.keep();
     }
-    /* Dump object propreties, useful to inspect objects in the debuging stage */
+    /* Dump object propreties, useful to inspect object proprieties in the debuging stage */
     static void toStringObject(Object o) {
         Field[] fields = o.getClass().getDeclaredFields();
         System.out.println("Dump object of the type: "+o.getClass().getName());
@@ -136,6 +136,15 @@ public class Application extends Controller {
                 System.out.println("Cannot acces: " + fields[i].getName());
             }
         }
+    }
+    /* Verify that the user is the current logged one, if not, an error appear and exit */
+    static void noRightsIfNotMe(User user) {
+        User connected = connectedUser();
+        if (user.id == connected.id) return;
+        flash("info", Messages.get("info.noRights"));
+        flash("infotype", "error");
+        flash.keep();
+        Main.index();
     }
 
 
