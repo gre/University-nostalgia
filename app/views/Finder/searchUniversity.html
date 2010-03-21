@@ -19,6 +19,7 @@
     <ul class="itemList">
     #{list items:results, as:'university'}
       <li>
+        <a href="@{Universities.view(university.id)}">${university.name}</a>
       </li>
     #{/list}
     </ul>

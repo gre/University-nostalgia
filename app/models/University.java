@@ -18,15 +18,10 @@ public class University extends Model {
     }
     
     public static List<University> findBySearch(String name) {
-        return find("name like ?1", "%"+name+"%").fetch();
+        return find("lower(name) like lower(?1)", "%"+name+"%").fetch();
     }
     
     public String toString() {
       return name;
-    }
-    
-    public int getTotalUsers() {
-        List<UniversityYear> uys = UniversityYear.find(this,null,null);
-        return uys.size();
     }
 }
