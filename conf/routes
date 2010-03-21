@@ -32,6 +32,7 @@ POST    /profile/formation                       ProfileFormation.create
 POST    /profile/emploi                          ProfileEmploi.create
 
 DELETE  /profile/formation/{id}                  ProfileFormation.delete
+DELETE  /profile/emploie/{id}                    ProfileEmploi.delete
 
 
 GET     /messages/{box}/?                        MessagesController.list
@@ -46,9 +47,6 @@ GET     /users/{id}/avatar/{avatarRevision}      Users.avatar
 GET     /friends/?                               Friends.list
 PUT     /friends/{id}                            Friends.inviteOrAccept
 DELETE  /friends/{id}                            Friends.delete
-
-PUT     /corporations                            Corporations.create
-DELETE  /corporations/{id}                       Corporations.delete
 
 GET     /universities/?                          Universities.list
 GET     /universities/{id}                       Universities.view

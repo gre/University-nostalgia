@@ -17,8 +17,10 @@ public class Corporation extends Model {
   @ManyToOne
   public User user;
   
-    public Corporation(String name, Long year) {
+    public Corporation(String name, Long year, User user) {
       this.name = name;
+      this.year = year;
+      this.user = user;
     }
     
     public static List<Corporation> findBySearch(String name) {

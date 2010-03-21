@@ -6,7 +6,7 @@
 <div class="corporation">
   #{if isMine}
   <div class="actions">
-    <a href="@{Corporations.delete(corporation.id)}" class="delete">Supprimer</a>
+    <a href="@{ProfileEmploi.delete(corporation.id)}?x-http-method-override=DELETE" class="delete">Supprimer</a>
   </div>
   #{/if}
   
