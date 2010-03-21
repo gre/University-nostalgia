@@ -115,13 +115,17 @@ public class Application extends Controller {
     }
     
     static void informSuccess() {
-        flash("info", Messages.get("info.success"));
-        flash("infotype", "success");
-        flash.keep();
+        inform(Messages.get("info.success"),"success");
     }
     static void informError() {
-        flash("info", Messages.get("info.error"));
-        flash("infotype", "error");
+        informError(Messages.get("info.error"));
+    }
+    static void informError(String message) {
+        inform(message,"error");
+    }
+    static void inform(String message, String type) {
+        flash("info", message);
+        flash("infotype", type);
         flash.keep();
     }
     /* Dump object propreties, useful to inspect object proprieties in the debuging stage */
@@ -141,9 +145,7 @@ public class Application extends Controller {
     static void noRightsIfNotMe(User user) {
         User connected = connectedUser();
         if (user.id == connected.id) return;
-        flash("info", Messages.get("info.noRights"));
-        flash("infotype", "error");
-        flash.keep();
+        informError(Messages.get("info.noRights"));
         Main.index();
     }
 
