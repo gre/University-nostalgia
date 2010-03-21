@@ -1,12 +1,16 @@
 #{extends 'main.html' /}
 
-  <div class="box">
-    <h4>List des universités (${universities.size()})</h4>
-    <ul class="itemList">
-   #{list items:universities, as:'university'}
-      <li>
-        <a href="@{Universities.view(university.id)}">${university.name}</a>
-      </li>
-    #{/list}
-    </ul>
-  </div>
+%{
+  currentNav = 'universities';
+}%
+
+<div class="box">
+  <h4>List des universités (${universities.size()})</h4>
+  <ul class="itemList">
+ #{list items:universities, as:'university'}
+    <li>
+      <a href="@{Universities.view(university.id)}">${university.name}</a>
+    </li>
+  #{/list}
+  </ul>
+</div>

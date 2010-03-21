@@ -6,15 +6,17 @@
   else if(currentNav=='messages') nav_messages='selected';
   else if(currentNav=='friends') nav_friends='selected';
   else if(currentNav=='admin') nav_admin='selected';
+  else if(currentNav=='universities') nav_universities='selected';
 }%
 
 #{set 'nav'}
   <li><a class="${nav_friends}" href="@{Friends.list()}">Amis</a></li>
   <li><a class="${nav_messages}" href="@{MessagesController.list()}">Messages</a></li>
+  <li><a class="${nav_universities}" href="@{Universities.list()}">Universités</a></li>
   <li><a class="${nav_find}" href="@{Finder.index}">Trouver</a></li>
   <li><a class="${nav_profil}" href="@{Profile.index}">Profil</a></li>
   #{if connected.isAdmin}
-  <li><a class="${nav_admin}" href="@{AdminUsers.index}">Administration</a></li>
+  <li><a class="${nav_admin}" href="@{AdminUsers.index}">Admin</a></li>
   #{/if}
 #{/set}
 
