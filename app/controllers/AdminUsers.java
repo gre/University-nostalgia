@@ -8,7 +8,6 @@ public class AdminUsers extends SecureAdmin {
     
     public static void index() {
         List inactive = User.getInactiveUsers();
-        System.out.println(inactive.size());
         render(inactive);
     }
     

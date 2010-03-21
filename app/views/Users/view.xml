@@ -1,0 +1,38 @@
+#{extends 'base.xml' /}
+
+%{
+  status = "";
+  if(user.isMe)
+    status = "me";
+  else if(user.isFriend)
+    status = "friend";
+  else
+    status = "user";
+}%
+
+<user id="${user.id}" status="${status}">
+  #{userInfo user:user, withDetail:true /}
+
+#{if user.isFriend||user.isMe}
+<friends>
+#{list items: friends, as:'friend'}
+  <friend id="${friend.id}">
+    #{userInfo user:friend /}
+  </friend>
+#{/list}
+</friends>
+
+<universities>
+#{list items:universities, as:'item'}
+  #{universityYearInfo university:item, isMine:(user.id==connected.id) /}
+#{/list}
+</universities>
+
+<corporations>
+#{list items:corporations, as:'item'}
+  #{corporation corporation:item, isMine:(user.id==connected.id) /}
+#{/list}
+</corporations>
+#{/if}
+
+</user>

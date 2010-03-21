@@ -8,6 +8,12 @@ GET    /login                                    Application.login
 POST   /login                                    Application.authenticate
 GET    /logout                                   Application.logout
 
+# xml
+GET     /users/{id}.xml                          Users.view(format:'xml')
+GET     /friends.xml                             Friends.list(format:'xml')
+GET     /messages.xml                            MessagesController.list(format:'xml')
+
+
 # Home page
 GET     /                                        Main.index
 
@@ -32,12 +38,10 @@ POST    /profile/formation                       ProfileFormation.create
 POST    /profile/emploi                          ProfileEmploi.create
 
 DELETE  /profile/formation/{id}                  ProfileFormation.delete
-DELETE  /profile/emploie/{id}                    ProfileEmploi.delete
-
+DELETE  /profile/emploi/{id}                     ProfileEmploi.delete
 
 GET     /messages/{box}/?                        MessagesController.list
 GET     /messages/?                              MessagesController.list
-GET     /messages/{id}                           MessagesController.view
 PUT     /messages/?                              MessagesController.create
 DELETE  /messages/{id}                           MessagesController.delete
 
@@ -67,8 +71,6 @@ GET     /admin/universities/?                    AdminUniversities.index
 PUT     /admin/universities/?                    AdminUniversities.create
 DELETE  /admin/universities/{id}                 AdminUniversities.delete
 
-
-GET     /friends.xml                             Friends.list(format:'xml')
 
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public

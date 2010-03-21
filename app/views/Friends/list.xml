@@ -1,7 +1,5 @@
 #{extends 'base.xml' /}
 
-
-#{if friends?.size()}
 <friends>
 
 #{list items: requests, as:'friend'}
@@ -22,5 +20,4 @@
 #{/list}
 
 </friends>
-#{/if}
 
