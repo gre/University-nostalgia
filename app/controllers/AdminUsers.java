@@ -4,7 +4,7 @@ import play.data.validation.*;
 import java.util.*;
 import play.mvc.*;
 
-public class Backoffice extends SecureAdmin {
+public class AdminUsers extends SecureAdmin {
     
     public static void index() {
         List inactive = User.getInactiveUsers();
@@ -12,7 +12,7 @@ public class Backoffice extends SecureAdmin {
         render(inactive);
     }
     
-    public static void activateUser(Long id) {
+    public static void activate(Long id) {
         notFoundIfNull(id);
         User user = User.findById(id);
         notFoundIfNull(user);
@@ -21,7 +21,7 @@ public class Backoffice extends SecureAdmin {
         index();
     }
     
-    public static void deleteUser(Long id) {
+    public static void delete(Long id) {
         notFoundIfNull(id);
         User user = User.findById(id);
         notFoundIfNull(user);

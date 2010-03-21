@@ -1,4 +1,4 @@
-#{extends 'Backoffice/layout.html' /}
+#{extends 'Admin/layout.html' /}
 
 %{
   currentAdminNav = 'inscription';
@@ -13,8 +13,8 @@
     <div class="userInfo">
 
       <div class="actions">
-        <a href="@{Backoffice.activateUser(user.id)}?x-http-method-override=PUT" class="accept">Accepter</a>
-        <a href="@{Backoffice.deleteUser(user.id)}?x-http-method-override=DELETE" class="refuse">Refuser</a>
+        <a href="@{AdminUsers.activate(user.id)}?x-http-method-override=PUT" class="accept">Accepter</a>
+        <a href="@{AdminUsers.delete(user.id)}?x-http-method-override=DELETE" class="refuse">Refuser</a>
       </div>
       
       <a class="user" href="@{Users.view(user.id)}">

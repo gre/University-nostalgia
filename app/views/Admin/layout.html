@@ -1,13 +1,13 @@
 #{extends 'main.html' /}
 
 %{
-  currentNav = 'backoffice';
+  currentNav = 'admin';
 }%
 
 
 <nav>
   <ul>
-    <li><a href="@{Backoffice.index}" class="${currentAdminNav=='inscription'?'selected':''}">Inscriptions</a></li>
+    <li><a href="@{AdminUsers.index}" class="${currentAdminNav=='inscription'?'selected':''}">Inscriptions</a></li>
     <li><a href="@{AdminUniversities.index}" class="${currentAdminNav=='universities'?'selected':''}">Universités</a></li>
     <li><a href="@{AdminSpecialities.index}" class="${currentAdminNav=='specialities'?'selected':''}">Spécialités</a></li>
     <li><a href="@{AdminDiplomas.index}" class="${currentAdminNav=='diplomas'?'selected':''}">Diplômes</a></li>
