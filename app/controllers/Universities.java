@@ -7,10 +7,6 @@ public class Universities extends Secure {
   
 	public static void list() {
         List universities = University.findAll();
-        /*for(University uy : univerisites)
-            universities.add(new UniversityYearInfo(uy, current));
-        University
-        Post.count("moderated", true);*/
         render(universities);
 	}
   

@@ -5,13 +5,7 @@
     <ul class="itemList">
    #{list items:universities, as:'university'}
       <li>
-        <div class="userInfo">
-        
-  <a class="user" href="@{Universities.view(university.id)}">
-      <span class="firstname">${university.name}</span>
-  </a>
-        
-        </div>
+        <a href="@{Universities.view(university.id)}">${university.name}</a>
       </li>
     #{/list}
     </ul>

@@ -9,9 +9,12 @@
     
   #{list items:keys, as:'uyKey'}
   <div class="box">
-    <h4>en ${uyKey}</h4>
+    %{
+      items = universityYearsByYear.get(uyKey);
+    }%
+    <h4>en ${uyKey} (${items.size()} étudiants)</h4>
     <ul class="itemList">
-    #{list items:universityYearsByYear.get(uyKey), as:'uY'}
+    #{list items:items, as:'uY'}
     <li>
       #{userInfo user:uY.user, year:uY.year, speciality:uY.speciality, diploma:uY.diploma /}
     </li>
