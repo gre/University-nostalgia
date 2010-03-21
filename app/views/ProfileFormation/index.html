@@ -1,0 +1,62 @@
+#{extends 'Profile/layout.html' /}
+
+%{
+  currentProfilNav = 'formation';
+}%
+
+<h3>Ajouter une nouvelle formation</h3>
+#{form @ProfileFormation.create()}
+    <p>
+        <label for="university">Université</label>
+        <select name="university" id="university">
+        #{list items:universities, as:'university'}
+            <option value="${university.id}">${university.name}</option>
+        #{/list}
+        </select>
+    </p>
+    <p>
+        <label for="year">Année</label>
+        <select name="year" id="year">
+        %{
+            def cal = Calendar.getInstance();
+            def curYear = cal.get(Calendar.YEAR);
+
+            for ( i in 1910..curYear+6 ) {
+                out.print( String.format('<option value="%d"%s>%d</option>',i,(curYear==i)?' selected':'',i) );
+            }
+        %}
+        </select>
+    </p>
+    <p>
+        <label for="speciality">Spécialité</label>
+        <select name="speciality" id="speciality">
+        #{list items:specialities, as:'speciality'}
+            <option value="${speciality.id}">${speciality.name}</option>
+        #{/list}
+        </select>
+    </p>
+    <p>
+        <label for="diplome">Diplôme</label>
+        <select name="diplome" id="diplome">
+        #{list items:diplomas, as:'diplom'}
+            <option value="${diplom.id}">${diplom.name}</option>
+        #{/list}
+        </select>
+    </p>
+  <p>
+    <button>Ajouter</button>
+  </p>
+#{/form}
+
+  #{if myUniversities}
+  <div class="box">
+    <h4>Mes formations</h4>
+    <ul class="itemList">
+    #{list items:myUniversities, as:'item'}
+      <li>
+        #{universityYearInfo university:item, isMine:true /}
+      </li>
+    #{/list}
+    </ul>
+  </div>
+  #{/if}
