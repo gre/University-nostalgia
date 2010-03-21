@@ -21,6 +21,14 @@ public class UniversityYear extends Model {
   @ManyToOne
   public User user;
   
+  public UniversityYear(University university, Long year, Speciality speciality, Diploma diploma, User user) {
+    this.university = university;
+    this.year = year;
+    this.speciality = speciality;
+    this.diploma = diploma;
+    this.user = user;
+  }
+  
   public static List<UniversityYear> find
   (University university, Long year, Speciality speciality) {
 	  return find(

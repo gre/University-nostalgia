@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 
 public class UniversityYearInfo {
+    Long id;
 	University university;
 	Long year;
 	Speciality speciality;
@@ -12,6 +13,7 @@ public class UniversityYearInfo {
 	UserInfo user;
 	
 	public UniversityYearInfo(UniversityYear uy, User connectedUser) {
+        id = uy.id;
 		university = uy.university;
 		year = uy.year;
 		speciality = uy.speciality;

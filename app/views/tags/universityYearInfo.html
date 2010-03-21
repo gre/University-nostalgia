@@ -9,7 +9,7 @@
 <div class="universityYearInfo">
   #{if isMine}
   <div class="actions">
-    <a href="#todo" class="delete">Supprimer</a>
+    <a href="@{ProfileFormation.delete(_university.id)}?x-http-method-override=DELETE" class="delete">Supprimer</a>
   </div>
   #{/if}
   

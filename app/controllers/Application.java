@@ -7,6 +7,8 @@ import models.*;
 import play.data.validation.*;
 import play.Logger;
 
+import java.lang.reflect.Field;
+
 public class Application extends Controller {
     
     // ~~~~~~~~~~~~ @Before interceptors
@@ -122,5 +124,19 @@ public class Application extends Controller {
         flash("infotype", "error");
         flash.keep();
     }
+    /* Dump object propreties, useful to inspect objects in the debuging stage */
+    static void toStringObject(Object o) {
+        Field[] fields = o.getClass().getDeclaredFields();
+        System.out.println("Dump object of the type: "+o.getClass().getName());
+        for (int i=0; i<fields.length; i++)
+        {
+            try {
+                System.out.println(fields[i].getName() + " - " + fields[i].get(o));
+            } catch(IllegalAccessException e) {
+                System.out.println("Cannot acces: " + fields[i].getName());
+            }
+        }
+    }
+
 
 }

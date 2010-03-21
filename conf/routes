@@ -22,12 +22,16 @@ GET     /profile                                 Profile.index
 GET     /profile/infos                           Profile.infos
 GET     /profile/avatar                          Profile.avatar
 GET     /profile/password                        Profile.password
-GET     /profile/formation                       Profile.formation
+GET     /profile/formation                       ProfileFormation.index
+GET     /profile/emploi                          ProfileEmploi.index
 
 POST    /profile/infos                           Profile.editInfos
 POST    /profile/avatar                          Profile.editAvatar
 POST    /profile/password                        Profile.editPassword
-POST     /profile/formation                      Profile.editFormation
+POST    /profile/formation                       ProfileFormation.create
+POST    /profile/emploi                          ProfileEmploi.create
+
+DELETE  /profile/formation/{id}                  ProfileFormation.delete
 
 
 GET     /messages/{box}/?                        MessagesController.list
