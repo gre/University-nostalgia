@@ -11,9 +11,6 @@ public class ProfileFormation extends Secure {
         
         User connected = connectedUser();
         
-        /*List<UniversityYearInfo> myUniversities = new ArrayList<UniversityYearInfo>();
-        for(UniversityYear uy : UniversityYear.findForUser(connected))
-            myUniversities.add(new UniversityYearInfo(uy, connected));*/
         List<UniversityYear> myUniversities = UniversityYear.findForUser(connected);
         render(universities,specialities,diplomas,myUniversities);
     }
