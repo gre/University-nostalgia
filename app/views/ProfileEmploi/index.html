@@ -17,8 +17,8 @@
             def cal = Calendar.getInstance();
             def curYear = cal.get(Calendar.YEAR);
 
-            for ( i in 1910..curYear+6 ) {
-                out.print( String.format('<option value="%d"%s>%d</option>',i,(curYear==i)?' selected':'',i) );
+            for ( i in 1910..curYear+1 ) {
+                out.print( String.format('<option value="%d"%s>%d</option>',i,(curYear==i)?' selected="selected"':'',i) );
             }
         %}
         </select>

@@ -32,10 +32,10 @@ public class UniversityYear extends Model {
   public static List<UniversityYear> find
   (University university, Long year, Speciality speciality) {
 	  return find(
-			  (university==null? "true" : "university.id="+university.id)+" and "+
-			  (year==null? "true" : "year="+year)+" and "+
-			  (speciality==null? "true" : "speciality.id="+speciality.id)
-			 ).fetch();
+			  (university==null? "true=true" : "university.id="+university.id)+" and "+
+			  (year==null? "true=true" : "year="+year)+" and "+
+			  (speciality==null? "true=true" : "speciality.id="+speciality.id)
+			 + " order by year desc").fetch();
   }
   
   
