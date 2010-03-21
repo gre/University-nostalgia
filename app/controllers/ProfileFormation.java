@@ -2,8 +2,15 @@ package controllers;
 import models.*;
 import java.util.*;
 import play.data.validation.*;
+import play.mvc.*;
 
 public class ProfileFormation extends Secure {
+  
+    @Before
+    static void profileGlobals() {
+      Profile.profileGlobals();
+    }
+    
     public static void index() {
         List<University> universities = University.findAll();
         List<Speciality> specialities = Speciality.findAll();

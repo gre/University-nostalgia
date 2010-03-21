@@ -2,8 +2,15 @@ package controllers;
 import models.*;
 import java.util.List;
 import play.data.validation.*;
+import play.mvc.*;
 
 public class ProfileEmploi extends Secure {
+  
+    @Before
+    static void profileGlobals() {
+      Profile.profileGlobals();
+    }
+  
     public static void index() {
         List<Corporation> corporations = Corporation.findForUser(connectedUser());
         render(corporations);
