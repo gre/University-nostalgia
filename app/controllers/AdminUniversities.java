@@ -13,6 +13,7 @@ public class AdminUniversities extends SecureAdmin {
       validation.keep();
       params.flash();
       informError();
+      index();
     }
     new University(name).save();
     informSuccess();

@@ -1,25 +1,21 @@
 #{extends 'main.html' /}
 
-  <div class="box">
-    <h4>Utilisateurs dans l'université ${university.name} (${universityYears.size()})</h4>
-    <ul class="itemList">
-    #{list items:universityYears, as:'uY'}
-      <li>
-        <div class="userInfo">
-        
-  <a class="user" href="@{Users.view(uY.user.id)}">
-    <img class="avatar" src="@{Users.avatar(uY.user.id, uY.user.avatarRevision)}" width="50" height="50" />
-    <span class="firstname">${uY.user.firstname}</span>&nbsp;<span class="lastname">${uY.user.lastname}</span>
-  </a>
+  <h3>Etudiants de ${university.name} (par année)</h3>
   
-  <dl class="detail">
-    <span class="year">${uY.year}</span>
-    #{if uY.speciality}- ${uY.speciality.name}#{/if}
-    #{if uY.diploma}- ${uY.diploma.name}#{/if}
-  </dl>
-        
-        </div>
-      </li>
+  %{
+    keys = new ArrayList<Long>(universityYearsByYear.keySet());
+    java.util.Collections.reverse(keys);
+  }%
+    
+  #{list items:keys, as:'uyKey'}
+  <div class="box">
+    <h4>en ${uyKey}</h4>
+    <ul class="itemList">
+    #{list items:universityYearsByYear.get(uyKey), as:'uY'}
+    <li>
+      #{userInfo user:uY.user, year:uY.year, speciality:uY.speciality, diploma:uY.diploma /}
+    </li>
     #{/list}
     </ul>
   </div>
+  #{/list}

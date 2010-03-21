@@ -1,6 +1,10 @@
 %{
   user = _user;
   withDetail = _withDetail;
+  
+  year = _year;
+  speciality = _speciality;
+  diploma = _diploma;
 }%
 
 <div class="userInfo">
@@ -36,6 +40,14 @@
     <img class="avatar" src="@{Users.avatar(user.id, user.avatarRevision)}" width="50" height="50" />
     <span class="firstname">${user.firstname}</span>&nbsp;<span class="lastname">${user.lastname}</span>
   </a>
+  
+  #{if year||speciality||diploma}
+  <dl class="detail">
+    #{if year}<dt>Année</dt><dd>${year}</dd>#{/if}
+    #{if speciality}<dt>Spécialité</dt><dd>${speciality.name}</dd>#{/if}
+    #{if diploma}<dt>Diplôme</dt><dd>${diploma.name}</dd>#{/if}
+  </dl>
+  #{/if}
   
   #{if withDetail && (user.isFriend || user.isMe)}
   <dl class="detail">
