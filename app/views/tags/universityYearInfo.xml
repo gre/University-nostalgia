@@ -1,0 +1,16 @@
+%{
+  university = _university.university;
+  speciality = _university.speciality;
+  diploma = _university.diploma;
+  year = _university.year;
+  isMine = _isMine;
+}%
+
+<universityYear id="${_university.id}" mine="${isMine?'true':'false'}">
+  <year>${year}</year>
+  <name id="${university.id}">${university.name}</name>
+  <speciality id="${speciality.id}">${speciality.name}</speciality>
+  #{if diploma}
+  <diploma id="${diploma.id}">${diploma.name}</diploma>
+  #{/if}
+</universityYear>

@@ -37,14 +37,6 @@ public class MessagesController extends Secure {
       render(msges);
   }
   
-  public static void view(Long id) {
-      User connected = connectedUser();
-      Message message = Message.findById(id);
-      if(!message.userConcerned(connected.id))
-          forbidden();
-      render(message);
-  }
-  
   public static void create(@Required Long receiver, @Required String content) {
       if (validation.hasErrors()) {
             validation.keep();

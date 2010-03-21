@@ -1,0 +1,18 @@
+#{extends 'base.xml' /}
+
+<messages>
+#{list items: msges, as:'message'}
+  <message id="${message.id}">
+    <sender type="${message.sender.id==connected.id ? 'me' : 'friend'}" id="${message.sender.id}">
+      <lastname>${message.sender.lastname}</lastname>
+      <firstname>${message.sender.firstname}</firstname>
+    </sender>
+    <receiver type="${message.receiver.id==connected.id ? 'me' : 'friend'}" id="${message.receiver.id}">
+      <lastname>${message.receiver.lastname}</lastname>
+      <firstname>${message.receiver.firstname}</firstname>
+    </receiver>
+    <date>${new java.text.SimpleDateFormat().format(message.date)}</date>
+    <content>${message.content}</content>
+  </message>
+#{/list}
+</messages>

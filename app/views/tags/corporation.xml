@@ -1,0 +1,9 @@
+%{
+  corporation = _corporation;
+  isMine = _isMine;
+}%
+
+<corporation id="${corporation.id}" mine="${isMine?'true':'false'}">  
+  <year>${corporation.year}</year>
+  <name>${corporation.name}</name>
+</corporation>
