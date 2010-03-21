@@ -13,6 +13,7 @@ public class AdminDiplomas extends SecureAdmin {
       validation.keep();
       params.flash();
       informError();
+      index();
     }
     new Diploma(name).save();
     informSuccess();

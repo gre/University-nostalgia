@@ -16,11 +16,12 @@ public class ProfileEmploi extends Secure {
         render(corporations);
     }
     
-    public static void create(@Required String name,@Required Long year) {
+    public static void create(@Required String name, @Required Long year) {
         if (validation.hasErrors()) {
             validation.keep();
             params.flash();
             informError();
+            index();
         }
         new Corporation(name,year,connectedUser()).save();
         informSuccess();

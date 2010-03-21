@@ -13,6 +13,7 @@ public class AdminSpecialities extends SecureAdmin {
       validation.keep();
       params.flash();
       informError();
+      index();
     }
     new Speciality(name).save();
     informSuccess();
