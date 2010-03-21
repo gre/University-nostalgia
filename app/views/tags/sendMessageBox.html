@@ -36,9 +36,7 @@
     $('textarea#content').autoResize();
   });
   </script>
-  #{/if}
-  #{else}
-  <div class="box">
-    <a href="@{Finder.index()}">Trouver un ami à ajouter</a>
-  </div>
-  #{/else}
+#{/if}
+#{else}
+#{searchUser /}
+#{/else}

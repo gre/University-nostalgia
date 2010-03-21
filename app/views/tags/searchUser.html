@@ -1,0 +1,11 @@
+
+<div class="box">
+  <h3>Rechercher un utilisateur</h3>
+  #{form @Finder.searchPerson()}
+    <p>
+      <label for="findName">Nom, prénom ou email</label>
+      <input type="text" id="findName" name="search" value="${search}" style="width: 99%;" />
+      <button class="floatright" style="width: 28%;">Rechercher</button>
+    </p>
+  #{/form}
+</div>

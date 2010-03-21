@@ -36,7 +36,7 @@ body
   
   >nav
     :display block
-    :overflow auto
+    :overflow hidden
     :padding 
       :top 5px
     +border-top-radius(!global_border_radius)
@@ -142,7 +142,6 @@ em
   :font-style italic
 
 form
-  :margin-bottom 20px
   p.buttons
     :overflow auto
     :margin 5px 0
@@ -209,7 +208,7 @@ form
 #main
   background = !back_aside
   :min-height 200px
-  :overflow auto
+  :overflow hidden
   >section
     :background white
     :min-height 250px
@@ -262,7 +261,7 @@ form
     div.box
       :overflow auto
       :padding 10px
-      :margin-bottom 15px
+      :margin 10px 0
       +vertical-gradient(!back_aside_from, !back_aside_to)
       +border-radius(8px)
       color = !back_aside_text
@@ -514,3 +513,7 @@ ul.itemList
   .firstname, .lastname
     :font-size 1.4em
     :font-weight bold
+
+
+input[name=search]
+  :width 70% !important
