@@ -3,7 +3,9 @@
 #{set 'aside'}
 #{if user.isFriend||user.isMe}
   <div class="box center">
+    #{if user.isMe}<a href="@{Profile.editAvatar}">#{/if}
     <img class="avatar" src="@{Users.avatar(user.id, user.avatarRevision)}" />
+    #{if user.isMe}</a>#{/if}
   </div>
 #{/if}
 #{if user.isFriend}
