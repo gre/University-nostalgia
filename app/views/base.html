@@ -57,8 +57,20 @@
     <script language="javascript">
       $(function(){
         var selected = $('#wrapper > nav .selected');
-        if(selected[0])
-          $('#selection').show().css('left', Math.floor(selected.parent().width()/2 - 15 + selected.parent().position().left)+'px');
+        if(selected[0]) {
+          var triangleGetPossition = function() {
+            return Math.floor(selected.parent().width()/2 - 15 + selected.parent().position().left);
+          }
+          $('#selection').show().css('left', triangleGetPossition()+'px');
+          $('#wrapper > nav a').click(function(e) {
+            selected.removeClass('selected');
+            selected = $(this);
+            selected.addClass('selected');
+            $('#selection').animate({
+                left: triangleGetPossition(),
+            }, 50);
+          });
+        }
           var speed = 1000;
           $('#flashInfo').hide().fadeIn(speed);
           setTimeout(function() {
