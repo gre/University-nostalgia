@@ -1,0 +1,18 @@
+#{extends 'main.html' /}
+
+  <div class="box">
+    <h4>List des universités (${universities.size()})</h4>
+    <ul class="itemList">
+   #{list items:universities, as:'university'}
+      <li>
+        <div class="userInfo">
+        
+  <a class="user" href="@{Universities.view(university.id)}">
+      <span class="firstname">${university.name}</span>
+  </a>
+        
+        </div>
+      </li>
+    #{/list}
+    </ul>
+  </div>
