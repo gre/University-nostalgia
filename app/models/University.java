@@ -24,9 +24,4 @@ public class University extends Model {
     public String toString() {
       return name;
     }
-    
-    public int getTotalUsers() {
-        List<UniversityYear> uys = UniversityYear.find(this,null,null);
-        return uys.size();
-    }
 }

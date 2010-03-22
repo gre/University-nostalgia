@@ -9,12 +9,6 @@
   <ul class="itemList">
  #{list items:universities, as:'university'}
     <li>
-      <div class="actions">
-      %{
-      out.print(university.getTotalUsers());
-      %} anciens
-      </div>
-      
       <a href="@{Universities.view(university.id)}">${university.name}</a>
     </li>
   #{/list}
