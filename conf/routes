@@ -47,6 +47,7 @@ DELETE  /messages/{id}                           MessagesController.delete
 
 GET     /users/{id}                              Users.view
 GET     /users/{id}/avatar/{avatarRevision}      Users.avatar
+GET     /users/{id}/avatar                       Users.avatar
 
 GET     /friends/?                               Friends.list
 PUT     /friends/{id}                            Friends.inviteOrAccept

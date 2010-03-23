@@ -17,6 +17,7 @@ public class AdminUsers extends SecureAdmin {
         notFoundIfNull(user);
         user.activate();
         user.save();
+        informSuccess();
         index();
     }
     
@@ -25,6 +26,7 @@ public class AdminUsers extends SecureAdmin {
         User user = User.findById(id);
         notFoundIfNull(user);
         user.delete();
+        informSuccess();
         index();
     }
 }
