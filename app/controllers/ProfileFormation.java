@@ -27,8 +27,8 @@ public class ProfileFormation extends Secure {
         validation.keep();
         params.flash();
         informError();
+        index();
     }
-    
     University o_university = University.findById(university);
     Speciality o_speciality = Speciality.findById(speciality);
     Diploma o_diploma = Diploma.findById(diplome);

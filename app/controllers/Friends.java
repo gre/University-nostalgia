@@ -37,6 +37,7 @@ public class Friends extends Secure {
     }
     if(request.format.contains("json"))
       renderJSON("{}");
+    informSuccess();
     list();
   }
   
@@ -59,6 +60,7 @@ public class Friends extends Secure {
       if(fr!=null)
         fr.delete();
     }
+    informSuccess();
     list();
   }
 }

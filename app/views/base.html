@@ -23,7 +23,7 @@
         <ul>
           #{get 'nav' /}
         </ul>
-        <div style="display: none;" id="selection" class="triangle-isosceles top"></div>
+        <div style="display: none;" id="selection" class="selectionTriangle"></div>
       </nav>
 
       <header>
@@ -56,33 +56,37 @@
     
     <script language="javascript">
       $(function(){
+        var triangleGetPosition = function(node) {
+          return Math.floor($(node).parent().width()/2 - 15 + $(node).parent().position().left);
+        }
+        
+        var selectionHover = $('<div id="selectionHover" class="selectionTriangle"></div>').hide().css('opacity', 0);
+        $('#wrapper > nav').append(selectionHover);
+        
         var selected = $('#wrapper > nav .selected');
         if(selected[0]) {
-          var triangleGetPossition = function() {
-            return Math.floor(selected.parent().width()/2 - 15 + selected.parent().position().left);
-          }
-          $('#selection').show().css('left', triangleGetPossition()+'px');
+          $('#selection').show().css('left', triangleGetPosition(selected)+'px');
           $('#wrapper > nav a').click(function(e) {
-            selected.removeClass('selected');
-            selected = $(this);
-            selected.addClass('selected');
-            $('#selection').animate({
-                left: triangleGetPossition(),
-            }, 50);
+            var speed = 50;
+            $('#selection').animate({opacity: 0}, speed);
+            selectionHover.show().css('left', triangleGetPosition(this)+'px').animate({opacity: 1}, speed);
           });
         }
-          var speed = 1000;
-          $('#flashInfo').hide().fadeIn(speed);
-          setTimeout(function() {
-            $('#flashInfo').fadeOut(speed);
-          }, 3000);
+        var speed = 1000;
+        $('#flashInfo').hide().fadeIn(speed);
+        setTimeout(function() {
+          $('#flashInfo').fadeOut(speed);
+        }, 3000);
         
         var touchLinkAndRefresh = function(node){
+          var callback = function() {
+            window.location = window.location;
+          };
           $.ajax({
             url: $(node).attr('href'),
-            success: function(){ 
-              window.location = window.location;
-            }
+            dataType: 'json',
+            success: callback,
+            error: callback
           });
         };
         $('.actions a').click(function(){

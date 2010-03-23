@@ -64,6 +64,7 @@ public class MessagesController extends Secure {
         message.delete();
       else
         message.save();
+      informSuccess();
       list(flash.get("box"));
   }
   

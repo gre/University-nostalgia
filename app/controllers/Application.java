@@ -8,6 +8,7 @@ import play.data.validation.*;
 import play.Logger;
 
 import java.lang.reflect.Field;
+import java.util.Map;
 
 public class Application extends Controller {
     
@@ -104,7 +105,7 @@ public class Application extends Controller {
     }
     
     // ~~~~~~~~~~~~ Some utils
-    
+
     static void connect(User user) {
         session.put("logged", user.id);
     }
@@ -127,6 +128,8 @@ public class Application extends Controller {
         flash("info", message);
         flash("infotype", type);
         flash.keep();
+        if(request.format!=null && request.format.equals("json"))
+            renderJSON("{}");
     }
     /* Dump object propreties, useful to inspect object proprieties in the debuging stage */
     static void toStringObject(Object o) {
