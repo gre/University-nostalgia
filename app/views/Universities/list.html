@@ -10,6 +10,9 @@
  #{list items:universities, as:'university'}
     <li>
       <a href="@{Universities.view(university.id)}">${university.name}</a>
+      <div class="actions">
+        ${university.getTotalUsers()} étudiants
+      </div>
     </li>
   #{/list}
   </ul>
