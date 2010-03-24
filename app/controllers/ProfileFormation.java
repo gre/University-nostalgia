@@ -31,8 +31,14 @@ public class ProfileFormation extends Secure {
     }
     University o_university = University.findById(university);
     Speciality o_speciality = Speciality.findById(speciality);
-    Diploma o_diploma = Diploma.findById(diplome);
     User connected = connectedUser();
+    notFoundIfNull(o_university);
+    notFoundIfNull(o_speciality);
+    if(UniversityYear.find(o_university, year, o_speciality, connected).size()!=0) {
+      informError();
+      index();
+    }
+    Diploma o_diploma = Diploma.findById(diplome);
     
     new UniversityYear(o_university,year,o_speciality,o_diploma,connected).save();
     
