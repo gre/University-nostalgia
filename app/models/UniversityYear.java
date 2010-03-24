@@ -30,13 +30,18 @@ public class UniversityYear extends Model {
   }
   
   public static List<UniversityYear> find
-  (University university, Long year, Speciality speciality) {
-	  return find(
-			  (university==null? "true=true" : "university.id="+university.id)+" and "+
-			  (year==null? "true=true" : "year="+year)+" and "+
-			  (speciality==null? "true=true" : "speciality.id="+speciality.id)
-			 + " order by year desc").fetch();
-  }
+      (University university, Long year, Speciality speciality) {
+    return find(university, year, speciality, null);
+      }  
+  public static List<UniversityYear> find
+  (University university, Long year, Speciality speciality, User user) {
+    return find(
+              (university==null? "true=true" : "university.id="+university.id)+" and "+
+        (year==null? "true=true" : "year="+year)+" and "+
+        (speciality==null? "true=true" : "speciality.id="+speciality.id)+" and "+
+        (user==null? " true=true" : "user.id="+user.id)+
+      " order by year desc").fetch();
+    }
   
   
   public static List<UniversityYear> findForUser(User user) {
